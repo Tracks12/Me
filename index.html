@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<!--
+	Auteur: CARDINAL FLorian
+	Date: 7/12/2017 05:23
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Moi</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.navbar a, footer a').on('click', function(event) {
+					event.preventDefault();
+					var hash = this.hash;
+					$('body').animate({ scrollTop: $(hash).offset().top }, 500, function() { window.location.hash = hash; });
+				});
+				$('#contactForm').submit(function(e) {
+					e.preventDefault();
+					$('.comments').empty();
+					var post = $('#contactForm').serialize();
+					
+					$.ajax({
+						type: 'POST',
+						url: 'contact.php',
+						data: post,
+						dataType: 'json',
+						success: function(result) {
+							if(result.passed) {
+								$('.ty').css('display', 'block');
+								$('#contactForm')[0].reset();
+							}
+							else {
+								$('#prenom + .comments').html(result.prenomError);
+								$('#nom + .comments').html(result.nomError);
+								$('#mail + .comments').html(result.mailError);
+								$('#tel + .comments').html(result.telError);
+								$('#msg + .comments').html(result.msgError);
+							}
+						}
+					});
+				});
+			});
+		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<style type="text/css">
+			/* SCROLL */
+			::-webkit-scrollbar { background-color: #EEEEEE; }
+			::-webkit-scrollbar:vertical { height: 100%; width: 10px; }
+			::-webkit-scrollbar:horizontal { height: 10px; width: 100%; }
+			::-webkit-scrollbar-track-piece { margin: 0.25%; }
+			::-webkit-scrollbar-thumb { background-color: #999999; border-radius: 50px; }
+			::-webkit-scrollbar-thumb:hover { background-color: #2B8A7C; }
+			::-webkit-scrollbar-button { height: 0; }
+			
+			/* GENERAL */
+			html { background-attachment: fixed; background-image: url('./img/background.jpg'); background-position: center; background-repeat: no-repeat; background-size: 300%; height: 100%; width: 100%; }
+			body { background: none; font-family: Lato, Ubuntu, sans-serif; }
+			h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+			.avatar { border-radius: 100%; margin-top: 10px; max-height: 240px; max-width: auto; }
+			section { padding: 45px 0 80px 0; }
+			section .heading { padding-bottom: 40px; text-align: center; }
+			section .heading h2 { text-transform: uppercase; }
+			.button0 { background-color: transparent; border: 1px solid #EEEEEE; border-radius: 3px; color: #EEEEEE; display: inline-block; font-weight: bold; margin-top: 20px; padding: 18px 50px; text-transform: uppercase; transition: all 0.3s ease-in 0s; }
+			.button0:hover { background-color: #EEEEEE; color: #4DAC9E; text-decoration: none; }
+			.white-divider, .green-divider { background-color: #4DAC9E; height: 2px; margin: 20px auto; width: 30%; }
+			.white-divider { background-color: #EEEEEE; }
+			li { list-style: none; }
+			
+			/* MENU */
+			.navbar { background-color: #4DAC9E; font-size: 12px; font-weight: bold; letter-spacing: 3px; margin: 0; text-transform: uppercase; }
+			.navbar .navbar-nav { display: inline-block; float: none; vertical-align: top; }
+			.navbar .navbar-collapse { text-align: center; }
+			.navbar li a { color: #EEEEEE !important; transition: 0.1s all 0s ease-in; }
+			.navbar li a:hover { background-color: #EEEEEE !important; color: #4DAC9E !important; }
+			.navbar-default .navbar-toggle { border-style: none; }
+			.icon-bar { background-color: #EEEEEE !important; }
+			
+			/* ABOUT */
+			#about { background-color: #4DAC9E; padding-top: 100px; }
+			.profile-picture { float: none; margin: 0 auto; text-align: center; }
+			#about .heading h1 { color: #EEEEEE; text-transform: uppercase; }
+			#about .heading h3 { color: #222222; }
+			#about .heading img { height: 40px; }
+			
+			/* SKILLS */
+			#skills { background-color: #EEEEEE; }
+			#skills .heading h2 { color: #4DAC9E; }
+			#skills .progress { background-color: #DDDDDD; height: 12%; margin: 30px 20px; }
+			#skills .progress-bar { background: #4DAC9E; }
+			#skills .progress h5 { text-shadow: 1px 1px 1px #222222; }
+			
+			/* EXPERIENCE */
+			#experience { background-color: #4DAC9E; }
+			#experience .heading h2 { color: #EEEEEE; }
+			.timeline { padding: 30px 10px; position: relative; }
+			.timeline:before { background-color: #222222; bottom: 0; content: ''; left: 50%; margin-left: -2.5px; position: absolute; top: 0; width: 5px; }
+			.timeline > li { margin-bottom: 20px; position: relative; }
+			.timeline > li:after { clear: both; }
+			.timeline > li:before, .timeline > li:after { content: ''; display: table; }
+			.timeline li .timeline-badge { background-color: #DDDDDD; border-radius: 50%; color: #4DAC9E; font-size: 20px; left: 50%; line-height: 50px; margin-left: -25px; position: absolute; text-align: center; top: 16px; width: 50px; }
+			.timeline-panel-container, .timeline-panel-container-inverted { float: left; width: 50%; }
+			.timeline-panel-container-inverted { float: right; }
+			.timeline-panel { background-color: #EEEEEE; border: 1px solid #DDDDDD; border-radius: 6px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175); float: right; margin-right: 40px; padding: 20px 25px; position: relative; width: 90%; }
+			.timeline-panel-container-inverted .timeline-panel-container-inverted { float: left; margin-left: 40px; }
+			.timeline-panel:after { border-bottom: 14px solid transparent; border-left: 14px solid #EEEEEE; border-right: 0 solid #EEEEEE; border-top: 14px solid transparent; content: ''; display: inline-block; position: absolute; right: -14px; top: 27px; }
+			.timeline-panel-container-inverted .timeline-panel:after { border-left-width: 0; border-right-width: 14px; left: -14px; right: auto; }
+			.timeline-heading h3 { margin-top: 5px; font-size: 20px; }
+			.timeline-heading h4 { color: #4DAC9E; }
+			
+			/* EDUCATION */
+			#education { background-color: #EEEEEE; }
+			#education .heading h2 { color: #4DAC9E; }
+			.education-block { background-color: #DDDDDD; border: 2px solid #CCCCCC; border-radius: 10px; margin: 0 auto; margin-bottom: 20px; padding: 30px; text-align: center; width: 80%; }
+			.education-block h5 { color: #888888; font-size: 15px; margin-bottom: 15px; }
+			.education-block .glyphicon { font-size: 40px; }
+			.education-block h3 { color: #4DAC9E; }
+			.education-block h4 { margin-bottom: 20px; }
+			.education-block p { font-weight: bold; }
+			.education-block green-divider { margin-bottom: 20px; }
+			
+			/* PORTFOLIO */
+			#portfolio { background-color: #4DAC9E; }
+			#portfolio .heading { color: #EEEEEE; }
+			#portfolio .thumbnail img { filter: grayscale(100%); height: 100%; transition: 0.3s; width: 100%; -webkit-filter: grayscale(100%); }
+			#portfolio .thumbnail img:hover { filter: none; webkit-filter: none; }
+			
+			/* RECOMMENDATIONS */
+			#recommandations { background-color: #EEEEEE; }
+			#recommandations h2 { color: #4DAC9E; }
+			.carousel-control.left, .carousel-control.right { background: none; color: #4DAC9E; }
+			.carousel-indicators { bottom: 0; }
+			.carousel-indicators li { border-color: #4DAC9E; }
+			.carousel-indicators li.active { background-color: #4DAC9E; }
+			#myCarousel .item { padding: 40px 30px; }
+			#myCarousel .item h3 { color: #4DAC9E; font-style: italic; }
+			
+			/* CONTACT */
+			#contact { background-color: none; color: #EEEEEE;}
+			#contact h2 { color: #EEEEEE; text-shadow: 2px 2px 2px #222222; }
+			#contactForm { background-color: #4DAC9E; border-radius: 10px; font-size: 20px; padding: 40px; }
+			#contact .blue { color: #EEEEEE; }
+			#contact .form-control { font-size: 18px; height: 50px; }
+			#contact textarea.form-control { height: auto; }
+			#contact .comments { color: #EEEEEE; font-size: 17px; font-style: italic; height: 25px; }
+			#contact .ty { display: none; font-size: 22px; font-weight: bold; margin-top: 20px; text-align: center; }
+			
+			/* FOOTER */
+			footer { background-color: #222222; padding: 20px 0 40px; }
+			footer .glyphicon { color: #4DAC9E; font-size: 25px; height: 30px; margin: 20px; transition: 0.3s; }
+			footer .glyphicon:hover { font-size: 37px; }
+			footer h5 { color: #EEEEEE; font-weight: normal; }
+		</style>
+		<link rel="fontstyle" href="https://fonts.googleapis.com/css?family=Lato" />
+	</head>
+	<body data-spy="scroll" data-target=".navbar" data-offset="60">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="#about">Moi</a></li>
+						<li><a href="#skills">Competences</a></li>
+						<li><a href="#experience">Parcours Professionel</a></li>
+						<li><a href="#education">Education</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<!--<li><a href="#recommandations">Recommandations</a></li>-->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<section id="about" class="container-fluid">
+			<center>
+				<img class="avatar" type="text/jpg" alt="Florian" src="./img/avatar.jpg" />
+			</center>
+			<div class="heading">
+				<h1>CARDINAL Florian</h1>
+				<h3>Développeur Web</h3>
+				<a href="cv.pdf" class="button0">Télécharger CV</a><br /><br />
+				<a target="blank_" href="https://github.com/Tracks12"><img type="text/png" alt="Florian" src="./img/git.png" /></a>
+			</div>
+		</section>
+		<section id="skills">
+			<div class="green-divider"></div>
+			<div class="heading">
+				<h2>Compétences</h2>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="100" aria-veluemin="0" aria-veluemax="100" style="width: 100%">
+								<h5>HTML 100%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="100" aria-veluemin="0" aria-veluemax="100" style="width: 100%">
+								<h5>CSS 100%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="95" aria-veluemin="0" aria-veluemax="100" style="width: 95%">
+								<h5>Python 95%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="90" aria-veluemin="0" aria-veluemax="100" style="width: 90%">
+								<h5>JavaScript 90%</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="85" aria-veluemin="0" aria-veluemax="100" style="width: 85%">
+								<h5>MySQL 85%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="90" aria-veluemin="0" aria-veluemax="100" style="width: 90%">
+								<h5>JQuery 90%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="85" aria-veluemin="0" aria-veluemax="100" style="width: 85%">
+								<h5>BootStrap 85%</h5>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-veluenow="85" aria-veluemin="0" aria-veluemax="100" style="width: 85%">
+								<h5>PHP 85%</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="experience">
+			<div class="container">
+				<div class="white-divider"></div>
+				<div class="heading">
+					<h2>Parcours Professionel</h2>
+				</div>
+				<ul class="timeline">
+					<li>
+						<div class="timeline-badge"><span class="glyphicon glyphicon-briefcase"></span></div>
+						<div class="timeline-panel-container">
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3>ArkiTech G.P</h3>
+									<h4>Développeur Web Junior</h4>
+									<p class="text-mute"><small class="glyphicon glyphicon-time"></small> 2016 - 2017</p>
+								</div>
+								<div class="timeline-body">
+									<p>Création d'un cloud <a target="blank_" href="http://sobeta.altervista.org/#">Stock One</a></p>
+									<p>Mise en place d'une base de donnée MySQL cloud</p>
+									<p>Ecriture des scripts PHP d'importation de fichiers sur cloud</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section id="education">
+			<div class="green-divider"></div>
+			<div class="heading">
+				<h2>éducation</h2>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="education-block">
+								<h5>2015 - 2017</h5>
+								<span class="glyphicon glyphicon-education"></span>
+								<h3>Lycée Générale et Téchnologique<br/>Déodat de Séverac</h3>
+								<h4>Baccalauréat STI2D</h4>
+								<div class="green-divider"></div>
+								<p>Système Informatique et Numérique</p>
+								<p>Mention Assez Bien</p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="education-block">
+								<h5>2016</h5>
+								<span class="glyphicon glyphicon-education"></span>
+								<h3>codecademy.com</h3>
+								<h4>Formation online<br/>Programmeur & Développeur</h4>
+								<div class="green-divider"></div>
+								<p>HTML/CSS, JavaScript, JQuery, Python, Ruby</p>
+								<p>Responsive Design, Deploy a Website</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="education-block">
+								<h5>2017</h5>
+								<span class="glyphicon glyphicon-education"></span>
+								<h3>Udemy.com</h3>
+								<h4>Formation online<br/>"Développeur Web"</h4>
+								<div class="green-divider"></div>
+								<p>HTML/CSS, JavaScript, JQuery</p>
+								<p>Responsive Design</p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="education-block">
+								<h5>2017</h5>
+								<span class="glyphicon glyphicon-education"></span>
+								<h3>Udemy.com</h3>
+								<h4>Formation online<br/>"Web Designer"</h4>
+								<div class="green-divider"></div>
+								<p>Illustrator, PhotoShop, XDesign</p>
+								<p>Web Design</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="portfolio">
+			<div class="container">
+				<div class="white-divider"></div>
+				<div class="heading">
+					<h2>Portfolio</h2>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<a class="thumbnail" target="blank_" alt="Stock One Cloud" href="http://sobeta.altervista.org/#">
+							<img type="text/png" src="./img/so.png" />
+						</a>
+					</div>
+					<div class="col-sm-6">
+						<a class="thumbnail" target="blank_" alt="Snake Game" href="http://betawallahso.altervista.org/Snake-Game/">
+							<img type="text/png" src="./img/sg.png" />
+						</a>
+					</div>
+					<div class="col-sm-4">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--<section id="recommandations">
+			<div class="container">
+				<div class="green-divider"></div>
+				<div class="heading">
+					<h2>Recommendations</h2>
+				</div>
+				<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<h3></h3>
+							<h4></h4>
+						</div>
+						<div class="item">
+							<h3></h3>
+							<h4></h4>
+						</div>
+						<div class="item">
+							<h3></h3>
+							<h4></h4>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev" role="button">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next" role="button">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
+			</div>
+		</section>-->
+		<section id="contact">
+			<div class="container">
+				<div class="green-divider"></div>
+				<div class="heading">
+					<h2>Contact</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						<form id="contactForm" method="post" action role="form">
+							<div class="row">
+								<div class="col-md-6">
+									<label for="prenom">Prénom <span class="blue">*</span></label>
+									<input type="text" name="prenom" id="prenom" class="form-control" placeholder="Votre Prénom" />
+									<p class="comments"></p>
+								</div>
+								<div class="col-md-6">
+									<label for="nom">Nom <span class="blue">*</span></label>
+									<input type="text" name="nom" id="nom" class="form-control" placeholder="Votre Nom" />
+									<p class="comments"></p>
+								</div>
+								<div class="col-md-6">
+									<label for="mail">Email <span class="blue">*</span></label>
+									<input type="email" name="mail" id="mail" class="form-control" placeholder="Votre Email" />
+									<p class="comments"></p>
+								</div>
+								<div class="col-md-6">
+									<label for="tel">Téléphone</label>
+									<input type="tel" name="tel" id="tel" class="form-control" placeholder="Votre Numéro de Téléphone" />
+									<p class="comments"></p>
+								</div>
+								<div class="col-md-12">
+									<label for="msg">Message <span class="blue">*</span></label>
+									<textarea type="text" name="msg" id="msg" class="form-control" placeholder="Votre Message" rows="4"></textarea>
+									<p class="comments"></p>
+								</div>
+								<div class="col-md-12">
+									<p class="blue">* <strong>Ces informations sont requises</strong></p>
+								</div>
+								<div class="col-md-12">
+									<center><input class="button0" type="submit" value="Envoyer" /></center>
+								</div>
+								<p class='ty'>Votre message a bien été envoyé. Merci de m'avoir contacter :)</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="text-center">
+			<a href="#about">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</a>
+			<h5>&#9400; 2016 APPRENDRE-A-CODER.COM</h5>
+		</footer>
+	</body>
+</html>
+<!-- END -->
