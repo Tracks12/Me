@@ -1,0 +1,90 @@
+* {
+	color: #EEEEEE;
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html {
+	background: url('./bg.jpg') no-repeat center fixed;
+	background-size: cover;
+	height: 100%; width: 100%;
+}
+
+body {
+	background: rgba(0, 0, 0, .7);
+	height: 100%; width: 100%;
+}
+
+.login {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 20em;
+}
+
+.login h2 {
+	border-bottom: 6px solid rgb(0, 170, 170);
+	float: left;
+	font-size: 40px;
+	font-weight: 100;
+	margin-bottom: 50px;
+	padding: 13px 0;
+}
+
+.login form {
+	float: left;
+	width: 100%;
+}
+
+.login .inputBox {
+	border-bottom: 2px solid rgb(0, 170, 170);
+	float: left;
+	font-size: 20px;
+	margin: 8px 0;
+	padding: 8px 0;
+	width: 100%;
+}
+
+.login .inputBox span {
+	float: left;
+	text-align: center;
+	width: 26px;
+}
+
+.login .inputBox input {
+	background: transparent;
+	border: none;
+	float: left;
+	font-size: 20px;
+	margin: 0 10px;
+	outline: none;
+	width: 80%;
+}
+
+.login input[type=submit] {
+	background: transparent;
+	border: 2px solid rgb(0, 170, 170);
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 12px 0;
+	padding: 5px;
+	transition: .3s all;
+	width: 100%;
+}
+
+.login input[type=submit]:hover {
+	background: rgb(0, 170, 170);
+	box-shadow: 0 0 15px rgb(0, 170, 170);
+}
+
+.login a {
+	display: block;
+	margin-top: 5px;
+	text-decoration: none;
+}
+
+.login #msgError { display: none; }
+
+.login #forgot { display: none; }

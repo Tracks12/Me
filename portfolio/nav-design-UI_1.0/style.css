@@ -1,0 +1,43 @@
+* {
+	color: #CCCCCC;
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html {
+	background: rgb(35, 35, 35);
+	height: 100%; width: 100%;
+}
+
+.container {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.container li { display: inline-block; }
+
+.container li a {
+	display: inline-block;
+	font-size: 28px;
+	font-weight: 100;
+	padding: 0 20px;
+	text-decoration: none;
+}
+
+.container .link::after {
+	background: currentColor;
+	box-shadow: 0 2px 8px currentColor;
+	content: '';
+	display: block;
+	height: 2px;
+	margin: auto;
+	transition: all .3s;
+	width: 0;
+}
+
+.container .link:hover::after {
+	color: rgb(0, 170, 170);
+	width: 100%;
+}

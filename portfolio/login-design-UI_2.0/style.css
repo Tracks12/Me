@@ -1,0 +1,101 @@
+* {
+	color: #EEEEEE;
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html { height: 100%; width: 100%; }
+
+body {
+	background: url('./bg.jpg') no-repeat center fixed;
+	background-size: cover;
+}
+
+.container {
+	border-radius: 5px;
+	box-sizing: border-box;
+	left: 50%;
+	overflow: hidden;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	width: 25em;
+}
+
+.login .signIn {
+	background: #00AAAA;
+	box-shadow: 0 5px 10px rgba(0, 170, 170, .5);
+	cursor: pointer;
+	font-size: 20px;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	text-align: center;
+	transition: .3s all;
+	width: 100%;
+	z-index: 1;
+}
+.login .signIn.active,
+.login .signIn:hover { background: #009999; }
+
+.login .fold {
+	background: rgba(0, 0, 0, .8);
+	box-sizing: border-box;
+	padding: 30px 20px;
+	position: relative;
+	transform: perspective(2000px) rotateX(90deg);
+	transform-origin: top;
+	transition: .5s all;
+	width: 100%;
+}
+.login .fold.active { transform: perspective(2000px) rotateX(0deg); }
+
+.login .fold .inputBox input {
+	background: transparent;
+	border: 2px solid currentColor;
+	box-shadow: none;
+	box-sizing: border-box;
+	height: 40px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	width: 100%;
+}
+
+.login .fold input[type=submit] {
+	background: #222222;
+	border: none;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+	cursor: pointer;
+	display: block;
+	padding: 12px 40px;
+	transition: .3s all;
+}
+.login .fold input[type=submit]:hover {
+	background: #00AAAA;
+	box-shadow: 0 0 20px rgba(0, 170, 170, 1);
+}
+
+.login .fold input {
+	border-radius: 40px;
+	font-size: 16px;
+	letter-spacing: 1px;
+	outline: none;
+}
+
+.login .fold a {
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: right;
+	text-decoration: none;
+}
+
+.login .fold #msgError {
+	color: #CC0000;
+	display: none;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.login .fold #forgot { display: none; }

@@ -1,0 +1,55 @@
+* {
+	color: rgb(0, 170, 170);
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html {
+	background: rgb(35, 35, 35);
+	height: 100%; width: 100%;
+}
+
+.container {
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+button {
+	background: transparent;
+	border-radius: 2px;
+	border: 2px solid rgb(0, 170, 170);
+	cursor: pointer;
+	font-size: 24px;
+	margin: 5px;
+	overflow: hidden;
+	padding: 10px 20px;
+	position: relative;
+	transition: .5s all;
+}
+
+.btn1:hover, .btn2:hover { color: rgb(35, 35, 35); }
+
+.btn3, .btn4 { color: rgb(35, 35, 35); }
+.btn3:hover, .btn4:hover { color: rgb(0, 170, 170); }
+
+button::before {
+	background: rgb(0, 170, 170);
+	content: '';
+	height: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	transition: .5s;
+	z-index: -1;
+}
+
+.btn1::before, .btn3::before { border-radius: 0 0 50% 50%; top: 0; }
+.btn2::before, .btn4::before { border-radius: 50% 50% 0 0; bottom: 0; }
+
+.btn3::before, .btn4::before { height: 200%; }
+
+.btn1:hover::before, .btn2:hover::before { height: 200%; }
+.btn3:hover::before, .btn4:hover::before { height: 0; }

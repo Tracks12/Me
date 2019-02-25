@@ -1,0 +1,91 @@
+* {
+color: #CCCCCC;
+font-family: Lato, Ubuntu, sans-serif;
+margin: 0; padding: 0;
+}
+
+html {
+	background: rgb(35, 35, 35);
+	height: 100%; width: 100%;
+}
+
+nav {
+	background: rgb(50, 50, 50);
+	box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+	padding-left: 3em;
+	position: fixed;
+	width: 100%;
+}
+
+nav div {
+	cursor: pointer;
+	display: none;
+	font-size: 24px;
+	padding: 15px;
+}
+
+nav ul {
+	background: rgb(50, 50, 50);
+	list-style-type: none;
+	position: relative;
+}
+
+nav ul li { display: inline-block; transition: all .3s; }
+nav ul li::after {
+	background: currentColor;
+	content: '';
+	display: block;
+	height: 2px;
+	margin: auto;
+	position: relative;
+	transition: width .2s;
+	width: 0;
+}
+nav ul li:hover { background: rgba(255, 255, 255, .1); }
+nav ul li:hover:after { box-shadow: 0 2px 10px currentColor; width: 100%; }
+
+nav ul li a {
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+
+nav ul ul {
+	box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+	display: none;
+	min-width: 200px;
+	position: absolute;
+}
+
+nav ul ul li { display: block; }
+nav ul ul li::after { display: none; }
+nav ul li:hover ul { display: block; }
+
+nav ul li span {
+	float: right;
+	padding-left: 15px;
+}
+
+@media(max-width: 720px) {
+	nav {
+		overflow: auto;
+		max-height: 100%;
+		padding-left: 0;
+		position: fixed;
+	}
+	
+	nav div { display: block; }
+	
+	nav ul {
+		display: none;
+		position: relative;
+	}
+	
+	nav ul li { display: block; overflow: auto; }
+	
+	nav ul ul {
+		background: rgb(45, 45, 45);
+		box-shadow: none;
+		position: relative;
+	}
+}

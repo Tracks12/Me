@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<?php session_start(); ?>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login CSS Design UI 4.0</title>
+		<link rel="stylesheet" type="text/css" href="./font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+	</head>
+	<body>
+		<article class="login">
+			<h2>Login</h2>
+			<form method="POST" action="../login.php?path=./login-design-UI_4.0">
+				<div class="inputBox">
+					<span class="fa fa-user"></span>
+					<input type="text" name="user" placeholder="Username" required />
+				</div>
+				<div class="inputBox">
+					<span class="fa fa-lock"></span>
+					<input type="password" name="pass" placeholder="Password" required />
+				</div>
+				<input type="submit" value="Connect" />
+				<a href="#">Forget Password</a>
+				<p id="msgError">Login Failed</p>
+			</form>
+		</article>
+	</body>
+</html>
+<!-- END -->

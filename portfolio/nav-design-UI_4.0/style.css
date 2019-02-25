@@ -1,0 +1,72 @@
+* {
+	color: #CCCCCC;
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html {
+	background: rgb(35, 35, 35);
+	height: 100%; width: 100%;
+}
+
+nav {
+	background: rgb(50, 50, 50);
+	box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+	height: 100%;
+	overflow: auto;
+	position: fixed;
+	width: 14em;
+}
+
+nav ul .item { overflow: hidden; }
+
+nav ul a {
+	display: block;
+	text-decoration: none;
+}
+
+nav ul .item .btn {
+	background: rgb(50, 50, 50);
+	font-size: 20px;
+	padding: 16px 20px;
+	position: relative;
+	transition: .2s all;
+}
+nav ul .item .btn::before {
+	background: rgb(50, 50, 50);
+	bottom: -7px;
+	content: '';
+	height: 14px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%)rotate(45deg);
+	transition: .2s all;
+	width: 14px;
+}
+nav ul .item .btn:hover,
+nav ul .item .btn:hover:before { background: rgb(60, 60, 60); }
+
+nav ul .item span { margin-right: 10px; }
+
+nav ul .item ul {
+	background: rgba(0, 0, 0, .3);
+	overflow: hidden;
+}
+
+nav ul .item ul a {
+	font-size: 16px;
+	padding: 16px 30px;
+	position: relative;
+}
+nav ul .item ul a::before,nav ul .item ul a::after {
+	background: currentColor;
+	bottom: 3px;
+	content: '';
+	height: auto;
+	left: 0;
+	position: absolute;
+	top: 3px;
+	transition: .2s all;
+	width: 0;
+}
+nav ul .item ul a:hover:before { width: 6px; }
