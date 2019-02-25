@@ -38,7 +38,7 @@
 		if(empty($post["value"]["name"])) { $post["error"]["name"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Nom: {$post['value']['name']}\n"; }
 		if(!isMail($post["value"]["mail"])) { $post["error"]["mail"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Mail: {$post['value']['mail']}\n"; }
 		if(!isPhone($post["value"]["tel"])) { $post["error"]["tel"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Tel: {$post['value']['tel']}\n\n"; }
-		if(empty($post["value"]["msg"])) { $post["error"]["msg"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Message: {post['value']['msg']}"; }
+		if(empty($post["value"]["msg"])) { $post["error"]["msg"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Message: {$post['value']['msg']}"; }
 		if($post["passed"]) {
 			$mail["header"] = "From: {$post['value']['name']} {$post['value']['fname']} <{$post['value']['mail']}>\r\nReply-To: {$post['value']['mail']}";
 			mail($mail["to"], "Contact Web CV", $mail["txt"], $mail["header"]);
