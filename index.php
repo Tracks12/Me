@@ -51,7 +51,7 @@
 					<span title="Ma tête"></span>
 					<h1>cardinal florian</h1>
 					<h3>développeur web junior</h3>
-					<a href="#" download>Télécharger CV</a>
+					<a href="cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
 						$button = array(
