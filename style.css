@@ -157,7 +157,7 @@ header article {
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
 	max-width: 35em;
-	padding: 2em .5em 3em .5em;
+	padding: 2em .5em 2.75em .5em;
 	text-align: center;
 }
 
@@ -224,9 +224,6 @@ header article button {
 	width: 6em;
 	z-index: 0;
 }
-
-header article button:hover { color: rgb(238, 238, 238); }
-
 header article button::before {
 	background: rgb(0, 170, 170);
 	border-radius: 0 0 50% 50%;
@@ -239,8 +236,15 @@ header article button::before {
 	transition: .5s;
 	z-index: -1;
 }
-
 header article button:hover:before { height: 200%; }
+
+header article button svg {
+	fill: currentColor;
+	height: 30px;
+	margin-bottom: -5px;
+	transition: .5s;
+}
+header article button:hover svg { fill: rgb(238, 238, 238); }
 
 aside { padding-top: 4.5em; }
 
@@ -298,7 +302,7 @@ aside hr {
 
 #skills .row .progressBar .progress {
 	animation: animate 10s linear infinite reverse;
-	background: linear-gradient(90deg, #CC11CC, #11CCCC, #CC11CC);
+	background: linear-gradient(90deg, #CC00CC, #00CCCC, #CC00CC);
 	background-size: 300%;
 	height: 100%;
 	position: absolute;

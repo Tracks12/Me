@@ -56,11 +56,15 @@
 					<hr />
 					<?php
 						$button = array(
-							array("link" => 'https://github.com/Tracks12', "title" => 'Jettez un oeil à tous mes projets sur GitHub', "name" => "GitHub"),
-							array("link" => 'https://www.linkedin.com/in/florian-cardinal-13317b150', "title" => 'Jettez un oeil à mon profil LinkedIn', "name" => "LinkedIn")
+							array("link" => 'https://github.com/Tracks12', "title" => 'Mon GitHub', "name" => "github"),
+							array("link" => 'https://www.linkedin.com/in/florian-cardinal-13317b150', "title" => 'Mon LinkedIn', "name" => "linkedin")
 						);
 						
-						for($i = 0; $i < count($button); $i++) { echo("<button onclick=\"window.open('{$button[$i]["link"]}');\" title=\"{$button[$i]["title"]}\">{$button[$i]["name"]}</button>"); }
+						for($i = 0; $i < count($button); $i++) {
+							echo("<button onclick=\"window.open('{$button[$i]["link"]}');\" title=\"{$button[$i]["title"]}\">");
+							include("./pics/{$button[$i]['name']}.svg");
+							echo("</button>");
+						}
 					?>
 				</article>
 			</header>

@@ -42,7 +42,7 @@ class anim {
 			s = ":"+s;
 		} else { var s = ''; delay = 1000; if(sep === ":") { sep = " "; } else { sep = ":"; }}
 		$('#time')[0].innerHTML = h+sep+m+s;
-		t = setTimeout(function() { anim.startTime(sep); }, delay);
+		setTimeout(function() { anim.startTime(sep); }, delay);
 	}
 }
 
@@ -54,7 +54,8 @@ function skillsBar(skill) {
 }
 
 function toScroll() {
-	var coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
+	var coef = $('html')[0].scrollTop/$('html')[0].scrollHeight;
+	
 	if(coef > .85) { $('#upper').fadeOut(); }
 	else if(coef > .05) { $('#upper').fadeIn(); }
 	else { $('#upper').fadeOut(); }
