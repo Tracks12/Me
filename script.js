@@ -55,9 +55,9 @@ function skillsBar(skill) {
 
 function toScroll() {
 	var coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
-	if(coef > .85) { $('#upper').css('display', 'none'); }
-	else if(coef > .05) { $('#upper').css('display', 'block'); }
-	else { $('#upper').css('display', 'none'); }
+	if(coef > .85) { $('#upper').fadeOut(); }
+	else if(coef > .05) { $('#upper').fadeIn(); }
+	else { $('#upper').fadeOut(); }
 }
 
 $(document).ready(function() {
