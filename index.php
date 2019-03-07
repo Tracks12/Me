@@ -33,9 +33,10 @@
 		<link rel="stylesheet" type="text/css" href="./font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
 		<script language="javascript" type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+		<script language="JavaScript" type="text/javascript" src="./particles.min.js"></script>
 		<script language="javascript" type="text/javascript" src="./script.js"></script>
 	</head>
-	<div class="bg"></div>
+	<div id="particles-js"></div>
 	<body onload="anim.startTime();">
 		<?php require("./nav.php"); ?>
 		<a id="upper" href="#me">
@@ -51,7 +52,7 @@
 					<span title="Ma tête"></span>
 					<h1>cardinal florian</h1>
 					<h3>développeur web junior</h3>
-					<a href="cv.pdf" download>Télécharger CV</a>
+					<a href="./cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
 						$button = array(
@@ -263,5 +264,6 @@
 		</section>
 		<?php require("./footer.html"); ?>
 	</body>
+	<script language="JavaScript" type="text/javascript" src="./app.js"></script>
 </html>
 <!-- END -->

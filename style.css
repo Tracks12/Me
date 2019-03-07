@@ -13,9 +13,23 @@
 }
 
 html {
-	background: rgb(238, 238, 238) url('./pics/bg.png') fixed no-repeat center;
+	background: url('./pics/bg.png') fixed center no-repeat;
 	background-size: cover;
 	height: 100%; width: 100%;
+}
+
+#particles-js {
+	background: #111111 linear-gradient(-30deg, #4F0068, #89EEEE) center no-repeat;
+	background-size: cover;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: -1;
+}
+
+canvas {
+	display: block;
+	vertical-align: bottom;
 }
 
 nav {
