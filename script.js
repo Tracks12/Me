@@ -46,6 +46,40 @@ class anim {
 	}
 }
 
+function credit() {
+	var output = "";
+	var msg = Array(
+		"Développeur Web Junior full stack\n",
+		"---------------------------------\n\n",
+		"Front-end skills: Html5/Css3/Js\n",
+		"Back-end skills: Php7/Sql/Python\n\n",
+		"Front-end technology: Bootstrap (Responsive Design) & JQuery\n",
+		"Back-end technology: Symfony, phpBB & phpmyadmin (DataBase)\n\n",
+		"Mastery of Windows & Linux environments,\n",
+		"Used to code on Bracket, Notepad++ and Oracle under Windows and Nano, Kate, Gedit and Gcc under Linux.\n\n",
+		"Preferably uses the kde interface to work efficiently and optimally.\n\n",
+		"Very good team spirit, attentive to details and cooperative, ensuring total success for any web project.\n\n",
+		"Website developed by my own !\n\n"
+	);
+	var pageInfo = Array(
+		"Page Info :\n",
+		"-----------\n",
+		"href\t\t: "+document['location']['href']+"\n",
+		"protocol\t: "+document['location']['protocol']+"\n",
+		"hostname\t: "+document['location']['hostname']+"\n",
+		"pathname\t: "+document['location']['pathname']+"\n",
+		"hash\t\t: "+document['location']['hash']+"\n",
+		"title\t\t: "+document['title']+"\n",
+		"author\t\t: "+document['author']+"\n",
+		"author (alias)\t: "+document['authorAlias']+"\n",
+		"last modified\t: "+document['lastModified']+"\n"
+	);
+	
+	for(var i = 0; i < msg.length; i++) { output += msg[i]; }
+	for(var i = 0; i < pageInfo.length; i++) { output += pageInfo[i]; }
+	console.log(output);
+}
+
 function skillsBar(skill) {
 	for(var i = 0; i < skill.length; i++) {
 		$('#'+skill[i][0]+' h5')[0].innerText += ' '+skill[i][1];
@@ -122,6 +156,7 @@ $(document).ready(function() {
 	$(document).on('scroll', function() { toScroll(); });
 	
 	new anim();
+	credit();
 });
 
 /**********
