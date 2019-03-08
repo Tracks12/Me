@@ -96,6 +96,9 @@ function toScroll() {
 }
 
 $(document).ready(function() {
+	document['author'] = "CARDINAL Florian";
+	document['authorAlias'] = "Anarchy";
+	
 	$('nav div').click(function() {
 		$('nav ul').slideToggle();
 		$('nav ul ul').css('display', 'none');
