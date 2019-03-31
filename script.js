@@ -34,14 +34,14 @@ class anim {
 	static startTime(sep) {
 		var today = new Date(), delay = 500;
 		var h = today.getHours(), m = today.getMinutes();
-		if(h < 10) { h = '0'+h; }
-		if(m < 10) { m = '0'+m; }
+		if(h < 10) { h = `0${h}`; }
+		if(m < 10) { m = `0${m}`; }
 		if(!(document.body.clientWidth < 720)) {
 			var sep = ":", s = today.getSeconds();
-			if(s < 10) { s = '0'+s; }
+			if(s < 10) { s = `0${s}`; }
 			s = ":"+s;
 		} else { var s = ''; delay = 1000; if(sep === ":") { sep = " "; } else { sep = ":"; }}
-		$('#time')[0].innerHTML = h+sep+m+s;
+		$('#time').html(h+sep+m+s);
 		setTimeout(function() { anim.startTime(sep); }, delay);
 	}
 }
@@ -64,15 +64,15 @@ function credit() {
 	var pageInfo = Array(
 		"Page Info :\n",
 		"-----------\n",
-		"href\t\t: "+document['location']['href']+"\n",
-		"protocol\t: "+document['location']['protocol']+"\n",
-		"hostname\t: "+document['location']['hostname']+"\n",
-		"pathname\t: "+document['location']['pathname']+"\n",
-		"hash\t\t: "+document['location']['hash']+"\n",
-		"title\t\t: "+document['title']+"\n",
-		"author\t\t: "+document['author']+"\n",
-		"author (alias)\t: "+document['authorAlias']+"\n",
-		"last modified\t: "+document['lastModified']+"\n"
+		`href\t\t: ${document['location']['href']}\n`,
+		`protocol\t: ${document['location']['protocol']}\n`,
+		`hostname\t: ${document['location']['hostname']}\n`,
+		`pathname\t: ${document['location']['pathname']}\n`,
+		`hash\t\t: ${document['location']['hash']}\n`,
+		`title\t\t: ${document['title']}\n`,
+		`author\t\t: ${document['author']}\n`,
+		`author (alias)\t: ${document['authorAlias']}\n`,
+		`last modified\t: ${document['lastModified']}\n`
 	);
 	
 	for(var i = 0; i < msg.length; i++) { output += msg[i]; }
@@ -82,8 +82,8 @@ function credit() {
 
 function skillsBar(skill) {
 	for(var i = 0; i < skill.length; i++) {
-		$('#'+skill[i][0]+' h5')[0].innerText += ' '+skill[i][1];
-		$('#'+skill[i][0]+' .progress')[0].style.width = skill[i][1];
+		$(`#${skill[i][0]} h5`)[0].innerText += ` ${skill[i][1]}`;
+		$(`#${skill[i][0]} .progress`)[0].style.width = skill[i][1];
 	}
 }
 

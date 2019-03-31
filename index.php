@@ -5,23 +5,24 @@
 	Page   : index.php
 -->
 <?php
-	$dir = scandir("./portfolio/");
-	$j = 0;
-	for($i = 0; $i < count($dir); $i++) {
-		if(!($dir[$i+3] === "login.php")) {
-			$output[1] = explode("-", $dir[$i+3]);
-			$categ = array(
-				array("btn", "login", "nav"),
-				array("bouton", "connexion", "navigation")
-			);
+	$dir = scandir("./portfolio/"); $k = 0;
+	$categ = array(
+		array("btn", "login", "nav", "slide"),
+		array("bouton", "connexion", "navigation", "panneaux")
+	);
+	
+	for($i = 2; $i < count($dir); $i++) {
+		$l = $i-2;
+		if(!($dir[$i] === "login.php")) {
+			$output[1] = explode("-", $dir[$i]);
 			
-			for($k = 0; $k <= 2; $k++) {
-				if($output[1][0] === $categ[0][$k]) {
-					$cat[$k] = $categ[1][$k];
-					$output[0][$k][$i-$j] = $dir[$i+3];
+			for($j = 0; $j < count($categ[0]); $j++) {
+				if($output[1][0] === $categ[0][$j]) {
+					$cat[$j] = $categ[1][$j];
+					$output[0][$j][($i-2)-$k] = $dir[$i];
 				}
 			}
-		} else { $j++; }
+		} else { $k = 1; }
 	}
 ?>
 <html>
@@ -205,21 +206,22 @@
 					<h2>portfolio</h2>
 					<hr />
 					<?php
-						$j = 0;
+						$k = 0;
+						
 						for($i = 0; $i < count($output[0]); $i++) {
 							echo("<div id=\"portfolio-{$cat[$i]}\">
 								<h3>{$cat[$i]}</h3>
 								<ul>");
 							
-							while($output[0][$i][$j]) {
-								if($output[0][$i][$j] !== NULL) {
+							for($j = 0; $j < $l; $j++) {
+								if(isset($output[0][$i][$j])) {
 									echo("<li>
 											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
 												<img type=\"image/png\" src=\"./pics/p{$j}.png\" />
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
-								} $j++;
+								} $k++;
 							} echo("</ul></div>");
 						}
 					?>
