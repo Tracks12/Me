@@ -29,6 +29,7 @@
 	<head>
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Web CV by CARDINAL Florian - Junior Web Developer [Full Stack] {Html5/Css3, Js, PhP7, MySQL, Python}">
 		<title>Hello :)</title>
 		<link rel="icon" type="image/gif" href="./pics/favicon.gif" />
 		<link rel="stylesheet" type="text/css" href="./font-awesome.min.css" />
