@@ -1,0 +1,92 @@
+* {
+	color: rgb(238, 238, 238);
+	font-family: Lato, Ubuntu, sans-serif;
+	margin: 0; padding: 0;
+}
+
+html {
+	background: rgb(35, 35, 35);
+	height: 100%; width: 100%;
+}
+
+.container {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+a {
+	background: rgb(35, 35, 35) linear-gradient(-90deg, transparent, transparent, rgba(238, 238, 238, .15), transparent, transparent);
+	background-size: 200%;
+	box-shadow: 0 0 50px rgba(0, 0, 0, .5);
+	display: block;
+	font-size: 2em;
+	letter-spacing: 4px;
+	overflow: hidden;
+	padding: 30px 60px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: .5s;
+}
+a:hover {
+	background-position: 100%;
+	text-shadow: 0 0 25px currentColor;
+}
+
+a:hover span {
+	color: rgba(0, 170, 170);
+	position: absolute;
+}
+a:hover span::before {
+	content: '';
+	filter: blur(5px);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+a:hover .horizontal { height: 4px; width: 100%; }
+a:hover .vertical { height: 100%; width: 4px; }
+a:hover span:nth-child(1) {
+	animation: animate0 2s linear infinite reverse;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor);
+	left: 0;
+	top: 0;
+}
+a:hover span:nth-child(1):before { background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor); }
+a:hover span:nth-child(2) {
+	animation: animate1 2s linear infinite reverse;
+	animation-delay: -1s;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor);
+	right: 0;
+	top: 0;
+}
+a:hover span:nth-child(2):before { background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor); }
+a:hover span:nth-child(3) {
+	animation: animate0 2s linear infinite;
+	background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor);
+	bottom: 0;
+	left: 0;
+}
+a:hover span:nth-child(3):before { background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor); }
+a:hover span:nth-child(4) {
+	animation: animate1 2s linear infinite;
+	animation-delay: -1s;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor);
+	top: 0;
+	left: 0;
+}
+a:hover span:nth-child(4):before { background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor); }
+
+@keyframes animate0 {
+	0% { transform: translateX(100%); }
+	100% { transform: translateX(-100%); }
+}
+
+@keyframes animate1 {
+	0% { transform: translateY(100%); }
+	100% { transform: translateY(-100%); }
+}
