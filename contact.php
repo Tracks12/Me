@@ -31,7 +31,7 @@
 		$post[passed] = true;
 		$mail = array(
 			"header" => NULL,
-			to => "cardinal.florian.erwan@gmail.com",
+			to => "...",
 			txt => "");
 		
 		if(empty($post[value][fname])) { $post[error][fname] = $error; $post[passed] = false; } else { $mail[txt] .= "Prénom: {$post[value][fname]}\n"; }
