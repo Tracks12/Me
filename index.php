@@ -54,7 +54,7 @@
 					<span title="Ma tête"></span>
 					<h1>cardinal florian</h1>
 					<h3>développeur web junior</h3>
-					<a href="./cv.pdf" download>Télécharger CV</a>
+					<a href="https://github.com/Tracks12/Me/raw/master/cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
 						$button = array(
@@ -79,8 +79,8 @@
 							$frame = array(
 								array(
 									array("id" => "html", "title" => "HTML5"),
-									array("id" => "bootstrap", "title" => "BootStrap"),
 									array("id" => "js", "title" => "JavaScript"),
+									array("id" => "bootstrap", "title" => "BootStrap"),
 									array("id" => "mysql", "title" => "MySQL")
 								),
 								array(
@@ -103,14 +103,14 @@
 						?>
 						<script language="javascript" type="text/javascript">
 							var progress = new Array(
-								Array("html", "100%"),
-								Array("bootstrap", "95%"),
-								Array("js", "95%"),
-								Array("mysql", "90%"),
-								Array("css", "100%"),
-								Array("jquery", "95%"),
-								Array("php", "95%"),
-								Array("python", "85%"));
+								Array("html", "95%"),
+								Array("css", "95%"),
+								Array("js", "90%"),
+								Array("jquery", "90%"),
+								Array("bootstrap", "90%"),
+								Array("php", "85%"),
+								Array("mysql", "80%"),
+								Array("python", "75%"));
 							
 							skillsBar(progress);
 						</script>
@@ -125,10 +125,16 @@
 						<?php
 							$frame = array(
 								array(
+									"Conseil Départemental HG",
+									"Stagiaire Développeur Web",
+									"mai. 2019", "juin. 2019",
+									"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)",
+								),
+								array(
 									"Indépendant",
 									"Développeur Web",
 									"juil. 2017", "sept. 2018",
-									"France"
+									"France<br />"
 								)
 							);
 							

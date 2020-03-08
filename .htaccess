@@ -1,0 +1,4 @@
+Options -Indexes -FollowSymLinks -MultiViews
+
+ErrorDocument 403 https://floriancardinal.000webhostapp.com/
+ErrorDocument 404 https://floriancardinal.000webhostapp.com/

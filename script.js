@@ -157,6 +157,7 @@ $(document).ready(function() {
 	
 	toScroll();
 	$(document).on('scroll', function() { toScroll(); });
+	$('div')[$('div').length-1].style.display = "none";
 	
 	new anim();
 	credit();
