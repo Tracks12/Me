@@ -10,19 +10,22 @@
 		array("btn", "login", "nav", "slide"),
 		array("bouton", "connexion", "navigation", "panneau")
 	);
-	
+
 	for($i = 2; $i < count($dir); $i++) {
 		$l = $i-2;
 		if(!($dir[$i] === "login.php")) {
 			$output[1] = explode("-", $dir[$i]);
-			
+
 			for($j = 0; $j < count($categ[0]); $j++) {
 				if($output[1][0] === $categ[0][$j]) {
 					$cat[$j] = $categ[1][$j];
 					$output[0][$j][($i-2)-$k] = $dir[$i];
 				}
 			}
-		} else { $k = 1; }
+		}
+
+		else
+			$k = 1;
 	}
 ?>
 <html>
@@ -61,7 +64,7 @@
 							array("link" => 'https://github.com/Tracks12', "title" => 'Mon GitHub', "name" => "github"),
 							array("link" => 'https://www.linkedin.com/in/florian-cardinal-13317b150', "title" => 'Mon LinkedIn', "name" => "linkedin")
 						);
-						
+
 						for($i = 0; $i < count($button); $i++) {
 							echo("<button onclick=\"window.open('{$button[$i]["link"]}');\" title=\"{$button[$i]["title"]}\">");
 							include("./pics/{$button[$i]['name']}.svg");
@@ -90,15 +93,17 @@
 									array("id" => "python", "title" => "Python")
 								)
 							);
-							
+
 							for($i = 0; $i < count($frame); $i++) {
-							echo("<div class=\"row\">");
-								for($j = 0; $j < count($frame[$i]); $j++) {
+								echo("<div class=\"row\">");
+
+								for($j = 0; $j < count($frame[$i]); $j++)
 									echo("<div class=\"progressBar\" id=\"{$frame[$i][$j]["id"]}\">
-										<div class=\"progress\"></div>
-										<h5>{$frame[$i][$j]["title"]} </h5>
-									</div>");
-								} echo("</div>");
+											<div class=\"progress\"></div>
+											<h5>{$frame[$i][$j]["title"]} </h5>
+										</div>");
+
+								echo("</div>");
 							}
 						?>
 						<script language="javascript" type="text/javascript">
@@ -110,8 +115,9 @@
 								Array("bootstrap", "90%"),
 								Array("php", "85%"),
 								Array("mysql", "80%"),
-								Array("python", "75%"));
-							
+								Array("python", "75%")
+							);
+
 							skillsBar(progress);
 						</script>
 					</div>
@@ -125,10 +131,16 @@
 						<?php
 							$frame = array(
 								array(
+									"WHYNOGROUP EU",
+									"Développeur Web Front End",
+									"fév. 2019", "Aujourd'hui",
+									"France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web",
+								),
+								array(
 									"Conseil Départemental HG",
 									"Stagiaire Développeur Web",
 									"mai. 2019", "juin. 2019",
-									"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)",
+									"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony",
 								),
 								array(
 									"Indépendant",
@@ -137,19 +149,22 @@
 									"France<br />"
 								)
 							);
-							
+
 							for($i = 0; $i < count($frame); $i++) {
 								$invert = "";
-								if($i%2) { $invert = "inverted"; }
+
+								if($i%2)
+									$invert = "inverted";
+
 								echo("<li class=\"$invert\">
-									<span id=\"badge\" class=\"fa fa-briefcase\"></span>
-									<div class=\"panel\">
-										<h3>{$frame[$i][0]}</h3>
-										<h4>{$frame[$i][1]}</h4>
-										<p class=\"period\"><span class=\"fa fa-calendar\"></span> {$frame[$i][2]} - {$frame[$i][3]}</p>
-										<p>{$frame[$i][4]}</p>
-									</div>
-								</li>");
+										<span id=\"badge\" class=\"fa fa-briefcase\"></span>
+										<div class=\"panel\">
+											<h3>{$frame[$i][0]}</h3>
+											<h4>{$frame[$i][1]}</h4>
+											<p class=\"period\"><span class=\"fa fa-calendar\"></span> {$frame[$i][2]} - {$frame[$i][3]}</p>
+											<p>{$frame[$i][4]}</p>
+										</div>
+									</li>");
 							}
 						?>
 					</ul>
@@ -163,10 +178,10 @@
 						<?php
 							$frame = array(
 								array(
-									"2017",
+									"2018",
 									"Lycée GT Déodat de Séverac",
-									"Baccalauréat STI2D<br /><br />",
-									"Système Informatique et Numérique<br />Mention Assez Bien",
+									"Brevet Technicien Supérieur<br /><br />",
+									"Systèmes Numériques<br />En cours de validation...",
 									false
 								),
 								array(
@@ -184,25 +199,35 @@
 									"https://www.udemy.com/certificate/UC-8XQUXMMT/"
 								),
 								array(
+									"2017",
+									"Lycée GT Déodat de Séverac",
+									"Baccalauréat STI2D<br /><br />",
+									"Système Informatique et Numérique<br />Mention Assez Bien",
+									false
+								),
+								array(
 									"2016",
 									"Codecademy.com",
 									"Formation online<br />Programer & Developer",
 									"HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website",
-									"https://www.codecademy.com/fr/4N4RCHY"
+									"https://www.codecademy.com/profiles/Tracks12"
 								)
 							);
-							
+
 							for($i = 0; $i < count($frame); $i++) {
 								$title = $frame[$i][1];
-								if($frame[$i][4]) { $title = "<a href=\"{$frame[$i][4]}\" target=\"_blank\">{$frame[$i][1]}</a>"; }
+
+								if($frame[$i][4])
+									$title = "<a href=\"{$frame[$i][4]}\" target=\"_blank\">{$frame[$i][1]}</a>";
+
 								echo("<div class=\"frame\">
-									<font>{$frame[$i][0]}</font>
-									<span class=\"fa fa-graduation-cap\"></span>
-									<h3>$title</h3>
-									<h4>{$frame[$i][2]}</h4>
-									<hr />
-									<p>{$frame[$i][3]}</p>
-								</div>");
+										<font>{$frame[$i][0]}</font>
+										<span class=\"fa fa-graduation-cap\"></span>
+										<h3>$title</h3>
+										<h4>{$frame[$i][2]}</h4>
+										<hr />
+										<p>{$frame[$i][3]}</p>
+									</div>");
 							}
 						?>
 					</div>
@@ -214,22 +239,25 @@
 					<hr />
 					<?php
 						$k = 0;
-						
+
 						for($i = 0; $i < count($output[0]); $i++) {
 							echo("<div id=\"portfolio-{$cat[$i]}\">
 								<h3>{$cat[$i]}</h3>
 								<ul>");
-							
+
 							for($j = 0; $j < $l; $j++) {
-								if(isset($output[0][$i][$j])) {
+								if(isset($output[0][$i][$j]))
 									echo("<li>
 											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
 												<img type=\"image/png\" src=\"./pics/p{$j}.png\" />
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
-								} $k++;
-							} echo("</ul></div>");
+
+								$k++;
+							}
+
+							echo("</ul></div>");
 						}
 					?>
 				</article>
@@ -251,16 +279,18 @@
 										array("type" => "tel", "name" => "phone", "label" => "Téléphone")
 									)
 								);
-								
+
 								for($i = 0; $i < count($frame); $i++) {
 									echo("<div class=\"row\">");
-									for($j = 0; $j < count($frame[$i]); $j++) {
+
+									for($j = 0; $j < count($frame[$i]); $j++)
 										echo("<div class=\"inputBox\" id=\"{$frame[$i][$j]['name']}\">
-											<input type=\"{$frame[$i][$j]['type']}\" name=\"{$frame[$i][$j]['name']}\" required />
-											<label>{$frame[$i][$j]['label']}</label>
-											<p class=\"error\"></p>
-										</div>");
-									} echo("</div>");
+												<input type=\"{$frame[$i][$j]['type']}\" name=\"{$frame[$i][$j]['name']}\" required />
+												<label>{$frame[$i][$j]['label']}</label>
+												<p class=\"error\"></p>
+											</div>");
+
+									echo("</div>");
 								}
 							?>
 							<div class="inputBox" id="msg">
