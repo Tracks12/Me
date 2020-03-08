@@ -178,11 +178,18 @@
 						<?php
 							$frame = array(
 								array(
-									"2018",
+									"2020",
 									"Lycée GT Déodat de Séverac",
 									"Brevet Technicien Supérieur<br /><br />",
 									"Systèmes Numériques<br />En cours de validation...",
 									false
+								),
+								array(
+									"2020",
+									"3CX Basic Certified Engineer v16",
+									"Formation online<br />Basic Telecom Engineer",
+									"Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur",
+									"https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj"
 								),
 								array(
 									"2017",
