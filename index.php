@@ -161,66 +161,29 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = array(
-								array(
-									"2020",
-									"Lycée GT Déodat de Séverac",
-									"Brevet Technicien Supérieur<br /><br />",
-									"Systèmes Numériques<br />En cours de validation...",
-									false
-								),
-								array(
-									"2020",
-									"3CX Basic Certified Engineer v16",
-									"Formation online<br />Basic Telecom Engineer",
-									"Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur",
-									"https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj"
-								),
-								array(
-									"2017",
-									"Udemy.com",
-									"Formation online<br />Web Designer",
-									"Illustrator, PhotoShop, XDesign<br />Web Design",
-									"https://www.udemy.com/certificate/UC-GMXYYE9B/"
-								),
-								array(
-									"2017",
-									"Udemy.com",
-									"Formation online<br />Web Developer",
-									"HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design",
-									"https://www.udemy.com/certificate/UC-8XQUXMMT/"
-								),
-								array(
-									"2017",
-									"Lycée GT Déodat de Séverac",
-									"Baccalauréat STI2D<br /><br />",
-									"Système Informatique et Numérique<br />Mention Assez Bien",
-									false
-								),
-								array(
-									"2016",
-									"Codecademy.com",
-									"Formation online<br />Programer & Developer",
-									"HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website",
-									"https://www.codecademy.com/profiles/Tracks12"
-								)
-							);
+							$req = $bdd->query('SELECT * FROM formations ORDER BY idFormations DESC');
+							$frame = array();
+
+							while($out = $req->fetch(PDO::FETCH_NUM))
+								array_push($frame, $out);
 
 							for($i = 0; $i < count($frame); $i++) {
-								$title = $frame[$i][1];
+								$title = $frame[$i][2];
 
-								if($frame[$i][4])
-									$title = "<a href=\"{$frame[$i][4]}\" target=\"_blank\">{$frame[$i][1]}</a>";
+								if($frame[$i][5])
+									$title = "<a href=\"{$frame[$i][5]}\" target=\"_blank\">{$frame[$i][2]}</a>";
 
 								echo("<div class=\"frame\">
-										<font>{$frame[$i][0]}</font>
+										<font>{$frame[$i][1]}</font>
 										<span class=\"fa fa-graduation-cap\"></span>
 										<h3>$title</h3>
-										<h4>{$frame[$i][2]}</h4>
+										<h4>{$frame[$i][3]}</h4>
 										<hr />
-										<p>{$frame[$i][3]}</p>
+										<p>{$frame[$i][4]}</p>
 									</div>");
 							}
+
+							$bdd = bdd::disconnect();
 						?>
 					</div>
 				</article>
@@ -258,7 +221,7 @@
 				<article>
 					<h2>contact</h2>
 					<hr />
-					<div class="container">
+					<div class="container">$bdd = bdd::connect();
 						<form method="POST" action>
 							<?php
 								$frame = array(
