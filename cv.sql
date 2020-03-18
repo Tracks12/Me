@@ -20,9 +20,25 @@ CREATE TABLE `experiences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `experiences` (`idExperiences`, `entity`, `job`, `period`, `description`) VALUES
-	(1, 'Indépendant', 'Développeur Web', 'juil. 2017 - sept. 2018', 'France<br />'),
-	(2, 'Conseil Départemental HG', 'Stagiaire Développeur Web', 'mai. 2019 - juin. 2019', 'France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony'),
-	(3, 'WHYNOGROUP EU', 'Développeur Web Front End', 'fév. 2019 - Aujourd\'hui', 'France<br /><br />Conception, Réalisation et Déploiement d\'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web');
+	(
+		1,
+		'Indépendant',
+		'Développeur Web',
+		'juil. 2017 - sept. 2018',
+		'France<br />'
+	), (
+		2,
+		'Conseil Départemental HG',
+		'Stagiaire Développeur Web',
+		'mai. 2019 - juin. 2019',
+		'France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony'
+	), (
+		3,
+		'WHYNOGROUP EU',
+		'Développeur Web Front End',
+		'fév. 2019 - Aujourd\'hui',
+		'France<br /><br />Conception, Réalisation et Déploiement d\'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web'
+	);
 
 
 -- --------------------------------------------------------
@@ -37,12 +53,49 @@ CREATE TABLE `formations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `formations` (`idFormations`, `date`, `entity`, `title`, `description`, `link`) VALUES
-	(19, 2016, 'Codecademy.com', 'Formation online<br />Programer & Developer', 'HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website', 'https://www.codecademy.com/profiles/Tracks12'),
-	(20, 2017, 'Lycée GT Déodat de Séverac', 'Baccalauréat STI2D<br /><br />', 'Système Informatique et Numérique<br />Mention Assez Bien', '0'),
-	(21, 2017, 'Udemy.com', 'Formation online<br />Web Developer', 'HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design', 'https://www.udemy.com/certificate/UC-8XQUXMMT/'),
-	(22, 2017, 'Udemy.com', 'Formation online<br />Web Designer', 'Illustrator, PhotoShop, XDesign<br />Web Design', 'https://www.udemy.com/certificate/UC-GMXYYE9B/'),
-	(23, 2020, '3CX Basic Certified Engineer v16', 'Formation online<br />Basic Telecom Engineer', 'Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur', 'https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj'),
-	(24, 2020, 'Lycée GT Déodat de Séverac', 'Brevet Technicien Supérieur<br /><br />', 'Systèmes Numériques<br />En cours de validation...', '0');
+	(
+		19,
+		2016,
+		'Codecademy.com',
+		'Formation online<br />Programer & Developer',
+		'HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website',
+		'https://www.codecademy.com/profiles/Tracks12'
+	), (
+		20,
+		2017,
+		'Lycée GT Déodat de Séverac',
+		'Baccalauréat STI2D<br /><br />',
+		'Système Informatique et Numérique<br />Mention Assez Bien',
+		'0'
+	), (
+		21,
+		2017,
+		'Udemy.com',
+		'Formation online<br />Web Developer',
+		'HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design',
+		'https://www.udemy.com/certificate/UC-8XQUXMMT/'
+	), (
+		22,
+		2017,
+		'Udemy.com',
+		'Formation online<br />Web Designer',
+		'Illustrator, PhotoShop, XDesign<br />Web Design',
+		'https://www.udemy.com/certificate/UC-GMXYYE9B/'
+	), (
+		23,
+		2020,
+		'3CX Basic Certified Engineer v16',
+		'Formation online<br />Basic Telecom Engineer',
+		'Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur',
+		'https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj'
+	), (
+		24,
+		2020,
+		'Lycée GT Déodat de Séverac',
+		'Brevet Technicien Supérieur<br /><br />',
+		'Systèmes Numériques<br />En cours de validation...',
+		'0'
+	);
 
 
 -- --------------------------------------------------------
@@ -69,14 +122,47 @@ CREATE TABLE `skills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `skills` (`idSkills`, `id`, `title`, `status`) VALUES
-	(1, 'html', 'HTML5', 0.98),
-	(2, 'js', 'JavaScript', 0.9),
-	(3, 'bootstrap', 'BootStrap', 0.9),
-	(4, 'mysql', 'MySQL', 0.8),
-	(5, 'css', 'CSS3', 0.95),
-	(6, 'jquery', 'JQuery', 0.9),
-	(7, 'php', 'PHP7', 0.85),
-	(8, 'python', 'Python', 0.75);
+	(
+		1,
+		'html',
+		'HTML5',
+		0.98
+	), (
+		2,
+		'js',
+		'JavaScript',
+		0.9
+	), (
+		3,
+		'bootstrap',
+		'BootStrap',
+		0.9
+	), (
+		4,
+		'mysql',
+		'MySQL',
+		0.8
+	), (
+		5,
+		'css',
+		'CSS3',
+		0.95
+	), (
+		6,
+		'jquery',
+		'JQuery',
+		0.9
+	), (
+		7,
+		'php',
+		'PHP7',
+		0.85
+	), (
+		8,
+		'python',
+		'Python',
+		0.75
+	);
 
 
 -- KEY PROPERTIES
