@@ -38,7 +38,7 @@
 		<meta name="description" content="Web CV by CARDINAL Florian - Junior Web Developer [Full Stack] {Html5/Css3, Js, PhP7, MySQL, Python}">
 		<title>Hello :)</title>
 		<link rel="icon" type="image/gif" href="./pics/favicon.gif" />
-		<link rel="stylesheet" type="text/css" href="./font-awesome/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/font-awesome/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./styles/main.css" />
 		<link rel="stylesheet" type="text/css" href="./styles/animation.css" />
 		<link rel="stylesheet" type="text/css" href="./styles/responsive.css" />
