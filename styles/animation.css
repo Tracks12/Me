@@ -1,0 +1,24 @@
+/**
+ * Auteur : CARDINAL Florian
+ * Date   : 18/03/2020 19:40
+ * Page   : animation.css
+ */
+
+@keyframes slither0 {
+	0% { transform: translateX(100%); }
+	100% { transform: translateX(-100%); }
+}
+
+@keyframes slither1 {
+	0% { transform: translateY(100%); }
+	100% { transform: translateY(-100%); }
+}
+
+@keyframes slideBar {
+	0% { background-position: 0%; }
+	100% { background-position: 300%; }
+}
+
+/**
+ * END
+ */

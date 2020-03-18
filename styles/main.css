@@ -1,10 +1,8 @@
-/********************************
-*                               *
-*   Auteur : CARDINAL Florian   *
-*   Date   : 25/02/2019 17:19   *
-*   Page   : style.css          *
-*                               *
-********************************/
+/**
+ * Auteur : CARDINAL Florian
+ * Date   : 25/02/2019 17:19
+ * Page   : style.css
+ */
 
 * {
 	color: rgb(51, 51, 51);
@@ -13,7 +11,7 @@
 }
 
 html {
-	background: url('./pics/bg.png') fixed center no-repeat;
+	background: url('../pics/bg.png') fixed center no-repeat;
 	background-size: cover;
 	height: 100%; width: 100%;
 }
@@ -157,12 +155,60 @@ header article {
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
 	max-width: 35em;
+	overflow: hidden;
 	padding: 2em .5em 2.75em .5em;
+	position: relative;
 	text-align: center;
 }
 
-header article span {
-	background: url('./pics/avatar.jpg') no-repeat;
+header article .slither {
+	color: rgb(234, 0, 154);
+	position: absolute;
+}
+header article .slither::before {
+	content: '';
+	filter: blur(5px);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+header article .horizontal { height: 4px; width: 100%; }
+header article .vertical { height: 100%; width: 4px; }
+header article .slither:nth-child(1) {
+	animation: slither0 4s linear infinite reverse;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor);
+	left: 0;
+	top: 0;
+}
+header article .slither:nth-child(1):before { background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(2) {
+	animation: slither1 4s linear infinite reverse;
+	animation-delay: -2s;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor);
+	right: 0;
+	top: 0;
+}
+header article .slither:nth-child(2):before { background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(3) {
+	animation: slither0 4s linear infinite;
+	background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor);
+	bottom: 0;
+	left: 0;
+}
+header article .slither:nth-child(3):before { background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(4) {
+	animation: slither1 4s linear infinite;
+	animation-delay: -2s;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor);
+	top: 0;
+	left: 0;
+}
+header article .slither:nth-child(4):before { background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor); }
+
+header article .avatar {
+	background: url('../pics/avatar.jpg') no-repeat;
 	background-size: cover;
 	border-radius: 500%;
 	display: block;
@@ -301,7 +347,7 @@ aside hr {
 }
 
 #skills .row .progressBar .progress {
-	animation: animate 10s linear infinite reverse;
+	animation: slideBar 10s linear infinite reverse;
 	background: linear-gradient(90deg, #CC00CC, #00CCCC, #CC00CC);
 	background-size: 300%;
 	height: 100%;
@@ -569,7 +615,7 @@ aside hr {
 	transition: .4s all;
 }
 #contact input[type=submit]:hover {
-	animation: animate 10s linear infinite;
+	animation: slideBar 10s linear infinite;
 	box-shadow: 0 8px 10px rgba(0, 0, 0, .4);
 	text-shadow:
 		0 0 10px rgba(0, 0, 0, .5),
@@ -602,87 +648,6 @@ footer .fa.fa-chevron-up:hover {
 
 footer p { color: rgb(180, 180, 180); }
 
-@keyframes animate {
-	0% { background-position: 0%; }
-	100% { background-position: 300%; }
-}
-
-@media(max-width: 720px) {
-	nav {
-		overflow: auto;
-		max-height: 100%;
-		padding-left: 0;
-		position: fixed;
-	}
-
-	nav #time {
-		font-size: 150%;
-		right: 0;
-	}
-
-	nav div { display: block; }
-
-	nav ul {
-		display: none;
-		padding-left: 0;
-		position: relative;
-	}
-
-	nav ul li { display: block; }
-	nav ul ul {
-		background: rgb(225, 225, 225);
-		box-shadow: none;
-		position: relative;
-	}
-
-	header div { display: none; }
-
-	aside hr {
-		margin: 1.5em 4em;
-		margin-bottom: 4.5em;
-		max-width: 100%;
-	}
-
-	#skills .container { padding: 0; }
-	#skills .row {
-		display: block;
-		width: 100%;
-	}
-
-	#xp ul { padding: 30px 10px; }
-	#xp ul::before { left: 30px; }
-
-	#xp ul > li { border-radius: 0 10px 10px 0; }
-	#xp ul > li, #xp ul > li.inverted {
-		margin-left: 20px;
-		margin-right: 0;
-	}
-
-	#xp ul > li #badge { left: 30px; }
-
-	#grad .container { padding: 0; }
-	#grad .frame {
-		display: block;
-		margin: 25px auto;
-		width: auto;
-		max-width: 375px;
-	}
-
-	#portfolio div { padding: 0; }
-	#portfolio h3 { padding-top: 3em; }
-	#portfolio div ul { text-align: center; }
-	#portfolio div ul li { margin: 4px; }
-	#portfolio div ul li a {
-		margin: 0;
-		max-height: 14.5em;
-		max-width: 14.5em;
-	}
-
-	#contact .container { margin: 0; }
-	#contact .row { width: 100%; }
-	#contact input[type=submit] { width: 90%; }
-}
-
-/**********
-*   END   *
-**********/
+/**
+ * END
+ */

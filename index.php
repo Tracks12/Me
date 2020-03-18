@@ -39,10 +39,12 @@
 		<title>Hello :)</title>
 		<link rel="icon" type="image/gif" href="./pics/favicon.gif" />
 		<link rel="stylesheet" type="text/css" href="./font-awesome/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="./style.css" />
-		<script language="javascript" type="text/javascript" src="./jquery-3.3.1.min.js"></script>
-		<script language="JavaScript" type="text/javascript" src="./particles.min.js"></script>
-		<script language="javascript" type="text/javascript" src="./script.js"></script>
+		<link rel="stylesheet" type="text/css" href="./styles/main.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/animation.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/responsive.css" />
+		<script language="javascript" type="text/javascript" src="./scripts/jquery-3.3.1.min.js"></script>
+		<script language="JavaScript" type="text/javascript" src="./scripts/particles.min.js"></script>
+		<script language="javascript" type="text/javascript" src="./scripts/main.js"></script>
 	</head>
 	<div id="particles-js"></div>
 	<body onload="anim.startTime();">
@@ -79,7 +81,11 @@
 					<pre><?php require("./README.txt"); ?></pre>
 				</div>
 				<article>
-					<span title="Ma tête"></span>
+					<span class="slither horizontal"></span>
+					<span class="slither vertical"></span>
+					<span class="slither horizontal"></span>
+					<span class="slither vertical"></span>
+					<span class="avatar" title="Ma tête"></span>
 					<h1>cardinal florian</h1>
 					<h3>développeur web junior</h3>
 					<a href="https://github.com/Tracks12/Me/raw/master/cv.pdf" download>Télécharger CV</a>
