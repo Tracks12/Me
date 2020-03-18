@@ -38,7 +38,7 @@
 		<meta name="description" content="Web CV by CARDINAL Florian - Junior Web Developer [Full Stack] {Html5/Css3, Js, PhP7, MySQL, Python}">
 		<title>Hello :)</title>
 		<link rel="icon" type="image/gif" href="./pics/favicon.gif" />
-		<link rel="stylesheet" type="text/css" href="./font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="./font-awesome/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
 		<script language="javascript" type="text/javascript" src="./jquery-3.3.1.min.js"></script>
 		<script language="JavaScript" type="text/javascript" src="./particles.min.js"></script>
@@ -221,7 +221,7 @@
 				<article>
 					<h2>contact</h2>
 					<hr />
-					<div class="container">$bdd = bdd::connect();
+					<div class="container">
 						<form method="POST" action>
 							<?php
 								$frame = array(
