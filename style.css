@@ -19,7 +19,7 @@ html {
 }
 
 #particles-js {
-	background: #111111 linear-gradient(-30deg, #4F0068, #89EEEE) center no-repeat;
+	background: linear-gradient(-30deg, rgba(79, 0, 104, .5), rgba(137, 238, 238, 1)) center no-repeat;
 	background-size: cover;
 	height: 100%;
 	position: fixed;
@@ -147,7 +147,7 @@ header div::before { top: 0; }
 header div::after { bottom: 0; }
 
 header div p, header div pre {
-	color: #EEEEEE;
+	color: rgb(238, 238, 238);
 	font-family: Monospace;
 }
 
@@ -449,7 +449,10 @@ aside hr {
 	width: 20em;
 }
 
-#portfolio div ul li a img {
+#portfolio div ul li a span {
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
 	filter: blur(0);
 	height: 100%;
 	transition: .5s all;
@@ -468,7 +471,7 @@ aside hr {
 	transition: .5s all;
 }
 
-#portfolio div ul li a:hover img { filter: blur(2px); }
+#portfolio div ul li a:hover span { filter: blur(2px); }
 
 #portfolio div ul li a:hover p { bottom: 0; }
 
@@ -611,52 +614,52 @@ footer p { color: rgb(180, 180, 180); }
 		padding-left: 0;
 		position: fixed;
 	}
-	
+
 	nav #time {
 		font-size: 150%;
 		right: 0;
 	}
-	
+
 	nav div { display: block; }
-	
+
 	nav ul {
 		display: none;
 		padding-left: 0;
 		position: relative;
 	}
-	
+
 	nav ul li { display: block; }
 	nav ul ul {
 		background: rgb(225, 225, 225);
 		box-shadow: none;
 		position: relative;
 	}
-	
+
 	header div { display: none; }
-	
+
 	aside hr {
 		margin: 1.5em 4em;
 		margin-bottom: 4.5em;
 		max-width: 100%;
 	}
-	
+
 	#skills .container { padding: 0; }
 	#skills .row {
 		display: block;
 		width: 100%;
 	}
-	
+
 	#xp ul { padding: 30px 10px; }
 	#xp ul::before { left: 30px; }
-	
+
 	#xp ul > li { border-radius: 0 10px 10px 0; }
 	#xp ul > li, #xp ul > li.inverted {
 		margin-left: 20px;
 		margin-right: 0;
 	}
-	
+
 	#xp ul > li #badge { left: 30px; }
-	
+
 	#grad .container { padding: 0; }
 	#grad .frame {
 		display: block;
@@ -664,7 +667,7 @@ footer p { color: rgb(180, 180, 180); }
 		width: auto;
 		max-width: 375px;
 	}
-	
+
 	#portfolio div { padding: 0; }
 	#portfolio h3 { padding-top: 3em; }
 	#portfolio div ul { text-align: center; }
@@ -673,9 +676,8 @@ footer p { color: rgb(180, 180, 180); }
 		margin: 0;
 		max-height: 16.5em;
 		max-width: 16.5em;
-		width: 100%;
 	}
-	
+
 	#contact .container { margin: 0; }
 	#contact .row { width: 100%; }
 	#contact input[type=submit] { width: 90%; }

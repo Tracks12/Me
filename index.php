@@ -201,10 +201,10 @@
 								<ul>");
 
 							for($j = 0; $j < $l; $j++) {
-								if(isset($output[0][$i][$j]))
+								if(isset($output[0][$i][$j])) //<img type=\"image/png\" src=\"./pics/p{$j}.png\" />
 									echo("<li>
 											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
-												<img type=\"image/png\" src=\"./pics/p{$j}.png\" />
+												<span style=\"background-image: url('./pics/p{$j}.png');\"></span>
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
