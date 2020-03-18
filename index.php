@@ -5,6 +5,9 @@
 	Page   : index.php
 -->
 <?php
+	require_once('./bddConnect.php');
+
+	$bdd = bdd::connect();
 	$dir = scandir("./portfolio/"); $k = 0;
 	$categ = array(
 		array("btn", "login", "nav", "slide"),
@@ -60,10 +63,11 @@
 					<a href="https://github.com/Tracks12/Me/raw/master/cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
-						$button = array(
-							array("link" => 'https://github.com/Tracks12', "title" => 'Mon GitHub', "name" => "github"),
-							array("link" => 'https://www.linkedin.com/in/florian-cardinal-13317b150', "title" => 'Mon LinkedIn', "name" => "linkedin")
-						);
+						$req = $bdd->query('SELECT * FROM network');
+						$button = array();
+
+						while($out = $req->fetch(PDO::FETCH_ASSOC))
+							array_push($button, $out);
 
 						for($i = 0; $i < count($button); $i++) {
 							echo("<button onclick=\"window.open('{$button[$i]["link"]}');\" title=\"{$button[$i]["title"]}\">");
@@ -79,20 +83,18 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = array(
-								array(
-									array("id" => "html", "title" => "HTML5"),
-									array("id" => "js", "title" => "JavaScript"),
-									array("id" => "bootstrap", "title" => "BootStrap"),
-									array("id" => "mysql", "title" => "MySQL")
-								),
-								array(
-									array("id" => "css", "title" => "CSS3"),
-									array("id" => "jquery", "title" => "JQuery"),
-									array("id" => "php", "title" => "PHP7"),
-									array("id" => "python", "title" => "Python")
-								)
+							$req = array(
+								$bdd->query('SELECT * FROM skills WHERE idSkills BETWEEN 1 AND 4'),
+								$bdd->query('SELECT * FROM skills WHERE idSkills BETWEEN 5 AND 8'),
+								$bdd->query('SELECT * FROM skills')
 							);
+							$frame = array(array(), array());
+
+							for($i = 1; $i <= 4; $i++)
+								array_push($frame[0], $req[0]->fetch(PDO::FETCH_ASSOC));
+
+							for($i = 5; $i <= 8; $i++)
+								array_push($frame[1], $req[1]->fetch(PDO::FETCH_ASSOC));
 
 							for($i = 0; $i < count($frame); $i++) {
 								echo("<div class=\"row\">");
@@ -100,7 +102,7 @@
 								for($j = 0; $j < count($frame[$i]); $j++)
 									echo("<div class=\"progressBar\" id=\"{$frame[$i][$j]["id"]}\">
 											<div class=\"progress\"></div>
-											<h5>{$frame[$i][$j]["title"]} </h5>
+											<h5>{$frame[$i][$j]["title"]}</h5>
 										</div>");
 
 								echo("</div>");
@@ -108,14 +110,12 @@
 						?>
 						<script language="javascript" type="text/javascript">
 							var progress = new Array(
-								Array("html", "95%"),
-								Array("css", "95%"),
-								Array("js", "90%"),
-								Array("jquery", "90%"),
-								Array("bootstrap", "90%"),
-								Array("php", "85%"),
-								Array("mysql", "80%"),
-								Array("python", "75%")
+								<?php
+									while($out = $req[2]->fetch(PDO::FETCH_ASSOC)) {
+										$out['status'] = $out['status'] * 100;
+										echo("Array('{$out['id']}', '{$out['status']}%'),");
+									}
+								?>
 							);
 
 							skillsBar(progress);
@@ -129,26 +129,11 @@
 					<hr />
 					<ul>
 						<?php
-							$frame = array(
-								array(
-									"WHYNOGROUP EU",
-									"Développeur Web Front End",
-									"fév. 2019", "Aujourd'hui",
-									"France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web",
-								),
-								array(
-									"Conseil Départemental HG",
-									"Stagiaire Développeur Web",
-									"mai. 2019", "juin. 2019",
-									"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony",
-								),
-								array(
-									"Indépendant",
-									"Développeur Web",
-									"juil. 2017", "sept. 2018",
-									"France<br />"
-								)
-							);
+							$req = $bdd->query('SELECT * FROM experiences ORDER BY idExperiences DESC');
+							$frame = array();
+
+							while($out = $req->fetch(PDO::FETCH_NUM))
+								array_push($frame, $out);
 
 							for($i = 0; $i < count($frame); $i++) {
 								$invert = "";
@@ -159,9 +144,9 @@
 								echo("<li class=\"$invert\">
 										<span id=\"badge\" class=\"fa fa-briefcase\"></span>
 										<div class=\"panel\">
-											<h3>{$frame[$i][0]}</h3>
-											<h4>{$frame[$i][1]}</h4>
-											<p class=\"period\"><span class=\"fa fa-calendar\"></span> {$frame[$i][2]} - {$frame[$i][3]}</p>
+											<h3>{$frame[$i][1]}</h3>
+											<h4>{$frame[$i][2]}</h4>
+											<p class=\"period\"><span class=\"fa fa-calendar\"></span> {$frame[$i][3]}</p>
 											<p>{$frame[$i][4]}</p>
 										</div>
 									</li>");
