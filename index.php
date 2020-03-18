@@ -262,6 +262,5 @@
 		</section>
 		<?php require("./footer.html"); ?>
 	</body>
-	<script language="JavaScript" type="text/javascript" src="./app.js"></script>
 </html>
 <!-- END -->
