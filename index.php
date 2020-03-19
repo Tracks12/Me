@@ -99,7 +99,7 @@
 
 						for($i = 0; $i < count($button); $i++) {
 							echo("<button onclick=\"window.open('{$button[$i]["link"]}');\" title=\"{$button[$i]["title"]}\">");
-							include("./pics/{$button[$i]['name']}.svg");
+							include_once("./pics/{$button[$i]['name']}.svg");
 							echo("</button>");
 						}
 					?>
@@ -118,11 +118,9 @@
 							);
 							$frame = array(array(), array());
 
-							for($i = 1; $i <= 4; $i++)
-								array_push($frame[0], $req[0]->fetch(PDO::FETCH_ASSOC));
-
-							for($i = 5; $i <= 8; $i++)
-								array_push($frame[1], $req[1]->fetch(PDO::FETCH_ASSOC));
+							for($i = 0; $i < 2; $i++)
+								while($out = $req[$i]->fetch(PDO::FETCH_ASSOC))
+									array_push($frame[$i], $out);
 
 							for($i = 0; $i < count($frame); $i++) {
 								echo("<div class=\"row\">");
