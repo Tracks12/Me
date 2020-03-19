@@ -60,12 +60,12 @@
 				<li><a href="./#xp">parcours pro</a></li>
 				<li><a href="./#grad">formations</a></li>
 				<li>
-					<a href="#portfolio">portfolio <span class="fa fa-sort-desc"></span></a>
+					<a href="./#portfolio">portfolio <span class="fa fa-sort-desc"></span></a>
 					<ul>
 						<?php
 							for($i = 0; $i < count($cat); $i++)
 								if($cat[$i])
-									echo("<li><a href=\"#portfolio-{$cat[$i]}\">{$cat[$i]}</a></li>");
+									echo("<li><a href=\"./#portfolio-{$cat[$i]}\">{$cat[$i]}</a></li>");
 						?>
 					</ul>
 				</li>
