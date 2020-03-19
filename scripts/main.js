@@ -175,7 +175,6 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: 'POST',
-			//url: '/contact.php',
 			url: '/?act=contact',
 			data: post,
 			dataType: 'json',
