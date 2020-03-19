@@ -6,7 +6,7 @@
 	*   Page   : contact.php        *
 	*                               *
 	********************************/
-	
+
 	function isMail($data) { return filter_var($data, FILTER_VALIDATE_EMAIL); }
 	function isPhone($data) { return preg_match("/^[0-9 ]*$/", $data); }
 	function isInput($data) {
@@ -15,13 +15,14 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	
+
 	$post = array(
 		"value" => array("fname" => NULL, "name" => NULL, "mail" => NULL, "tel" => NULL, "msg" => NULL),
 		"error" => array("fname" => NULL, "name" => NULL, "mail" => NULL, "tel" => NULL, "msg" => NULL),
-		"passed" => false);
+		"passed" => false
+	);
 	$error = "Ce champ n'est pas valide !";
-	
+
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$post["value"]["fname"] = isInput($_POST["fName"]);
 		$post["value"]["name"] = isInput($_POST["name"]);
@@ -32,8 +33,9 @@
 		$mail = array(
 			"header" => NULL,
 			"to" => "cardinal.florian.erwan@gmail.com",
-			"txt" => "");
-		
+			"txt" => ""
+		);
+
 		if(empty($post["value"]["fname"])) { $post["error"]["fname"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Prénom: {$post['value']['fname']}\n"; }
 		if(empty($post["value"]["name"])) { $post["error"]["name"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Nom: {$post['value']['name']}\n"; }
 		if(!isMail($post["value"]["mail"])) { $post["error"]["mail"] = $error; $post["passed"] = false; } else { $mail["txt"] .= "Mail: {$post['value']['mail']}\n"; }
@@ -44,10 +46,10 @@
 			mail($mail["to"], "Contact Web CV", $mail["txt"], $mail["header"]);
 			$post["value"] = NULL;
 		}
-		
+
 		echo(json_encode($post));
 	}
-	
+
 	/**********
 	*   END   *
 	**********/
