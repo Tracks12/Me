@@ -11,7 +11,7 @@
 }
 
 html {
-	background: url('../pics/bg.png') fixed center no-repeat;
+	background: url('/pics/bg.png') fixed center no-repeat;
 	background-size: cover;
 	height: 100%; width: 100%;
 }
@@ -208,7 +208,7 @@ header article .slither:nth-child(4) {
 header article .slither:nth-child(4):before { background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor); }
 
 header article .avatar {
-	background: url('../pics/avatar.jpg') no-repeat;
+	background: url('/pics/avatar.jpg') no-repeat;
 	background-size: cover;
 	border-radius: 500%;
 	display: block;

@@ -1,4 +1,7 @@
+php_value display_errors 0
+php_flag output_buffering off
+
 Options -Indexes -FollowSymLinks -MultiViews
 
-ErrorDocument 403 https://floriancardinal.000webhostapp.com/
-ErrorDocument 404 https://floriancardinal.000webhostapp.com/
+ErrorDocument 403 /
+ErrorDocument 404 /

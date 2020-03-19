@@ -36,15 +36,16 @@
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Web CV by CARDINAL Florian - Junior Web Developer [Full Stack] {Html5/Css3, Js, PhP7, MySQL, Python}">
+		<base href="/">
 		<title>Hello :)</title>
-		<link rel="icon" type="image/gif" href="./pics/favicon.gif" />
-		<link rel="stylesheet" type="text/css" href="./styles/font-awesome/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="./styles/main.css" />
-		<link rel="stylesheet" type="text/css" href="./styles/animation.css" />
-		<link rel="stylesheet" type="text/css" href="./styles/responsive.css" />
-		<script language="javascript" type="text/javascript" src="./scripts/jquery-3.3.1.min.js"></script>
-		<script language="JavaScript" type="text/javascript" src="./scripts/particles.min.js"></script>
-		<script language="javascript" type="text/javascript" src="./scripts/main.js"></script>
+		<link rel="icon" type="image/gif" href="/pics/favicon.gif" />
+		<link rel="stylesheet" type="text/css" href="/styles/font-awesome/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/main.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/animation.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/responsive.css" />
+		<script language="javascript" type="text/javascript" src="/scripts/jquery-3.3.1.min.js"></script>
+		<script language="JavaScript" type="text/javascript" src="/scripts/particles.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/scripts/main.js"></script>
 	</head>
 	<div id="particles-js"></div>
 	<body onload="anim.startTime();">
@@ -227,10 +228,10 @@
 								<ul>");
 
 							for($j = 0; $j < $l; $j++) {
-								if(isset($output[0][$i][$j])) //<img type=\"image/png\" src=\"./pics/p{$j}.png\" />
+								if(isset($output[0][$i][$j]))
 									echo("<li>
 											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
-												<span style=\"background-image: url('./pics/p{$j}.png');\"></span>
+												<span style=\"background-image: url('/pics/p{$j}.png');\"></span>
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
