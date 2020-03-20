@@ -29,7 +29,7 @@
 			$k = 1;
 	}
 ?>
-<html>
+<html lang="fr">
 	<?php require_once('./core/views/head.html'); ?>
 	<div id="particles-js"></div>
 	<body onload="anim.startTime();">
@@ -41,7 +41,7 @@
 			<header id="me">
 				<div id="animate">
 					<p>user@machine:~$ cat README.txt</p>
-					<pre><?php require("./README.txt"); ?></pre>
+					<pre><?php require_once("./README.txt"); ?></pre>
 				</div>
 				<article>
 					<span class="slither horizontal"></span>

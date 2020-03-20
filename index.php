@@ -27,13 +27,18 @@
 		 * HTTP Request & Other
 		 */
 
-		$response = http_response_code();
-
-		switch($response) {
+		switch(http_response_code()) {
 			case 200:
+				require_once('./core/views/index.php'); break;
+
 			case 403:
-			case 404: require_once('./core/views/index.php'); break;
-			default: die(); break;
+				require_once('./core/views/index.php'); break;
+
+			case 404:
+				require_once('./core/views/index.php'); break;
+
+			default:
+				die(); break;
 		}
 	}
 
