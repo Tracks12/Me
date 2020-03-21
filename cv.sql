@@ -11,7 +11,21 @@ SET time_zone = "+00:00";
 -- TABLE & CONTENT
 -- --------------------------------------------------------
 
-CREATE TABLE `experiences` (
+CREATE TABLE `contacts`(
+	`idContacts` int(64) NOT NULL,
+	`time` timestamp NOT NULL DEFAULT current_timestamp(),
+	`address` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`name` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`fname` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`mail` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`phone` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`msg` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- --------------------------------------------------------
+
+CREATE TABLE `experiences`(
 	`idExperiences` int(8) NOT NULL,
 	`entity` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`job` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -19,7 +33,7 @@ CREATE TABLE `experiences` (
 	`description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `experiences` (`idExperiences`, `entity`, `job`, `period`, `description`) VALUES
+INSERT INTO `experiences`(`idExperiences`, `entity`, `job`, `period`, `description`) VALUES
 	(
 		1,
 		'Indépendant',
@@ -43,7 +57,7 @@ INSERT INTO `experiences` (`idExperiences`, `entity`, `job`, `period`, `descript
 
 -- --------------------------------------------------------
 
-CREATE TABLE `formations` (
+CREATE TABLE `formations`(
 	`idFormations` int(8) NOT NULL,
 	`date` int(8) NOT NULL,
 	`entity` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -52,7 +66,7 @@ CREATE TABLE `formations` (
 	`link` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `formations` (`idFormations`, `date`, `entity`, `title`, `description`, `link`) VALUES
+INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description`, `link`) VALUES
 	(
 		19,
 		2016,
@@ -100,28 +114,37 @@ INSERT INTO `formations` (`idFormations`, `date`, `entity`, `title`, `descriptio
 
 -- --------------------------------------------------------
 
-CREATE TABLE `network` (
+CREATE TABLE `network`(
 	`idNetwork` int(8) NOT NULL,
 	`name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`title` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`link` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `network` (`idNetwork`, `name`, `title`, `link`) VALUES
-	(1, 'github', 'Mon GitHub', 'https://github.com/Tracks12'),
-	(2, 'linkedin', 'Mon LinkedIn', 'https://www.linkedin.com/in/florian-cardinal-13317b150');
+INSERT INTO `network`(`idNetwork`, `name`, `title`, `link`) VALUES
+	(
+		1,
+		'github',
+		'Mon GitHub',
+		'https://github.com/Tracks12'
+	), (
+		2,
+		'linkedin',
+		'Mon LinkedIn',
+		'https://www.linkedin.com/in/florian-cardinal-13317b150'
+	);
 
 
 -- --------------------------------------------------------
 
-CREATE TABLE `skills` (
+CREATE TABLE `skills`(
 	`idSkills` int(4) NOT NULL,
 	`id` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`title` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`status` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `skills` (`idSkills`, `id`, `title`, `status`) VALUES
+INSERT INTO `skills`(`idSkills`, `id`, `title`, `status`) VALUES
 	(
 		1,
 		'html',
@@ -168,6 +191,9 @@ INSERT INTO `skills` (`idSkills`, `id`, `title`, `status`) VALUES
 -- KEY PROPERTIES
 -- --------------------------------------------------------
 
+ALTER TABLE `contacts`
+	ADD PRIMARY KEY (`idContacts`);
+
 ALTER TABLE `experiences`
 	ADD PRIMARY KEY (`idExperiences`);
 
@@ -176,18 +202,21 @@ ALTER TABLE `formations`
 
 ALTER TABLE `network`
 	ADD PRIMARY KEY (`idNetwork`),
-	ADD UNIQUE KEY `name` (`name`),
-	ADD UNIQUE KEY `title` (`title`),
-	ADD UNIQUE KEY `link` (`link`);
+	ADD UNIQUE KEY `name`(`name`),
+	ADD UNIQUE KEY `title`(`title`),
+	ADD UNIQUE KEY `link`(`link`);
 
 ALTER TABLE `skills`
 	ADD PRIMARY KEY (`idSkills`),
-	ADD UNIQUE KEY `id` (`id`),
-	ADD UNIQUE KEY `title` (`title`);
+	ADD UNIQUE KEY `id`(`id`),
+	ADD UNIQUE KEY `title`(`title`);
 
 
 -- SETTINGS AI & STARTING
 -- --------------------------------------------------------
+
+ALTER TABLE `contacts`
+	MODIFY `idContacts` int(64) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `experiences`
 	MODIFY `idExperiences` int(8) NOT NULL AUTO_INCREMENT,

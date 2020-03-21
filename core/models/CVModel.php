@@ -8,7 +8,11 @@
 	class model extends bdd {
 		public function getNetwork() {
 			$bdd = bdd::connect();
-			$req = $bdd->query('SELECT name, title, link FROM network');
+			$req = $bdd->query('
+				SELECT `name`, `title`, `link`
+				FROM `network`
+			');
+
 			$return = [];
 
 			while($out = $req->fetch(PDO::FETCH_ASSOC))
@@ -20,9 +24,20 @@
 		public function getSkills() {
 			$bdd = bdd::connect();
 			$req = [
-				$bdd->query('SELECT id, title FROM skills WHERE idSkills BETWEEN 1 AND 4'),
-				$bdd->query('SELECT id, title FROM skills WHERE idSkills BETWEEN 5 AND 8'),
+				$bdd->query('
+					SELECT `id`, `title`
+					FROM `skills`
+					WHERE `idSkills`
+					BETWEEN 1 AND 4
+				'),
+				$bdd->query('
+					SELECT `id`, `title`
+					FROM `skills`
+					WHERE `idSkills`
+					BETWEEN 5 AND 8
+				')
 			];
+
 			$return = [[], []];
 
 			for($i = 0; $i < 2; $i++)
@@ -34,7 +49,11 @@
 
 		public function getSkillsStatus() {
 			$bdd = bdd::connect();
-			$req = $bdd->query('SELECT id, status FROM skills');
+			$req = $bdd->query('
+				SELECT `id`, `status`
+				FROM `skills`
+			');
+
 			$return = [];
 
 			while($out = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -47,7 +66,12 @@
 
 		public function getExperiences() {
 			$bdd = bdd::connect();
-			$req = $bdd->query('SELECT * FROM experiences ORDER BY idExperiences DESC');
+			$req = $bdd->query('
+				SELECT *
+				FROM `experiences`
+				ORDER BY `idExperiences` DESC
+			');
+
 			$return = [];
 
 			while($out = $req->fetch(PDO::FETCH_NUM))
@@ -58,13 +82,40 @@
 
 		public function getFormations() {
 			$bdd = bdd::connect();
-			$req = $bdd->query('SELECT * FROM formations ORDER BY idFormations DESC');
+			$req = $bdd->query('
+				SELECT *
+				FROM `formations`
+				ORDER BY `idFormations` DESC
+			');
+
 			$return = [];
 
 			while($out = $req->fetch(PDO::FETCH_NUM))
 				array_push($return, $out);
 
 			return $return;
+		}
+
+		public function insertContactRequest($data) {
+			$bdd = bdd::connect();
+			$req = $bdd->prepare('
+				INSERT INTO `contacts`(`address`, `name`, `fname`, `mail`, `phone`, `msg`)
+				VALUES (?, ?, ?, ?, ?, ?)
+			');
+
+			$arr = [
+				$_SERVER['REMOTE_ADDR'],
+				$data['name'],
+				$data['fname'],
+				$data['mail'],
+				$data['tel'],
+				$data['msg']
+			];
+
+			if($req->execute($arr))
+				return true;
+
+			return false;
 		}
 	}
 

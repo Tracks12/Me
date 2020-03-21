@@ -76,7 +76,10 @@
 			else
 				$mail["txt"] .= "Message: {$post['value']['msg']}";
 
-			if($post["passed"]) {
+			if(
+				$post["passed"]
+				&& model::insertContactRequest($post['value'])
+			) {
 				$mail["header"] = "From: {$post['value']['name']} {$post['value']['fname']} <{$post['value']['mail']}>\r\nReply-To: {$post['value']['mail']}";
 				mail($mail["to"], "Contact Web CV", $mail["txt"], $mail["header"]);
 				$post["value"] = NULL;
