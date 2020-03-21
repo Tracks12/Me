@@ -32,8 +32,6 @@
 				require_once('./core/views/index.php'); break;
 
 			case 403:
-				require_once('./core/views/index.php'); break;
-
 			case 404:
 				require_once('./core/views/index.php'); break;
 
