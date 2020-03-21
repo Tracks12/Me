@@ -5,7 +5,6 @@
 	Page   : index.php
 -->
 <?php
-	$bdd = bdd::connect();
 	$dir = scandir("./portfolio/"); $k = 0;
 	$categ = array(
 		array("btn", "login", "nav", "slide"),
@@ -54,7 +53,7 @@
 					<a href="https://github.com/Tracks12/Me/raw/master/cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
-						$button = model::getNetwork($bdd);
+						$button = model::getNetwork();
 
 						foreach($button as $out) {
 							echo("<button onclick=\"window.open('{$out["link"]}');\" title=\"{$out["title"]}\">");
@@ -70,7 +69,7 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = model::getSkills($bdd);
+							$frame = model::getSkills();
 
 							foreach($frame as $item) {
 								echo("<div class=\"row\">");
@@ -87,12 +86,10 @@
 						<script language="javascript" type="text/javascript">
 							var progress = new Array(
 								<?php
-									$status = model::getSkillsStatus($bdd);
+									$status = model::getSkillsStatus();
 
-									foreach($status as $out) {
-										$out['status'] = $out['status'] * 100;
+									foreach($status as $out)
 										echo("Array('{$out['id']}', '{$out['status']}%'),");
-									}
 								?>
 							);
 
@@ -107,7 +104,7 @@
 					<hr />
 					<ul>
 						<?php
-							$frame = model::getExperiences($bdd);
+							$frame = model::getExperiences();
 
 							for($i = 0; $i < count($frame); $i++) {
 								$invert = "";
@@ -135,7 +132,7 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = model::getFormations($bdd);
+							$frame = model::getFormations();
 
 							foreach($frame as $out) {
 								$title = $out[2];
@@ -152,8 +149,6 @@
 										<p>{$out[4]}</p>
 									</div>");
 							}
-
-							$bdd = bdd::disconnect();
 						?>
 					</div>
 				</article>
@@ -163,8 +158,6 @@
 					<h2>portfolio</h2>
 					<hr />
 					<?php
-						$k = 0;
-
 						for($i = 0; $i < count($output[0]); $i++) {
 							echo("<div id=\"portfolio-{$cat[$i]}\">
 								<h3>{$cat[$i]}</h3>
@@ -178,8 +171,6 @@
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
-
-								$k++;
 							}
 
 							echo("</ul></div>");
@@ -188,46 +179,7 @@
 				</article>
 			</aside>
 			<aside id="contact">
-				<article>
-					<h2>contact</h2>
-					<hr />
-					<div class="container">
-						<form method="POST" action>
-							<?php
-								$frame = array(
-									array(
-										array("type" => "text", "name" => "fName", "label" => "Prénom"),
-										array("type" => "text", "name" => "name", "label" => "Nom")
-									),
-									array(
-										array("type" => "email", "name" => "mail", "label" => "Email"),
-										array("type" => "tel", "name" => "phone", "label" => "Téléphone")
-									)
-								);
-
-								foreach($frame as $item) {
-									echo("<div class=\"row\">");
-
-									foreach($item as $subitem)
-										echo("<div class=\"inputBox\" id=\"{$subitem['name']}\">
-												<input type=\"{$subitem['type']}\" name=\"{$subitem['name']}\" required />
-												<label>{$subitem['label']}</label>
-												<p class=\"error\"></p>
-											</div>");
-
-									echo("</div>");
-								}
-							?>
-							<div class="inputBox" id="msg">
-								<textarea name="msg" required></textarea>
-								<label>Message</label>
-								<p class="error"></p>
-							</div>
-							<input type="submit" value="envoyer" />
-							<p class="ty">Votre message a bien été envoyé. Merci de m'avoir contacter :)</p>
-						</form>
-					</div>
-				</article>
+				<?php require_once('./core/views/contact.php'); ?>
 			</aside>
 		</section>
 		<?php require_once('./core/views/footer.html'); ?>

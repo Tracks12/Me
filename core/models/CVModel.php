@@ -5,8 +5,9 @@
 	 * Page   : CVmodel.php
 	 */
 
-	class model {
-		public function getNetwork($bdd) {
+	class model extends bdd {
+		public function getNetwork() {
+			$bdd = bdd::connect();
 			$req = $bdd->query('SELECT name, title, link FROM network');
 			$return = [];
 
@@ -16,7 +17,8 @@
 			return $return;
 		}
 
-		public function getSkills($bdd) {
+		public function getSkills() {
+			$bdd = bdd::connect();
 			$req = [
 				$bdd->query('SELECT id, title FROM skills WHERE idSkills BETWEEN 1 AND 4'),
 				$bdd->query('SELECT id, title FROM skills WHERE idSkills BETWEEN 5 AND 8'),
@@ -30,17 +32,21 @@
 			return $return;
 		}
 
-		public function getSkillsStatus($bdd) {
+		public function getSkillsStatus() {
+			$bdd = bdd::connect();
 			$req = $bdd->query('SELECT id, status FROM skills');
 			$return = [];
 
-			while($out = $req->fetch(PDO::FETCH_ASSOC))
+			while($out = $req->fetch(PDO::FETCH_ASSOC)) {
+				$out['status'] = $out['status'] * 100;
 				array_push($return, $out);
+			}
 
 			return $return;
 		}
 
-		public function getExperiences($bdd) {
+		public function getExperiences() {
+			$bdd = bdd::connect();
 			$req = $bdd->query('SELECT * FROM experiences ORDER BY idExperiences DESC');
 			$return = [];
 
@@ -50,7 +56,8 @@
 			return $return;
 		}
 
-		public function getFormations($bdd) {
+		public function getFormations() {
+			$bdd = bdd::connect();
 			$req = $bdd->query('SELECT * FROM formations ORDER BY idFormations DESC');
 			$return = [];
 
