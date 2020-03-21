@@ -50,7 +50,7 @@
 					<span class="avatar" title="Ma tête"></span>
 					<h1>cardinal florian</h1>
 					<h3>développeur web junior</h3>
-					<a href="https://github.com/Tracks12/Me/raw/master/cv.pdf" download>Télécharger CV</a>
+					<a href="/assets/cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
 						$button = model::getNetwork();
