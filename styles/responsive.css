@@ -77,6 +77,7 @@
 
 	#contact .container { margin: 0; }
 	#contact .row { width: 100%; }
+	#contact .inputBox { margin-top: 0; }
 	#contact input[type=submit] { width: 90%; }
 }
 
