@@ -68,42 +68,42 @@ CREATE TABLE `formations`(
 
 INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description`, `link`) VALUES
 	(
-		19,
+		1,
 		2016,
 		'Codecademy.com',
 		'Formation online<br />Programer & Developer',
 		'HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website',
 		'https://www.codecademy.com/profiles/Tracks12'
 	), (
-		20,
+		2,
 		2017,
 		'Lycée GT Déodat de Séverac',
 		'Baccalauréat STI2D<br /><br />',
 		'Système Informatique et Numérique<br />Mention Assez Bien',
 		'0'
 	), (
-		21,
+		3,
 		2017,
 		'Udemy.com',
 		'Formation online<br />Web Developer',
 		'HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design',
 		'https://www.udemy.com/certificate/UC-8XQUXMMT/'
 	), (
-		22,
+		4,
 		2017,
 		'Udemy.com',
 		'Formation online<br />Web Designer',
 		'Illustrator, PhotoShop, XDesign<br />Web Design',
 		'https://www.udemy.com/certificate/UC-GMXYYE9B/'
 	), (
-		23,
+		5,
 		2020,
 		'3CX Basic Certified Engineer v16',
 		'Formation online<br />Basic Telecom Engineer',
 		'Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur',
 		'https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj'
 	), (
-		24,
+		6,
 		2020,
 		'Lycée GT Déodat de Séverac',
 		'Brevet Technicien Supérieur<br /><br />',
@@ -224,7 +224,7 @@ ALTER TABLE `experiences`
 
 ALTER TABLE `formations`
 	MODIFY `idFormations` int(8) NOT NULL AUTO_INCREMENT,
-	AUTO_INCREMENT=25;
+	AUTO_INCREMENT=7;
 
 ALTER TABLE `network`
 	MODIFY `idNetwork` int(8) NOT NULL AUTO_INCREMENT,
