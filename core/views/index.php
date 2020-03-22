@@ -57,7 +57,7 @@
 
 						foreach($button as $out) {
 							echo("<button onclick=\"window.open('{$out["link"]}');\" title=\"{$out["title"]}\">");
-							require_once("./pics/{$out['name']}.svg");
+							require_once("./assets/img/{$out['name']}.svg");
 							echo("</button>");
 						}
 					?>
@@ -167,7 +167,7 @@
 								if(isset($output[0][$i][$j]))
 									echo("<li>
 											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
-												<span style=\"background-image: url('/pics/p{$j}.png');\"></span>
+												<span style=\"background-image: url('/assets/img/portfolio/p{$j}.png');\"></span>
 												<p>{$output[0][$i][$j]}</p>
 											</a>
 										</li>");
