@@ -96,6 +96,22 @@
 			return $return;
 		}
 
+		public function getContacts() {
+			$bdd = bdd::connect();
+			$req = $bdd->query('
+				SELECT *
+				FROM `contacts`
+				ORDER BY `idContacts` ASC
+			');
+
+			$return = [];
+
+			while($out = $req->fetch(PDO::FETCH_ASSOC))
+				array_push($return, $out);
+
+			return $return;
+		}
+
 		public function insertContactRequest($data) {
 			$bdd = bdd::connect();
 			$req = $bdd->prepare('
