@@ -40,7 +40,7 @@
 			<header id="me">
 				<div id="animate">
 					<p>user@machine:~$ cat README.txt</p>
-					<pre><?php require_once("./README.txt"); ?></pre>
+					<pre><?php require_once("./assets/README.txt"); ?></pre>
 				</div>
 				<article>
 					<span class="slither horizontal"></span>
