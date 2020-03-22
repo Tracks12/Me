@@ -18,8 +18,9 @@
 		 * XHR Request Only
 		 */
 
+		require_once('./core/models/APIModel.php');
 		require_once('./core/controllers/CVController.php');
-		require_once('./core/route.php');
+		require_once('./core/XHRRoute.php');
 	}
 
 	else {
@@ -27,17 +28,7 @@
 		 * HTTP Request & Other
 		 */
 
-		switch(http_response_code()) {
-			case 200:
-				require_once('./core/views/index.php'); break;
-
-			case 403:
-			case 404:
-				require_once('./core/views/index.php'); break;
-
-			default:
-				die(); break;
-		}
+		require_once('./core/HTTPRoute.php');
 	}
 
 	/**

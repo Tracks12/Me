@@ -2,10 +2,10 @@
 	/**
 	 * Auteur : CARDINAL Florian
 	 * Date   : 19/03/2020 01:04
-	 * Page   : CVcontroller.php
+	 * Page   : CVController.php
 	 */
 
-	class controller {
+	class CVController {
 		public function contact($data) {
 			$post = [
 				"value"		=> [
@@ -78,7 +78,7 @@
 
 			if(
 				$post["passed"]
-				&& model::insertContactRequest($post['value'])
+				&& CVModel::insertContactRequest($post['value'])
 			) {
 				$mail["header"] = "From: {$post['value']['name']} {$post['value']['fname']} <{$post['value']['mail']}>\r\nReply-To: {$post['value']['mail']}";
 				mail($mail["to"], "Contact Web CV", $mail["txt"], $mail["header"]);

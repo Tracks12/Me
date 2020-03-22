@@ -2,14 +2,12 @@
 	/**
 	 * Auteur : CARDINAL Florian
 	 * Date   : 19/03/2020 01:04
-	 * Page   : route.php
+	 * Page   : XHRRoute.php
 	 */
 
-	switch(services::isInput($_GET['act'])) {
-		case 'contact':
-			$result = controller::contact($_POST);
-			echo($result);
-			break;
+	switch(services::isInput($_SERVER['REQUEST_URI'])) {
+		case '/?contact':
+			echo(CVController::contact($_POST)); break;
 
 		default:
 			http_response_code(404);

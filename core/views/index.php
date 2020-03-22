@@ -53,7 +53,7 @@
 					<a href="/assets/cv.pdf" download>Télécharger CV</a>
 					<hr />
 					<?php
-						$button = model::getNetwork();
+						$button = CVModel::getNetwork();
 
 						foreach($button as $out) {
 							echo("<button onclick=\"window.open('{$out["link"]}');\" title=\"{$out["title"]}\">");
@@ -69,7 +69,7 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = model::getSkills();
+							$frame = CVModel::getSkills();
 
 							foreach($frame as $item) {
 								echo("<div class=\"row\">");
@@ -86,7 +86,7 @@
 						<script language="javascript" type="text/javascript">
 							var progress = new Array(
 								<?php
-									$status = model::getSkillsStatus();
+									$status = CVModel::getSkillsStatus();
 
 									foreach($status as $out)
 										echo("Array('{$out['id']}', '{$out['status']}%'),");
@@ -104,7 +104,7 @@
 					<hr />
 					<ul>
 						<?php
-							$frame = model::getExperiences();
+							$frame = CVModel::getExperiences();
 
 							for($i = 0; $i < count($frame); $i++) {
 								$invert = "";
@@ -132,7 +132,7 @@
 					<hr />
 					<div class="container">
 						<?php
-							$frame = model::getFormations();
+							$frame = CVModel::getFormations();
 
 							foreach($frame as $out) {
 								$title = $out[2];

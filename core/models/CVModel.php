@@ -2,10 +2,10 @@
 	/**
 	 * Auteur : CARDINAL Florian
 	 * Date   : 19/03/2020 01:04
-	 * Page   : CVmodel.php
+	 * Page   : CVModel.php
 	 */
 
-	class model extends bdd {
+	class CVModel extends bdd {
 		public function getNetwork() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
