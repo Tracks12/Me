@@ -1,0 +1,14 @@
+/**
+ * Auteur : CARDINAL Florian
+ * Date   : 22/03/2020 22:09
+ * Page   : fonts.css
+ */
+
+@font-face {
+	font-family: 'Lato';
+	src: url('/assets/fonts/Lato/Lato-Regular.woff') format('woff');
+}
+
+/**
+ * END
+ */

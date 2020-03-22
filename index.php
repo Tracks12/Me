@@ -11,8 +11,8 @@
 
 	if(
 		!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
-		&& (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
-		&& ($_SERVER['REQUEST_METHOD'] === 'POST')
+		&& (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')
+		&& (strtolower($_SERVER['REQUEST_METHOD']) === 'post')
 	) {
 		/**
 		 * XHR Request Only
