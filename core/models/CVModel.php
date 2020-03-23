@@ -13,12 +13,7 @@
 				FROM `network`
 			');
 
-			$return = [];
-
-			while($out = $req->fetch(PDO::FETCH_ASSOC))
-				array_push($return, $out);
-
-			return $return;
+			return $req->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		public function getSkills() {
@@ -38,13 +33,10 @@
 				')
 			];
 
-			$return = [[], []];
-
-			for($i = 0; $i < 2; $i++)
-				while($out = $req[$i]->fetch(PDO::FETCH_ASSOC))
-					array_push($return[$i], $out);
-
-			return $return;
+			return [
+				$req[0]->fetchAll(PDO::FETCH_ASSOC),
+				$req[1]->fetchAll(PDO::FETCH_ASSOC)
+			];
 		}
 
 		public function getSkillsStatus() {
@@ -72,12 +64,7 @@
 				ORDER BY `idExperiences` DESC
 			');
 
-			$return = [];
-
-			while($out = $req->fetch(PDO::FETCH_NUM))
-				array_push($return, $out);
-
-			return $return;
+			return $req->fetchAll(PDO::FETCH_NUM);
 		}
 
 		public function getFormations() {
@@ -88,12 +75,7 @@
 				ORDER BY `idFormations` DESC
 			');
 
-			$return = [];
-
-			while($out = $req->fetch(PDO::FETCH_NUM))
-				array_push($return, $out);
-
-			return $return;
+			return $req->fetchAll(PDO::FETCH_NUM);
 		}
 
 		public function getContacts() {
@@ -104,12 +86,7 @@
 				ORDER BY `idContacts` ASC
 			');
 
-			$return = [];
-
-			while($out = $req->fetch(PDO::FETCH_ASSOC))
-				array_push($return, $out);
-
-			return $return;
+			return $req->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		public function insertContactRequest($data) {
