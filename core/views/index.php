@@ -42,141 +42,19 @@
 					<p>user@machine:~$ cat /assets/README.txt</p>
 					<pre><?php require_once("./assets/README.txt"); ?></pre>
 				</div>
-				<article class="global-bg">
-					<span class="slither horizontal"></span>
-					<span class="slither vertical"></span>
-					<span class="slither horizontal"></span>
-					<span class="slither vertical"></span>
-					<span class="avatar" title="Ma tête"></span>
-					<h1>cardinal florian</h1>
-					<h3>développeur web junior</h3>
-					<a href="/assets/cv.pdf" download>télécharger cv</a>
-					<hr />
-					<?php
-						$button = CVModel::getNetwork();
-
-						foreach($button as $out) {
-							echo("<button onclick=\"window.open('{$out["link"]}');\" title=\"{$out["title"]}\">");
-							require_once("./assets/img/{$out['name']}.svg");
-							echo("</button>");
-						}
-					?>
-				</article>
+				<?php require_once('./core/views/header.php'); ?>
 			</header>
 			<aside id="skills">
-				<article class="global-bg">
-					<h2>compétences</h2>
-					<hr />
-					<div class="container">
-						<?php
-							$frame = CVModel::getSkills();
-
-							foreach($frame as $item) {
-								echo("<div class=\"row\">");
-
-								foreach($item as $subitem)
-									echo("<div class=\"progressBar\" id=\"{$subitem["id"]}\">
-											<div class=\"progress\"></div>
-											<h5>{$subitem["title"]}</h5>
-										</div>");
-
-								echo("</div>");
-							}
-						?>
-						<script language="javascript" type="text/javascript">
-							var progress = new Array(
-								<?php
-									$status = CVModel::getSkillsStatus();
-
-									foreach($status as $out)
-										echo("Array('{$out['id']}', '{$out['status']}%'),");
-								?>
-							);
-
-							skillsBar(progress);
-						</script>
-					</div>
-				</article>
+				<?php require_once('./core/views/skills.php'); ?>
 			</aside>
 			<aside id="xp">
-				<article class="global-bg">
-					<h2>parcours profesionnel</h2>
-					<hr />
-					<ul>
-						<?php
-							$frame = CVModel::getExperiences();
-
-							for($i = 0; $i < count($frame); $i++) {
-								$invert = "";
-
-								if($i%2)
-									$invert = "inverted";
-
-								echo("<li class=\"$invert\">
-										<span id=\"badge\" class=\"fa fa-briefcase\"></span>
-										<div class=\"panel\">
-											<h3>{$frame[$i][1]}</h3>
-											<h4>{$frame[$i][2]}</h4>
-											<p class=\"period\"><span class=\"fa fa-calendar\"></span> {$frame[$i][3]}</p>
-											<p>{$frame[$i][4]}</p>
-										</div>
-									</li>");
-							}
-						?>
-					</ul>
-				</article>
+				<?php require_once('./core/views/experiences.php'); ?>
 			</aside>
 			<aside id="grad">
-				<article class="global-bg">
-					<h2>formations</h2>
-					<hr />
-					<div class="container">
-						<?php
-							$frame = CVModel::getFormations();
-
-							foreach($frame as $out) {
-								$title = $out[2];
-
-								if($out[5])
-									$title = "<a href=\"{$out[5]}\" target=\"_blank\">{$out[2]}</a>";
-
-								echo("<div class=\"frame\">
-										<font>{$out[1]}</font>
-										<span class=\"fa fa-graduation-cap\"></span>
-										<h3>$title</h3>
-										<h4>{$out[3]}</h4>
-										<hr />
-										<p>{$out[4]}</p>
-									</div>");
-							}
-						?>
-					</div>
-				</article>
+				<?php require_once('./core/views/graduations.php'); ?>
 			</aside>
 			<aside id="portfolio">
-				<article class="global-bg">
-					<h2>portfolio</h2>
-					<hr />
-					<?php
-						for($i = 0; $i < count($output[0]); $i++) {
-							echo("<div id=\"portfolio-{$cat[$i]}\">
-								<h3>{$cat[$i]}</h3>
-								<ul>");
-
-							for($j = 0; $j < $l; $j++) {
-								if(isset($output[0][$i][$j]))
-									echo("<li>
-											<a target=\"blank_\" href=\"./portfolio/{$output[0][$i][$j]}\" title=\"{$cat[$i]} : {$output[0][$i][$j]}\">
-												<span style=\"background-image: url('/assets/img/portfolio/p{$j}.png');\"></span>
-												<p>{$output[0][$i][$j]}</p>
-											</a>
-										</li>");
-							}
-
-							echo("</ul></div>");
-						}
-					?>
-				</article>
+				<?php require_once('./core/views/portfolio.php'); ?>
 			</aside>
 			<aside id="contact">
 				<?php require_once('./core/views/contact.php'); ?>
