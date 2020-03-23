@@ -39,8 +39,8 @@
 		<section>
 			<header id="me">
 				<div id="animate">
-					<p>user@machine:~$ cat /assets/README.txt</p>
-					<pre><?php require_once("./assets/README.txt"); ?></pre>
+					<p>user@machine:~$ cat README.txt</p>
+					<pre><?php require_once("./README.txt"); ?></pre>
 				</div>
 				<?php require_once('./core/views/header.php'); ?>
 			</header>
