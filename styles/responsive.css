@@ -27,7 +27,6 @@
 
 	nav ul li { display: block; }
 	nav ul ul {
-		background: rgb(225, 225, 225);
 		box-shadow: none;
 		position: relative;
 	}

@@ -5,7 +5,15 @@
  */
 
 :root {
+	--global-bgcolor: rgba(238, 238, 238, 1);
+	--global-color: rgb(50, 50, 50);
+	--nav-hover: rgba(0, 0, 0, .06);
+
+	--bg-transition: background-color 2.5s;
+	--bg-bar: linear-gradient(90deg, #CC00CC, #00CCCC, #CC00CC);
+
 	--contrast: rgb(0, 170, 170);
+	--slither-color: rgb(234, 0, 154);
 }
 
 * {
@@ -36,16 +44,17 @@ canvas {
 	vertical-align: bottom;
 }
 
+.global-bg {
+	background: var(--global-bgcolor);
+	transition: var(--bg-transition);
+}
+
 nav {
 	box-shadow: 0 0 15px rgba(0, 0, 0, .4);
 	padding-left: 3em;
 	position: fixed;
 	width: 100%;
 	z-index: 1;
-}
-
-.nav-background {
-	background: var(--global-bgcolor);
 }
 
 nav div {
@@ -158,7 +167,6 @@ header div p, header div pre {
 }
 
 header article {
-	background: var(--global-bgcolor);
 	border-radius: 10px 0;
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
@@ -170,7 +178,7 @@ header article {
 }
 
 header article .slither {
-	color: rgb(234, 0, 154);
+	color: var(--slither-color);
 	position: absolute;
 }
 header article .slither::before {
@@ -186,34 +194,34 @@ header article .horizontal { height: 4px; width: 100%; }
 header article .vertical { height: 100%; width: 4px; }
 header article .slither:nth-child(1) {
 	animation: slither0 4s linear infinite reverse;
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor);
+	background: linear-gradient(90deg, transparent, currentColor);
 	left: 0;
 	top: 0;
 }
-header article .slither:nth-child(1):before { background: linear-gradient(90deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(1):before { background: linear-gradient(90deg, transparent, currentColor); }
 header article .slither:nth-child(2) {
 	animation: slither1 4s linear infinite reverse;
 	animation-delay: -2s;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor);
+	background: linear-gradient(180deg, transparent, currentColor);
 	right: 0;
 	top: 0;
 }
-header article .slither:nth-child(2):before { background: linear-gradient(180deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(2):before { background: linear-gradient(180deg, transparent, currentColor); }
 header article .slither:nth-child(3) {
 	animation: slither0 4s linear infinite;
-	background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor);
+	background: linear-gradient(-90deg, transparent, currentColor);
 	bottom: 0;
 	left: 0;
 }
-header article .slither:nth-child(3):before { background: linear-gradient(-90deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(3):before { background: linear-gradient(-90deg, transparent, currentColor); }
 header article .slither:nth-child(4) {
 	animation: slither1 4s linear infinite;
 	animation-delay: -2s;
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor);
+	background: linear-gradient(0deg, transparent, currentColor);
 	top: 0;
 	left: 0;
 }
-header article .slither:nth-child(4):before { background: linear-gradient(0deg, rgba(0, 0, 0, 0), currentColor); }
+header article .slither:nth-child(4):before { background: linear-gradient(0deg, transparent, currentColor); }
 
 header article .avatar {
 	background: url('/assets/img/avatar.jpg') no-repeat;
@@ -303,7 +311,6 @@ header article button:hover svg { fill: rgb(238, 238, 238); }
 aside { padding-top: 4.5em; }
 
 aside article {
-	background: var(--global-bgcolor);
 	border-radius: 10px 0;
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
@@ -356,7 +363,7 @@ aside hr {
 
 #skills .row .progressBar .progress {
 	animation: slideBar 10s linear infinite reverse;
-	background: linear-gradient(90deg, #CC00CC, #00CCCC, #CC00CC);
+	background: var(--bg-bar);
 	background-size: 300%;
 	height: 100%;
 	position: absolute;
@@ -612,7 +619,7 @@ aside hr {
 }
 
 #contact input[type=submit] {
-	background: linear-gradient(90deg, #CC11CC, #11CCCC, #CC11CC);
+	background: var(--bg-bar);
 	background-size: 300%;
 	border: 0;
 	border-radius: 500px;

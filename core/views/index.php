@@ -42,7 +42,7 @@
 					<p>user@machine:~$ cat /assets/README.txt</p>
 					<pre><?php require_once("./assets/README.txt"); ?></pre>
 				</div>
-				<article>
+				<article class="global-bg">
 					<span class="slither horizontal"></span>
 					<span class="slither vertical"></span>
 					<span class="slither horizontal"></span>
@@ -64,7 +64,7 @@
 				</article>
 			</header>
 			<aside id="skills">
-				<article>
+				<article class="global-bg">
 					<h2>compétences</h2>
 					<hr />
 					<div class="container">
@@ -99,7 +99,7 @@
 				</article>
 			</aside>
 			<aside id="xp">
-				<article>
+				<article class="global-bg">
 					<h2>parcours profesionnel</h2>
 					<hr />
 					<ul>
@@ -127,7 +127,7 @@
 				</article>
 			</aside>
 			<aside id="grad">
-				<article>
+				<article class="global-bg">
 					<h2>formations</h2>
 					<hr />
 					<div class="container">
@@ -154,7 +154,7 @@
 				</article>
 			</aside>
 			<aside id="portfolio">
-				<article>
+				<article class="global-bg">
 					<h2>portfolio</h2>
 					<hr />
 					<?php

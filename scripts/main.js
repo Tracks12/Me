@@ -12,11 +12,10 @@ class anim {
 		for(let i = 0; i < output.length; i++)
 			output[i].innerText = '';
 
-		anim.text(output[0], data[0], 0);
-		setTimeout(() => anim.frame(output[1], data[1], 0), 3000);
+		anim.text(output[0], data[0], 0, () => anim.frame(output[1], data[1], 0));
 	}
 
-	static text(x, y, z) {
+	static text(x, y, z, func) {
 		let timer = 100;
 
 		if(z < 15)
@@ -26,7 +25,10 @@ class anim {
 		z++;
 
 		if(z < y.length)
-			setTimeout(() => anim.text(x, y, z), timer);
+			setTimeout(() => anim.text(x, y, z, func), timer);
+
+		else
+			setTimeout(func, timer+400);
 	}
 
 	static frame(x, y, z) {
@@ -103,10 +105,10 @@ function theme() {
 		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">';
 
 	else if(date.getHours() > 8)
-		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/light.css">';
+		content = '';
 
 	else if(date.getHours() < 20)
-		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/light.css">';
+		content = '';
 
 	$('head').append(content);
 }

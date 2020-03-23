@@ -1,5 +1,5 @@
 <!-- CONTACT -->
-<article>
+<article class="global-bg">
 	<h2>contact</h2>
 	<hr />
 	<div class="container">
