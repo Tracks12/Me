@@ -1,5 +1,5 @@
 <!-- NAV -->
-<nav>
+<nav class="nav-background">
 	<p id="time">00:00:00</p>
 	<div>
 		<span class="fa fa-bars"></span>
@@ -11,7 +11,7 @@
 		<li><a href="./#grad">formations</a></li>
 		<li>
 			<a href="./#portfolio">portfolio <span class="fa fa-sort-desc"></span></a>
-			<ul>
+			<ul class="nav-background">
 				<?php
 					foreach($cat as $out)
 						if($out)

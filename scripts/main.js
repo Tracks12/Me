@@ -13,7 +13,7 @@ class anim {
 			output[i].innerText = '';
 
 		anim.text(output[0], data[0], 0);
-		setTimeout(() => anim.frame(output[1], data[1], 0), 2250);
+		setTimeout(() => anim.frame(output[1], data[1], 0), 3000);
 	}
 
 	static text(x, y, z) {
@@ -92,9 +92,30 @@ function toScroll() {
 		$('#upper').fadeOut();
 }
 
+function theme() {
+	let date = new Date();
+	let content = null;
+
+	if(date.getHours() < 8)
+		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">';
+
+	else if(date.getHours() > 20)
+		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">';
+
+	else if(date.getHours() > 8)
+		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/light.css">';
+
+	else if(date.getHours() < 20)
+		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/light.css">';
+
+	$('head').append(content);
+}
+
 $(document).ready(function() {
 	document['author'] = "CARDINAL Florian";
 	document['authorAlias'] = "Anarchy";
+
+	theme();
 
 	$('nav div').click(function() {
 		$('nav ul').slideToggle();

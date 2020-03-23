@@ -4,16 +4,22 @@
  * Page   : main.css
  */
 
+:root {
+	--contrast: rgb(0, 170, 170);
+}
+
 * {
-	color: rgb(51, 51, 51);
+	color: var(--global-color);
 	font-family: 'Lato', Ubuntu, sans-serif;
-	margin: 0; padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 html {
 	background: url('/assets/img/bg.png') fixed center no-repeat;
 	background-size: cover;
-	height: 100%; width: 100%;
+	height: 100%;
+	width: 100%;
 }
 
 #particles-js {
@@ -31,12 +37,15 @@ canvas {
 }
 
 nav {
-	background: rgb(238, 238, 238);
 	box-shadow: 0 0 15px rgba(0, 0, 0, .4);
 	padding-left: 3em;
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+}
+
+.nav-background {
+	background: var(--global-bgcolor);
 }
 
 nav div {
@@ -56,7 +65,6 @@ nav #time {
 }
 
 nav ul {
-	background: rgb(238, 238, 238);
 	list-style-type: none;
 	position: relative;
 }
@@ -76,7 +84,7 @@ nav ul li::after {
 	transition: width .2s;
 	width: 0;
 }
-nav ul li:hover { background: rgba(0, 0, 0, .06); }
+nav ul li:hover { background: var(--nav-hover); }
 nav ul li:hover:after { box-shadow: 0 2px 10px currentColor; width: 100%; }
 
 nav ul li a {
@@ -150,8 +158,8 @@ header div p, header div pre {
 }
 
 header article {
-	background: rgb(238, 238, 238);
-	border-radius: 10px 0 10px 0;
+	background: var(--global-bgcolor);
+	border-radius: 10px 0;
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
 	max-width: 35em;
@@ -225,7 +233,7 @@ header article h1 {
 }
 
 header article h3 {
-	color: rgb(0, 140, 140);
+	color: var(--contrast);
 	font-size: 20px;
 	font-weight: 500;
 	margin-top: .25em;
@@ -233,7 +241,7 @@ header article h3 {
 }
 
 header article a {
-	border: 1px solid rgb(0, 170, 170);
+	border: 1px solid var(--contrast);
 	border-radius: 3px;
 	display: inline-block;
 	font-size: 16px;
@@ -251,7 +259,7 @@ header article hr {
 }
 
 header article a:hover {
-	background: rgb(0, 170, 170);
+	background: var(--contrast);
 	box-shadow: 0 8px 10px rgba(0, 0, 0, .4);
 	color: rgb(238, 238, 238);
 }
@@ -259,7 +267,7 @@ header article a:hover {
 header article button {
 	background: transparent;
 	border-radius: 2px;
-	border: 2px solid rgb(0, 170, 170);
+	border: 2px solid var(--contrast);
 	cursor: pointer;
 	font-size: 20px;
 	margin: 5px;
@@ -271,7 +279,7 @@ header article button {
 	z-index: 0;
 }
 header article button::before {
-	background: rgb(0, 170, 170);
+	background: var(--contrast);
 	border-radius: 0 0 50% 50%;
 	content: '';
 	height: 0;
@@ -295,8 +303,8 @@ header article button:hover svg { fill: rgb(238, 238, 238); }
 aside { padding-top: 4.5em; }
 
 aside article {
-	background: rgb(238, 238, 238);
-	border-radius: 10px 0 10px 0;
+	background: var(--global-bgcolor);
+	border-radius: 10px 0;
 	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
 	margin: auto;
 	max-width: 70em;
@@ -390,7 +398,7 @@ aside hr {
 }
 
 #xp ul > li #badge {
-	background: rgb(0, 140, 140);
+	background: var(--contrast);
 	border-radius: 500px;
 	color: rgb(238, 238, 238);
 	font-size: 32px;
@@ -404,7 +412,7 @@ aside hr {
 
 #xp ul > li h3 { font-size: 22px; }
 #xp ul > li h4 {
-	color: rgb(0, 140, 140);
+	color: var(--contrast);
 	font-size: 18px;
 }
 #xp ul > li h3, #xp ul > li h4 { margin-bottom: 5px; }
@@ -420,7 +428,7 @@ aside hr {
 }
 
 #grad .frame {
-	background: rgba(0, 0, 0, 0.05);
+	background: rgba(0, 0, 0, .05);
 	border: 2px solid;
 	border-radius: 0 30px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
@@ -451,7 +459,7 @@ aside hr {
 
 #grad a { text-decoration: none; }
 #grad .frame h4 {
-	color: rgb(0, 140, 140);
+	color: var(--contrast);
 	font-size: 17px;
 }
 
@@ -576,18 +584,18 @@ aside hr {
 #contact .inputBox input:valid ~ label,
 #contact .inputBox textarea:focus ~ label,
 #contact .inputBox textarea:valid ~ label {
-	color: rgb(0, 170, 170);
+	color: var(--contrast);
 	font-size: 12px;
 	top: -18px;
 }
 
 #contact .inputBox input:focus,
 #contact .inputBox textarea:focus {
-	border-color: rgb(0, 170, 170);
+	border-color: var(--contrast);
 }
 
 #contact .error {
-	color: rgb(150, 0, 0);
+	color: rgb(250, 0, 0);
 	font-size: 16px;
 	font-style: italic;
 	padding-top: .25em;
@@ -595,7 +603,7 @@ aside hr {
 }
 
 #contact .ty {
-	color: rgb(0, 150, 0);
+	color: rgb(0, 200, 0);
 	display: none;
 	font-size: 18px;
 	margin-left: 1.25em;
@@ -641,7 +649,7 @@ footer {
 }
 
 footer .fa.fa-chevron-up {
-	color: rgb(0, 170, 170);
+	color: var(--contrast);
 	font-size: 40px;
 	line-height: 60px;
 	margin-bottom: 10px;

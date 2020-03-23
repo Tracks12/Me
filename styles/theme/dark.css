@@ -1,0 +1,16 @@
+/**
+ * Auteur : CARDINAL Florian
+ * Date   : 23/02/2020 00:55
+ * Page   : dark.css
+ */
+
+:root {
+	--global-bgcolor: rgba(50, 50, 50, 1);
+	--global-color: rgb(238, 238, 238);
+
+	--nav-hover: rgba(255, 255, 255, .06);
+}
+
+/**
+ * END
+ */

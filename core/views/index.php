@@ -39,7 +39,7 @@
 		<section>
 			<header id="me">
 				<div id="animate">
-					<p>user@machine:~$ cat README.txt</p>
+					<p>user@machine:~$ cat /assets/README.txt</p>
 					<pre><?php require_once("./assets/README.txt"); ?></pre>
 				</div>
 				<article>
