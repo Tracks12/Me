@@ -95,22 +95,10 @@ function toScroll() {
 }
 
 function theme() {
-	let date = new Date();
-	let content = null;
+	let h = new Date().getHours();
 
-	if(date.getHours() < 8)
-		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">';
-
-	else if(date.getHours() > 20)
-		content = '<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">';
-
-	else if(date.getHours() > 8)
-		content = '';
-
-	else if(date.getHours() < 20)
-		content = '';
-
-	$('head').append(content);
+	if(tools.range(h, 0, 8) || tools.range(h, 20, 24))
+		$('head').append('<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">');
 }
 
 $(document).ready(function() {
