@@ -101,22 +101,20 @@ function theme() {
 		$('head').append('<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">');
 }
 
-$(document).ready(function() {
+$(document).ready(() => {
 	document['author'] = "CARDINAL Florian";
 	document['authorAlias'] = "Anarchy";
 
 	theme();
 
-	$('nav div').click(function() {
+	$('nav div').click(() => {
 		$('nav ul').slideToggle();
 		$('nav ul ul').css('display', 'none');
 	});
 
 	$('nav ul li').click(function() {
-		if($(window).width() < 720) {
-			$('nav ul ul').slideUp();
+		if($(window).width() < 720)
 			$(this).find('ul').slideToggle();
-		}
 	});
 
 	$(window).resize(function() {
