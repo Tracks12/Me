@@ -114,25 +114,30 @@ $(document).ready(() => {
 
 	$('nav ul li').click(function() {
 		if($(window).width() < 720)
-			$(this).find('ul').slideToggle();
+			$(this)
+				.find('ul')
+				.slideToggle();
 	});
 
 	$(window).resize(function() {
-		if($(window).width() > 720) {
+		if($(window).width() > 720)
 			$('nav ul').removeAttr('style');
-		}
 	});
 
-	for(j = 0; j < $('#portfolio ul li a p').length; j++) {
-		var temp = $('#portfolio ul li a p')[j].innerText,
-		    temp = temp.split('-'),
+	for(let j = 0; j < $('#portfolio ul li a p').length; j++) {
+		let temp = $('#portfolio ul li a p')[j].innerText.split('-'),
 		    txt = '';
 
-		for(var i = 0; i < temp.length; i++) {
-			var space = ' ';
-			if(!i) { space = ''; }
+		for(let i = 0; i < temp.length; i++) {
+			let space = ' ';
+
+			if(!i)
+				space = '';
+
 			txt = txt+space+temp[i];
-		} $('#portfolio ul li a p')[j].innerText = txt;
+		}
+
+		$('#portfolio ul li a p')[j].innerText = txt;
 	}
 
 	$('#contact form').submit(function(e) {
