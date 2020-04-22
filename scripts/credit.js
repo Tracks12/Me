@@ -7,22 +7,22 @@
 function credit() {
 	let output = "";
 	let content = {
-		msg: Array(
+		msg: [
 			"Développeur Web Junior full stack\n",
 			"----------- --- ------ ---- -----\n\n",
-			"Front-end skills: Html5 / Css3 / Js / Twig\n",
-			"Back-end skills: Php7 / Sql / MySQL / Python\n\n",
-			"Front-end technology: Angular 8, Bootstrap (Responsive Design) & JQuery\n",
-			"Back-end technology: Symfony, Doctrine, Fixture, phpBB, PhpMyAdmin & NodeJS\n\n",
-			"Mastery of Windows & Linux environments,\n",
-			"Favorite IDEs: Atom, VSCode.\n\n",
-			"Preferably opts for the Agile method with a Git environment to work efficiently and optimally.\n\n",
-			"Very good team spirit, attentive to details and cooperative, ensuring total success for any web project.\n\n",
-			"Website developed by my own !\n\n"
-		),
-		pageInfo: Array(
-			"Page Info :\n",
-			"---- ---- -\n",
+			"front-end skills: Html5 / Css3 / Js / Twig\n",
+			"back-end skills: Php7 / Sql / MySQL / Python\n\n",
+			"front-end technology: Angular 8, Bootstrap (Responsive Design) & JQuery\n",
+			"back-end technology: Symfony, Doctrine, Fixture, phpBB, PhpMyAdmin & NodeJS\n\n",
+			"mastery of Windows & Linux environments,\n",
+			"favorite IDEs: Atom, VSCode.\n\n",
+			"preferably opts for the Agile method with a Git environment to work efficiently and optimally.\n\n",
+			"very good team spirit, attentive to details and cooperative, ensuring total success for any web project.\n\n",
+			"website developed by my own !\n\n\n"
+		],
+		pageInfo: [
+			"page info :\n",
+			"---- ---- -\n\n",
 			`href\t\t: ${document.location.href}\n`,
 			`protocol\t: ${document.location.protocol}\n`,
 			`hostname\t: ${document.location.hostname}\n`,
@@ -31,15 +31,13 @@ function credit() {
 			`title\t\t: ${document.title}\n`,
 			`author\t\t: ${document.author}\n`,
 			`author (alias)\t: ${document.authorAlias}\n`,
-			`last modified\t: ${document.lastModified}\n`
-		)
+			`last refresh\t: ${document.lastModified}\n`
+		]
 	}
 
-	for(let i = 0; i < content.msg.length; i++)
-		output += content.msg[i];
-
-	for(let i = 0; i < content.pageInfo.length; i++)
-		output += content.pageInfo[i];
+	for(let i = 0; i < Object.values(content).length; i++)
+		for(let j = 0; j < Object.values(content)[i].length; j++)
+			output += tools.capitalize(Object.values(content)[i][j]);
 
 	console.info(output);
 }
