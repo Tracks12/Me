@@ -7,7 +7,7 @@
 	<span class="avatar" title="Ma tête"></span>
 	<h1>cardinal florian</h1>
 	<h3>développeur web junior</h3>
-	<a href="/assets/cv.pdf" download>télécharger cv</a>
+	<a href="/assets/files/cv.pdf" download>télécharger cv</a>
 	<hr />
 	<?php
 		$button = CVModel::getNetwork();
