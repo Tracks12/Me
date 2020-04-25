@@ -7,7 +7,7 @@
 class anim {
 	constructor() {
 		let output = new Array($('#animate p')[0], $('#animate pre')[0]),
-			data = new Array(output[0].innerText, output[1].innerText);
+				data = new Array(output[0].innerText, output[1].innerText);
 
 		for(let i = 0; i < output.length; i++)
 			output[i].innerText = '';
@@ -15,6 +15,13 @@ class anim {
 		anim.text(output[0], data[0], 0, () => anim.frame(output[1], data[1], 0));
 	}
 
+	/**
+	 * instant writer
+	 * @param {object} x html object to apply animation
+	 * @param {string} y text for animation
+	 * @param {int} z animation position
+	 * @param {function} func callback function
+	 */
 	static text(x, y, z, func) {
 		let timer = 100;
 
@@ -31,6 +38,12 @@ class anim {
 			setTimeout(func, timer+400);
 	}
 
+	/**
+	 * instant liner
+	 * @param {object} x html object to apply animation
+	 * @param {string} y text to animation
+	 * @param {int} z animation position
+	 */
 	static frame(x, y, z) {
 		x.innerHTML += y.split('\n')[z]+'\n';
 		z++;

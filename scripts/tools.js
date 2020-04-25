@@ -7,8 +7,8 @@
 class tools {
 	/**
 	 * capitalize a string
-	 * @param s input string
-	 * @return capitalize string
+	 * @param {string} s input string
+	 * @return {string} capitalize string
 	 */
 	static capitalize(s) {
 		if(typeof s !== 'string')
@@ -26,6 +26,20 @@ class tools {
 	 */
 	static range(x, min, max) {
 		return ((x - min) * (x - max) <= 0);
+	}
+
+	/**
+	 * make a underline in a console string
+	 * @param {string} data console string
+	 * @return {string} underline of console string
+	 */
+	static underliner(data) {
+		let s = "";
+
+		for(let i = 0; i < data.length; i++)
+			s += (data[i] === " " || data[i] === "\n") ? data[i] : '-';
+
+		return `${s}\n`;
 	}
 }
 

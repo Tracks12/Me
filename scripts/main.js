@@ -15,6 +15,30 @@ function skillsBar(skill) {
 	}
 }
 
+/**
+ * Format title of portfolio items
+ */
+function portfolioTitleFormat() {
+	for(let j = 0; j < $('#portfolio ul li a p').length; j++) {
+		let temp = $('#portfolio ul li a p')[j].innerText.split('-'),
+				txt = '';
+
+		for(let i = 0; i < temp.length; i++) {
+			let space = ' ';
+
+			if(!i)
+				space = '';
+
+			txt = txt+space+temp[i];
+		}
+
+		$('#portfolio ul li a p')[j].innerText = txt;
+	}
+}
+
+/**
+ * make a button to go on top of site
+ */
 function toScroll() {
 	let coef = $('html')[0].scrollTop/$('html')[0].scrollHeight;
 
@@ -28,6 +52,9 @@ function toScroll() {
 		$('#upper').fadeOut();
 }
 
+/**
+ * changes the color theme according to the time of day
+ */
 function theme() {
 	let h = new Date().getHours();
 
@@ -53,51 +80,19 @@ $(document).ready(() => {
 				.slideToggle();
 	});
 
-	$(window).resize(function() {
+	$(window).resize(() => {
 		if($(window).width() > 720)
 			$('nav ul').removeAttr('style');
 	});
 
-	for(let j = 0; j < $('#portfolio ul li a p').length; j++) {
-		let temp = $('#portfolio ul li a p')[j].innerText.split('-'),
-		    txt = '';
-
-		for(let i = 0; i < temp.length; i++) {
-			let space = ' ';
-
-			if(!i)
-				space = '';
-
-			txt = txt+space+temp[i];
-		}
-
-		$('#portfolio ul li a p')[j].innerText = txt;
-	}
+	portfolioTitleFormat();
 
 	$('#contact form').submit(function(e) {
 		e.preventDefault();
 		$('#contact .error').empty()
 		var post = $('#contact form').serialize();
 
-		$.ajax({
-			type: 'POST',
-			url: '/?contact',
-			data: post,
-			dataType: 'json',
-			success: (result) => {
-				if(result.passed) {
-					$('#contact .ty').css('display', 'block');
-					$('#contact form')[0].reset();
-				}
-				else {
-					$('#contact #fName .error').html(result.error.fname);
-					$('#contact #name .error').html(result.error.name);
-					$('#contact #mail .error').html(result.error.mail);
-					$('#contact #phone .error').html(result.error.tel);
-					$('#contact #msg .error').html(result.error.msg);
-				}
-			}
-		});
+		xhr.contact(post);
 	});
 
 	toScroll();
@@ -106,6 +101,9 @@ $(document).ready(() => {
 
 	new anim();
 
+	/**
+	 * function to generate animate frame on "particles-js" id box
+	 */
 	particlesJS('particles-js', {
 		"particles": {
 			"number": {

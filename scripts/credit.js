@@ -4,12 +4,14 @@
  * Page   : credit.js
  */
 
+/**
+ * logger more infor about me
+ */
 function credit() {
 	let output = "";
 	let content = {
 		msg: [
 			"Développeur Web Junior full stack\n",
-			"----------- --- ------ ---- -----\n\n",
 			"front-end skills: Html5 / Css3 / Js / Twig\n",
 			"back-end skills: Php7 / Sql / MySQL / Python\n\n",
 			"front-end technology: Angular 8, Bootstrap (Responsive Design) & JQuery\n",
@@ -22,7 +24,6 @@ function credit() {
 		],
 		pageInfo: [
 			"page info :\n",
-			"---- ---- -\n\n",
 			`href\t\t: ${document.location.href}\n`,
 			`protocol\t: ${document.location.protocol}\n`,
 			`hostname\t: ${document.location.hostname}\n`,
@@ -33,11 +34,16 @@ function credit() {
 			`author (alias)\t: ${document.authorAlias}\n`,
 			`last refresh\t: ${document.lastModified}\n`
 		]
-	}
+	};
 
 	for(let i = 0; i < Object.values(content).length; i++)
-		for(let j = 0; j < Object.values(content)[i].length; j++)
-			output += tools.capitalize(Object.values(content)[i][j]);
+		for(let j = 0; j < Object.values(content)[i].length; j++) {
+			if(j === 1)
+				output += tools.underliner(Object.values(content)[i][j-1]);
+
+			else
+				output += tools.capitalize(Object.values(content)[i][j]);
+		}
 
 	console.info(output);
 }
