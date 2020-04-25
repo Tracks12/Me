@@ -34,12 +34,12 @@ class tools {
 	 * @return {string} underline of console string
 	 */
 	static underliner(data) {
-		let s = "";
+		let s = [];
 
 		for(let i = 0; i < data.length; i++)
-			s += (data[i] === " " || data[i] === "\n") ? data[i] : '-';
+			s[i] = (data[i] === " " || data[i] === "\n") ? data[i] : '-';
 
-		return `${s}\n`;
+		return `${s.join('')}\n`;
 	}
 }
 

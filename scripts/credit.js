@@ -38,11 +38,10 @@ function credit() {
 
 	for(let i = 0; i < Object.values(content).length; i++)
 		for(let j = 0; j < Object.values(content)[i].length; j++) {
-			if(j === 1)
-				output += tools.underliner(Object.values(content)[i][j-1]);
+			output += tools.capitalize(Object.values(content)[i][j]);
 
-			else
-				output += tools.capitalize(Object.values(content)[i][j]);
+			if(!j)
+				output += tools.underliner(Object.values(content)[i][j]);
 		}
 
 	console.info(output);
