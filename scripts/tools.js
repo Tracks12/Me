@@ -19,10 +19,10 @@ class tools {
 
 	/**
 	 * check value in range
-	 * @param x value
-	 * @param min minimal value
-	 * @param max maximal value
-	 * @return [true/false]
+	 * @param {int} x value
+	 * @param {int} min minimal value
+	 * @param {int} max maximal value
+	 * @return {bool} [true/false]
 	 */
 	static range(x, min, max) {
 		return ((x - min) * (x - max) <= 0);
@@ -37,7 +37,7 @@ class tools {
 		let s = [];
 
 		for(let i = 0; i < data.length; i++)
-			s[i] = (data[i] === " " || data[i] === "\n") ? data[i] : '-';
+			s[i] = [" ", "\n"].includes(data[i]) ? data[i] : '-';
 
 		return `${s.join('')}\n`;
 	}
