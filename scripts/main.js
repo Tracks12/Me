@@ -6,7 +6,7 @@
 
 /**
  * make the progress of skillbars
- * @param {array} skill skill target
+ * @param {array} skill skill target with percent
  */
 function skillsBar(skill) {
 	for(let i = 0; i < skill.length; i++) {
