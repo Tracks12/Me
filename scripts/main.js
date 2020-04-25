@@ -6,7 +6,7 @@
 
 /**
  * make the progress of skillbars
- * @param skill skill target
+ * @param {array} skill skill target
  */
 function skillsBar(skill) {
 	for(let i = 0; i < skill.length; i++) {
