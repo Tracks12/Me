@@ -6,6 +6,10 @@
 	 */
 
 	class CVModel extends bdd {
+		/**
+		 * get return network table from bdd
+		 * @return array network link
+		 */
 		public function getNetwork() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
