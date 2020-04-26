@@ -167,7 +167,7 @@ header div::after { bottom: 0; }
 header div p, header div pre {
 	color: rgb(238, 238, 238);
 	font-family: 'Monospace';
-	font-size: .9em;
+	font-size: .95em;
 }
 
 header article {
