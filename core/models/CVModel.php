@@ -47,6 +47,10 @@
 			];
 		}
 
+		/**
+		 * get return skills status table from bdd
+		 * @return array skills status in percent
+		 */
 		public function getSkillsStatus() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
