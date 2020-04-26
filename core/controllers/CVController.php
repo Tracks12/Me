@@ -6,6 +6,11 @@
 	 */
 
 	class CVController {
+		/**
+		 * contact form controller
+		 * @param array $data array of post request
+		 * @return string json result of request
+		 */
 		public function contact($data) {
 			$post = [
 				"value"		=> [
