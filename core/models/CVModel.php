@@ -68,6 +68,10 @@
 			return $return;
 		}
 
+		/**
+		 * get return experiences table from bdd
+		 * @return array professional experiences
+		 */
 		public function getExperiences() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
