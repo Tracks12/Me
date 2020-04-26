@@ -9,6 +9,11 @@
 	src: url('/assets/fonts/Lato/Lato-Regular.woff') format('woff');
 }
 
+@font-face {
+	font-family: 'Monospace';
+	src: url('/assets/fonts/Monospace/Monospace.woff') format('woff');
+}
+
 /**
  * END
  */

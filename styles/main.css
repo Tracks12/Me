@@ -14,6 +14,9 @@
 
 	--contrast: rgb(0, 170, 170);
 	--slither-color: rgb(234, 0, 154);
+
+	--article-radius: 10px 0;
+	--article-shadow: 0 0 15px rgba(0, 0, 0, .2);
 }
 
 * {
@@ -163,12 +166,13 @@ header div::after { bottom: 0; }
 
 header div p, header div pre {
 	color: rgb(238, 238, 238);
-	font-family: Monospace;
+	font-family: 'Monospace';
+	font-size: .9em;
 }
 
 header article {
-	border-radius: 10px 0;
-	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+	border-radius: var(--article-radius);
+	box-shadow: var(--article-shadow);
 	margin: auto;
 	max-width: 35em;
 	overflow: hidden;
@@ -311,8 +315,8 @@ header article button:hover svg { fill: rgb(238, 238, 238); }
 aside { padding-top: 4.5em; }
 
 aside article {
-	border-radius: 10px 0;
-	box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+	border-radius: var(--article-radius);
+	box-shadow: var(--article-shadow);
 	margin: auto;
 	max-width: 70em;
 	padding: 2em .5em 3em .5em;
