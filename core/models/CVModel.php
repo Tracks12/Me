@@ -7,7 +7,7 @@
 
 	class CVModel extends bdd {
 		/**
-		 * get return network table from bdd
+		 * get return network table
 		 * @return array network link
 		 */
 		public function getNetwork() {
@@ -21,7 +21,7 @@
 		}
 
 		/**
-		 * get return skills table from bdd
+		 * get return skills table
 		 * @return array [skill-row-1, skill-row-2]
 		 */
 		public function getSkills() {
@@ -48,7 +48,7 @@
 		}
 
 		/**
-		 * get return skills status table from bdd
+		 * get return skills status table
 		 * @return array skills status in percent
 		 */
 		public function getSkillsStatus() {
@@ -69,7 +69,7 @@
 		}
 
 		/**
-		 * get return experiences table from bdd
+		 * get return experiences table
 		 * @return array professional experiences
 		 */
 		public function getExperiences() {
@@ -83,6 +83,10 @@
 			return $req->fetchAll(PDO::FETCH_NUM);
 		}
 
+		/**
+		 * get return formations table
+		 * @return array formations & graduations
+		 */
 		public function getFormations() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
@@ -94,6 +98,10 @@
 			return $req->fetchAll(PDO::FETCH_NUM);
 		}
 
+		/**
+		 * get return contact table
+		 * @return array contact content
+		 */
 		public function getContacts() {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
@@ -105,6 +113,10 @@
 			return $req->fetchAll(PDO::FETCH_ASSOC);
 		}
 
+		/**
+		 * insert a contact request in contact table
+		 * @return bool [true/false]
+		 */
 		public function insertContactRequest($data) {
 			$bdd = bdd::connect();
 			$req = $bdd->prepare('
