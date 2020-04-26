@@ -20,6 +20,10 @@
 			return $req->fetchAll(PDO::FETCH_ASSOC);
 		}
 
+		/**
+		 * get return skills table from bdd
+		 * @return array [skill-row-1, skill-row-2]
+		 */
 		public function getSkills() {
 			$bdd = bdd::connect();
 			$req = [
