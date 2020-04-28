@@ -59,7 +59,10 @@ function theme() {
 	let h = new Date().getHours();
 
 	if(tools.range(h, 0, 8) || tools.range(h, 20, 24))
-		$('head').append('<link rel="stylesheet" type="text/css" href="/styles/theme/dark.css">');
+		$('#theme').attr('href', '/styles/theme/dark.css');
+
+	else
+		$('#theme').attr('href', '/styles/theme/light.css');
 }
 
 $(document).ready(() => {
