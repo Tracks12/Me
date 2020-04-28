@@ -7,11 +7,13 @@
 
 	switch(services::isInput($_SERVER['REQUEST_URI'])) {
 		case '/?contact':
-			echo(CVController::contact($_POST)); break;
+			echo(CVController::contact($_POST));
+			break;
 
 		default:
 			http_response_code(404);
-			die(); break;
+			die();
+			break;
 	}
 
 	/**
