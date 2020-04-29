@@ -90,7 +90,7 @@ $(document).ready(() => {
 
 	portfolioTitleFormat();
 
-	$('#contact form').submit(function(e) {
+	$('#contact form').submit((e) => {
 		e.preventDefault();
 		$('#contact .error').empty()
 		var post = $('#contact form').serialize();

@@ -1,39 +1,41 @@
 <!-- CONTACT -->
-<article class="global-bg">
-	<h2>contact</h2>
-	<hr />
-	<div class="container">
-		<form method="POST" action>
-			<div class="row">
-				<div class="inputBox" id="fName">
-					<input type="text" name="fName" required />
-					<label>Prénom</label>
+<aside id="contact">
+	<article class="global-bg">
+		<h2>contact</h2>
+		<hr />
+		<div class="container">
+			<form method="POST" action>
+				<div class="row">
+					<div class="inputBox" id="fName">
+						<input type="text" name="fName" required />
+						<label>Prénom</label>
+						<p class="error"></p>
+					</div>
+					<div class="inputBox" id="name">
+						<input type="text" name="name" required />
+						<label>Nom</label>
+						<p class="error"></p>
+					</div>
+				</div><div class="row">
+					<div class="inputBox" id="mail">
+						<input type="email" name="mail" required />
+						<label>Email</label>
+						<p class="error"></p>
+					</div>
+					<div class="inputBox" id="phone">
+						<input type="tel" name="phone" required />
+						<label>Téléphone</label>
+						<p class="error"></p>
+					</div>
+				</div>
+				<div class="inputBox" id="msg">
+					<textarea name="msg" required></textarea>
+					<label>Message</label>
 					<p class="error"></p>
 				</div>
-				<div class="inputBox" id="name">
-					<input type="text" name="name" required />
-					<label>Nom</label>
-					<p class="error"></p>
-				</div>
-			</div><div class="row">
-				<div class="inputBox" id="mail">
-					<input type="email" name="mail" required />
-					<label>Email</label>
-					<p class="error"></p>
-				</div>
-				<div class="inputBox" id="phone">
-					<input type="tel" name="phone" required />
-					<label>Téléphone</label>
-					<p class="error"></p>
-				</div>
-			</div>
-			<div class="inputBox" id="msg">
-				<textarea name="msg" required></textarea>
-				<label>Message</label>
-				<p class="error"></p>
-			</div>
-			<input type="submit" value="envoyer" />
-			<p class="ty">Votre message a bien été envoyé. Merci de m'avoir contacter :)</p>
-		</form>
-	</div>
-</article>
+				<input type="submit" value="envoyer" />
+				<p class="ty">Votre message a bien été envoyé. Merci de m'avoir contacter :)</p>
+			</form>
+		</div>
+	</article>
+</aside>

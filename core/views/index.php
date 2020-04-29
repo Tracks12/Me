@@ -40,25 +40,22 @@
 			<header id="me">
 				<div id="animate">
 					<p>user@machine:~$ cat README.txt</p>
-					<pre><?php require_once("./README.txt"); ?></pre>
+					<pre><?php require_once("./assets/files/readme.txt"); ?></pre>
 				</div>
 				<?php require_once('./core/views/header.php'); ?>
 			</header>
-			<aside id="skills">
-				<?php require_once('./core/views/skills.php'); ?>
-			</aside>
-			<aside id="xp">
-				<?php require_once('./core/views/experiences.php'); ?>
-			</aside>
-			<aside id="grad">
-				<?php require_once('./core/views/graduations.php'); ?>
-			</aside>
-			<aside id="portfolio">
-				<?php require_once('./core/views/portfolio.php'); ?>
-			</aside>
-			<aside id="contact">
-				<?php require_once('./core/views/contact.html'); ?>
-			</aside>
+			<?php
+				$frames = [ // Composants du site web
+					'./core/views/skills.php',
+					'./core/views/experiences.php',
+					'./core/views/graduations.php',
+					'./core/views/portfolio.php',
+					'./core/views/contact.html'
+				];
+
+				foreach($frames as $frame)
+					require_once($frame);
+			?>
 		</section>
 		<?php require_once('./core/views/footer.html'); ?>
 	</body>

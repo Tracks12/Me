@@ -8,15 +8,19 @@
 	$network = CVModel::getNetwork();
 
 	switch(services::isInput($_SERVER['REQUEST_URI'])) {
-		case '/github':
+		/**
+		 * URI de redirection
+		 */
+
+		case '/github': // GitHub Profile redirect
 			header("location: {$network[0]['link']}");
 			break;
 
-		case '/linkedin':
+		case '/linkedin': // LinkedIn Profile redirect
 			header("location: {$network[1]['link']}");
 			break;
 
-		case '/LegaChat':
+		case '/LegaChat': // LegaChat Project redirect
 			header("location: http://betawallahso.altervista.org/LegaChat/");
 			break;
 
