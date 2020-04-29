@@ -57,7 +57,7 @@
 				<?php require_once('./core/views/portfolio.php'); ?>
 			</aside>
 			<aside id="contact">
-				<?php require_once('./core/views/contact.php'); ?>
+				<?php require_once('./core/views/contact.html'); ?>
 			</aside>
 		</section>
 		<?php require_once('./core/views/footer.html'); ?>
