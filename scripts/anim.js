@@ -4,6 +4,8 @@
  * Page   : anim.js
  */
 
+"use strict";
+
 class anim {
 	constructor() {
 		let output = new Array($('#animate p')[0], $('#animate pre')[0]),

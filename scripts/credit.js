@@ -4,6 +4,8 @@
  * Page   : credit.js
  */
 
+"use strict";
+
 /**
  * logger more infor about me
  */

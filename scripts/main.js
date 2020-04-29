@@ -4,6 +4,99 @@
  * Page   : script.js
  */
 
+"use strict";
+
+const particlesParameters = {
+	"particles": {
+		"number": {
+			"value": 80,
+			"density": {
+				"enable": true,
+				"value_area": 800
+			}
+		},
+		"color": { "value": "#EEEEEE" },
+		"shape": {
+			"type": "circle",
+			"stroke": {
+				"width": 0,
+				"color": "#000000"
+			}
+		},
+		"opacity": {
+			"value": 1,
+			"random": false,
+			"anim": {
+				"enable": false,
+				"speed": 1,
+				"opacity_min": .1,
+				"sync": false
+			}
+		},
+		"size": {
+			"value": 3,
+			"random": true,
+			"anim": {
+				"enable": false,
+				"speed": 40,
+				"size_min": .1,
+				"sync": false
+			}
+		},
+		"line_linked": {
+			"enable": true,
+			"distance": 150,
+			"color": "#EEEEEE",
+			"opacity": 1,
+			"width": 1
+		},
+		"move": {
+			"enable": true,
+			"speed": 6,
+			"direction": "none",
+			"random": false,
+			"straight": false,
+			"out_mode": "out",
+			"attract": {
+				"enable": false,
+				"rotateX": 600,
+				"rotateY": 1200
+			}
+		}
+	},
+	"interactivity": {
+		"detect_on": "canvas",
+		"events": {
+			"onhover": {
+				"enable": false,
+				"mode": "grab"
+			},
+			"onclick": {
+				"enable": false,
+				"mode": "repulse"
+			},
+			"resize": true
+		},
+		"modes": {
+			"grab": {
+				"distance": 400,
+				"line_linked": { "opacity": 1 }
+			},
+			"bubble": {
+				"distance": 400,
+				"size": 40,
+				"duration": 2,
+				"opacity": 8,
+				"speed": 3
+			},
+			"repulse": { "distance": 200 },
+			"push": { "particles_nb": 4 },
+			"remove": { "particles_nb": 2 }
+		}
+	},
+	"retina_detect": true
+};
+
 /**
  * make the progress of skillbars
  * @param {array} skill skill target with percent
@@ -40,7 +133,7 @@ function portfolioTitleFormat() {
  * make a button to go on top of site
  */
 function toScroll() {
-	let coef = $('html')[0].scrollTop/$('html')[0].scrollHeight;
+	let coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
 
 	if(coef > .9)
 		$('#upper').fadeOut();
@@ -69,6 +162,7 @@ $(document).ready(() => {
 	document['author'] = "CARDINAL Florian";
 	document['authorAlias'] = "Anarchy";
 
+	// Dynamic Theme
 	theme();
 
 	$('nav div').click(() => {
@@ -88,6 +182,7 @@ $(document).ready(() => {
 			$('nav ul').removeAttr('style');
 	});
 
+	// Format portfolio title box
 	portfolioTitleFormat();
 
 	$('#contact form').submit((e) => {
@@ -98,105 +193,15 @@ $(document).ready(() => {
 		xhr.contact(post);
 	});
 
+	// conjure up and vanish the "go up" button
 	toScroll();
 	$(document).on('scroll', () => toScroll());
 	$('div')[$('div').length-1].style.display = "none";
 
 	new anim();
 
-	/**
-	 * function to generate animate frame on "particles-js" id box
-	 */
-	particlesJS('particles-js', {
-		"particles": {
-			"number": {
-				"value": 80,
-				"density": {
-					"enable": true,
-					"value_area": 800
-				}
-			},
-			"color": { "value": "#EEEEEE" },
-			"shape": {
-				"type": "circle",
-				"stroke": {
-					"width": 0,
-					"color": "#000000"
-				}
-			},
-			"opacity": {
-				"value": 1,
-				"random": false,
-				"anim": {
-					"enable": false,
-					"speed": 1,
-					"opacity_min": .1,
-					"sync": false
-				}
-			},
-			"size": {
-				"value": 3,
-				"random": true,
-				"anim": {
-					"enable": false,
-					"speed": 40,
-					"size_min": .1,
-					"sync": false
-				}
-			},
-			"line_linked": {
-				"enable": true,
-				"distance": 150,
-				"color": "#EEEEEE",
-				"opacity": 1,
-				"width": 1
-			},
-			"move": {
-				"enable": true,
-				"speed": 6,
-				"direction": "none",
-				"random": false,
-				"straight": false,
-				"out_mode": "out",
-				"attract": {
-					"enable": false,
-					"rotateX": 600,
-					"rotateY": 1200
-				}
-			}
-		},
-		"interactivity": {
-			"detect_on": "canvas",
-			"events": {
-				"onhover": {
-					"enable": false,
-					"mode": "grab"
-				},
-				"onclick": {
-					"enable": false,
-					"mode": "repulse"
-				},
-				"resize": true
-			},
-			"modes": {
-				"grab": {
-					"distance": 400,
-					"line_linked": { "opacity": 1 }
-				},
-				"bubble": {
-					"distance": 400,
-					"size": 40,
-					"duration": 2,
-					"opacity": 8,
-					"speed": 3
-				},
-				"repulse": { "distance": 200 },
-				"push": { "particles_nb": 4 },
-				"remove": { "particles_nb": 2 }
-			}
-		},
-		"retina_detect": true
-	});
+	// function to generate animate frame on "particles-js" id box
+	particlesJS('particles-js', particlesParameters);
 
 	credit();
 

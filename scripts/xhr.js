@@ -4,6 +4,8 @@
  * Page   : xhr.js
  */
 
+"use strict";
+
 class xhr {
 	/**
 	 * xhr request for contact form

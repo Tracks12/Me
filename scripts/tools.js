@@ -4,6 +4,8 @@
  * Page   : tools.js
  */
 
+"use strict";
+
 class tools {
 	/**
 	 * capitalize a string

@@ -4,6 +4,8 @@
  * Page   : scrolly.js
  */
 
+"use strict";
+
 $((e) => {
 	function u(s, o) {
 		let u, a, f;
@@ -68,7 +70,7 @@ $((e) => {
 		c.off(s).on(s, (e) => {
 			let t = l !== n ? l : u(f, a);
 
-			t !== n && (e.preventDefault(), a.parent.stop().animate({ scrollTop: t }, a.speed, a.easing))}
-		);
+			t !== n && (e.preventDefault(), a.parent.stop().animate({ scrollTop: t }, a.speed, a.easing))
+		});
 	}
 });
