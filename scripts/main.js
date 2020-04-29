@@ -199,6 +199,8 @@ $(document).ready(() => {
 	});
 
 	credit();
+
+	$('.scrolly').scrolly();
 });
 
 /**

@@ -33,7 +33,7 @@
 	<div id="particles-js"></div>
 	<body onload="anim.startTime();">
 		<?php require_once('./core/views/nav.php'); ?>
-		<a id="upper" href="#me">
+		<a class="scrolly" id="upper" href="#me">
 			<span class="fa fa-chevron-up"></span>
 		</a>
 		<section>
