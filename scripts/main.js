@@ -165,11 +165,10 @@ function toScroll() {
 
 /**
  * changes the color theme according to the time of day
+ * @param {int} hour the hour of time
  */
-function theme() {
-	let h = new Date().getHours();
-
-	if(tools.range(h, 0, 8) || tools.range(h, 20, 24))
+function theme(hour) {
+	if(tools.range(hour, 0, 8) || tools.range(hour, 20, 24))
 		$('#theme').attr('href', '/styles/theme/dark.css');
 
 	else
@@ -177,11 +176,13 @@ function theme() {
 }
 
 $(document).ready(() => {
+	let time = new Date();
+
 	document['author'] = "CARDINAL Florian";
 	document['authorAlias'] = "Anarchy";
 
 	// Dynamic Theme
-	theme();
+	theme(time.getHours());
 
 	$('nav div').click(() => {
 		$('nav ul').slideToggle();
