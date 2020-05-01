@@ -8,11 +8,14 @@
 	--bg-transition: background-color 2.5s;
 	--bg-bar: linear-gradient(90deg, #CC00CC, #00CCCC, #CC00CC);
 
-	--contrast: rgb(0, 170, 170);
+	--contrast: transparent;
 	--slither-color: rgb(234, 0, 154);
 
 	--article-radius: 10px 0;
 	--article-shadow: 0 0 15px rgba(0, 0, 0, .2);
+
+	--color-bar: rgb(238, 238, 238);
+	--shadow-bar: rgba(0, 0, 0, .5);
 }
 
 * {
@@ -148,7 +151,8 @@ header div {
 	width: 18em;
 	z-index: -1;
 }
-header div::before, header div::after {
+header div::before,
+header div::after {
 	background: rgb(238, 238, 238);
 	box-shadow: 0 0 6px rgba(238, 238, 238, .6);
 	content: '';
@@ -246,6 +250,7 @@ header article h3 {
 	font-weight: 500;
 	margin-top: .25em;
 	text-transform: capitalize;
+	transition: .2s all;
 }
 
 header article a {
@@ -298,6 +303,7 @@ header article button::before {
 	transition: .5s;
 	z-index: -1;
 }
+header article button:focus:before,
 header article button:hover:before { height: 200%; }
 
 header article button svg {
@@ -306,6 +312,7 @@ header article button svg {
 	margin-bottom: -5px;
 	transition: .5s;
 }
+header article button:focus svg,
 header article button:hover svg { fill: rgb(238, 238, 238); }
 
 aside { padding-top: 4.5em; }
@@ -355,10 +362,10 @@ aside hr {
 }
 
 #skills .row .progressBar h5 {
-	color: rgb(238, 238, 238);
+	color: var(--color-bar);
 	font-size: 16px;
 	padding: 10px 0;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, .7);
+	text-shadow: 1px 1px 3px var(--shadow-bar);
 }
 
 #skills .row .progressBar .progress {
@@ -414,6 +421,7 @@ aside hr {
 	margin-left: -25px;
 	position: absolute;
 	text-align: center;
+	transition: .2s all;
 	width: 50px;
 }
 
@@ -421,8 +429,10 @@ aside hr {
 #xp ul > li h4 {
 	color: var(--contrast);
 	font-size: 18px;
+	transition: .2s all;
 }
-#xp ul > li h3, #xp ul > li h4 { margin-bottom: 5px; }
+#xp ul > li h3,
+#xp ul > li h4 { margin-bottom: 5px; }
 
 #xp ul > li .period {
 	font-size: 14px;
@@ -468,6 +478,7 @@ aside hr {
 #grad .frame h4 {
 	color: var(--contrast);
 	font-size: 17px;
+	transition: .2s all;
 }
 
 #grad .frame hr {
@@ -635,13 +646,14 @@ aside hr {
 	text-transform: uppercase;
 	transition: .4s all;
 }
+#contact input[type=submit]:focus,
 #contact input[type=submit]:hover {
 	animation: slideBar 10s linear infinite;
-	box-shadow: 0 8px 10px rgba(0, 0, 0, .4);
+	box-shadow: 0 6px 12px var(--shadow-bar);
 	text-shadow:
-		0 0 10px rgba(0, 0, 0, .5),
-		0 0 25px rgba(0, 0, 0, .5),
-		0 0 35px rgba(0, 0, 0, .5);
+		0 0 10px var(--shadow-bar),
+		0 0 25px var(--shadow-bar),
+		0 0 35px var(--shadow-bar);
 }
 
 footer {
@@ -650,7 +662,6 @@ footer {
 	height: auto;
 	left: 0;
 	padding: .25em .5em 1.5em .5em;
-	postion: absolute;
 	right: 0;
 	text-align: center;
 }

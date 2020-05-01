@@ -98,6 +98,24 @@ const particlesParameters = {
 };
 
 /**
+ * change root css contrast color value
+ */
+function randColor() {
+	let colors = [
+		"00AAAA",
+		"AA00AA",
+		"AAAA00",
+		"CC3300",
+		"22CC00",
+		"0055CC"
+	];
+
+	let choice = `#${colors[Math.floor(Math.random() * colors.length)]}`;
+
+	$(':root').css('--contrast', choice);
+}
+
+/**
  * make the progress of skillbars
  * @param {array} skill skill target with percent
  */
@@ -196,16 +214,20 @@ $(document).ready(() => {
 	// conjure up and vanish the "go up" button
 	toScroll();
 	$(document).on('scroll', () => toScroll());
-	$('div')[$('div').length-1].style.display = "none";
 
 	new anim();
 
 	// function to generate animate frame on "particles-js" id box
 	particlesJS('particles-js', particlesParameters);
 
-	credit();
-
+	randColor();
 	$('.scrolly').scrolly();
+
+	// 000webhost part specs
+	if(document.location.hostname.split('.')[1] === "000webhostapp")
+		$('div')[$('div').length-1].style.display = "none";
+
+	credit();
 });
 
 /**
