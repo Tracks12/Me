@@ -6,7 +6,13 @@
 
 "use strict";
 
+/**
+ * Animation abstract class
+ */
 class anim {
+	/**
+	 * take html value of <p> & <pre> of #animate to make typing animation
+	 */
 	constructor() {
 		let output = new Array($('#animate p')[0], $('#animate pre')[0]),
 				data = new Array(output[0].innerText, output[1].innerText);
