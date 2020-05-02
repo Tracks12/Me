@@ -12,13 +12,15 @@
 class anim {
 	/**
 	 * take html value of <p> & <pre> of #animate to make typing animation
+	 * @param {array} output [<p> object html, <pre> object html]
 	 */
-	constructor() {
-		let output = new Array($('#animate p')[0], $('#animate pre')[0]),
-				data = new Array(output[0].innerText, output[1].innerText);
+	constructor(output) {
+		let data = [];
 
-		for(let i = 0; i < output.length; i++)
+		for(let i = 0; i < output.length; i++) {
+			data.push(output[i].innerText);
 			output[i].innerText = '';
+		}
 
 		anim.text(output[0], data[0], 0, () => anim.frame(output[1], data[1], 0));
 	}
@@ -68,30 +70,18 @@ class anim {
 		let today = new Date(), delay = 500;
 		let h = today.getHours(), m = today.getMinutes(), s = '';
 
-		if(h < 10)
-			h = `0${h}`;
-
-		if(m < 10)
-			m = `0${m}`;
+		h = (h < 10) ? `0${h}` : h;
+		m = (m < 10) ? `0${m}` : m;
 
 		if(!($(window).width() < 720)) {
 			s = today.getSeconds();
 			sep = ":";
-
-			if(s < 10)
-				s = `0${s}`;
-
-			s = `:${s}`;
+			s = (s < 10) ? `:0${s}` : `:${s}`;
 		}
 
 		else {
 			delay = 1000;
-
-			if(sep === ":")
-				sep = " ";
-
-			else
-				sep = ":";
+			sep = (sep === ':') ? ' ' : ':';
 		}
 
 		$('#time').html(h+sep+m+s);

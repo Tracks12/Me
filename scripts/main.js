@@ -216,7 +216,11 @@ $(document).ready(() => {
 	toScroll();
 	$(document).on('scroll', () => toScroll());
 
-	new anim();
+	// animation of shell
+	new anim([
+		$('#animate p')[0],
+		$('#animate pre')[0]
+	]);
 
 	// function to generate animate frame on "particles-js" id box
 	particlesJS('particles-js', particlesParameters);
