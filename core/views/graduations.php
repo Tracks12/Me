@@ -8,10 +8,7 @@
 				$obj = CVModel::getFormations();
 
 				foreach($obj as $out) {
-					$title = $out[2];
-
-					if($out[5])
-						$title = "<a href=\"{$out[5]}\" target=\"_blank\">{$out[2]}</a>";
+					$title = ($out[5]) ? "<a href=\"{$out[5]}\" target=\"_blank\">{$out[2]}</a>" : $out[2];
 
 					echo("<div class=\"frame\">
 							<font>{$out[1]}</font>

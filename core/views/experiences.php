@@ -8,10 +8,7 @@
 				$obj = CVModel::getExperiences();
 
 				for($i = 0; $i < count($obj); $i++) {
-					$invert = "";
-
-					if($i%2)
-						$invert = "inverted";
+					$invert = ($i%2) ? "inverted" : "";
 
 					echo("<li class=\"$invert\">
 							<span id=\"badge\" class=\"fa fa-briefcase\"></span>

@@ -14,9 +14,7 @@
 				WHERE idKey=(SELECT MAX(`idKey`) FROM `API_keyCrypt`)
 			');
 
-			$result = $req->fetch(PDO::FETCH_ASSOC);
-
-			return $result;
+			return $req->fetch(PDO::FETCH_ASSOC);
 		}
 
 		public function genKey() {
@@ -27,10 +25,7 @@
 				VALUES (?, ?)
 			');
 
-			if($req->execute([$aes['key'], $aes['vector']]))
-				return true;
-
-			return false;
+			return ($req->execute([$aes['key'], $aes['vector']])) ? true : false;
 		}
 	}
 

@@ -133,10 +133,7 @@
 				$data['msg']
 			];
 
-			if($req->execute($arr))
-				return true;
-
-			return false;
+			return ($req->execute($arr)) ? true : false;
 		}
 	}
 

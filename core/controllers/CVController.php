@@ -14,26 +14,22 @@
 		public function contact($data) {
 			$post = [
 				"value"		=> [
-					"fname"	=> NULL, "mail"	=> NULL,
-					"name"	=> NULL, "tel"	=> NULL,
-					"msg"		=> NULL
+					"fname"	=> services::isInput($data["fName"]),
+					"name"	=> services::isInput($data["name"]),
+					"mail"	=> services::isInput($data["mail"]),
+					"tel"		=> services::isInput($data["phone"]),
+					"msg"		=> services::isInput($data["msg"])
 				],
 				"error"		=> [
-					"fname"	=> NULL, "mail"	=> NULL,
-					"name"	=> NULL, "tel"	=> NULL,
+					"fname"	=> NULL,
+					"name"	=> NULL,
+					"mail"	=> NULL,
+					"tel"		=> NULL,
 					"msg"		=> NULL
 				],
 				"passed"	=> true
 			];
 			$error = "Ce champ n'est pas valide !";
-
-			$post["value"] = [
-				"fname"	=> services::isInput($data["fName"]),
-				"name"	=> services::isInput($data["name"]),
-				"mail"	=> services::isInput($data["mail"]),
-				"tel"		=> services::isInput($data["phone"]),
-				"msg"		=> services::isInput($data["msg"])
-			];
 
 			$mail = [
 				"header"	=> NULL,
