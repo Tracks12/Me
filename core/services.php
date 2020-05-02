@@ -25,7 +25,7 @@
 		 * @return bool [true/false]
 		 */
 		public static function isPhone($data) {
-			$return = preg_match("/^[0-9 ]*$/", $data);
+			$return = preg_match("/^(([\+]([\d]{2,}))([0-9\.\-\/\s]{5,})|([0-9\.\-\/\s]{5,}))*$/", $data);
 
 			return $return;
 		}
