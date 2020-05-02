@@ -92,7 +92,7 @@
 				$post["value"] = NULL;
 			}
 
-			return json_encode($post);
+			return $post;
 		}
 	}
 

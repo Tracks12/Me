@@ -15,22 +15,22 @@
 			break;
 
 		case '/?ping':
-			$return = json_encode([ "response" => "pong"]);
+			$return = [ "response" => "pong" ];
 			break;
 
 		default:
 			http_response_code(404);
-			$return = json_encode([ "code" => 404, "error" => "NOT FOUND !" ]);
+			$return = [ "code" => 404, "error" => "NOT FOUND !" ];
 			break;
 	}
 
 	switch(http_response_code()) {
 		case 200:
-			echo($return);
+			echo(json_encode($return));
 			break;
 
 		default:
-			echo($return);
+			echo(json_encode($return));
 			die();
 			break;
 	}
