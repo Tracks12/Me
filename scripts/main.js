@@ -135,11 +135,7 @@ function portfolioTitleFormat() {
 				txt = '';
 
 		for(let i = 0; i < temp.length; i++) {
-			let space = ' ';
-
-			if(!i)
-				space = '';
-
+			let space = (!i) ? '' : ' ';
 			txt = txt+space+temp[i];
 		}
 
@@ -153,11 +149,8 @@ function portfolioTitleFormat() {
 function toScroll() {
 	let coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
 
-	if(coef > .9)
-		$('#upper').fadeOut();
-
-	else if(coef > .05)
-		$('#upper').fadeIn();
+	if(tools.range(coef, .05, .9))
+		$('#upper').fadeIn()
 
 	else
 		$('#upper').fadeOut();
