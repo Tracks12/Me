@@ -53,7 +53,10 @@
 			else
 				$mail["txt"] .= "Nom: {$post['value']['name']}\n";
 
-			if(!services::isMail($post["value"]["mail"])) {
+			if(
+				empty($post["value"]["mail"])
+				|| !services::isMail($post["value"]["mail"])
+			) {
 				$post["error"]["mail"] = $error;
 				$post["passed"] = false;
 			}
@@ -61,7 +64,10 @@
 			else
 				$mail["txt"] .= "Mail: {$post['value']['mail']}\n";
 
-			if(!services::isPhone($post["value"]["tel"])) {
+			if(
+				empty($post["value"]["phone"])
+				|| !services::isPhone($post["value"]["tel"])
+			) {
 				$post["error"]["tel"] = $error;
 				$post["passed"] = false;
 			}

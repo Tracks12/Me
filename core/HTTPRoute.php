@@ -9,7 +9,7 @@
 
 	switch(services::isInput($_SERVER['REQUEST_URI'])) {
 		/**
-		 * URI de redirection
+		 * Redirect URI
 		 */
 
 		case '/github': // GitHub Profile redirect
