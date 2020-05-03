@@ -177,6 +177,7 @@ $(document).ready(() => {
 	// Dynamic Theme
 	theme(time.getHours());
 
+	// Nav Bar
 	$('nav div').click(() => {
 		$('nav ul').slideToggle();
 		$('nav ul ul').css('display', 'none');
@@ -189,6 +190,11 @@ $(document).ready(() => {
 				.slideToggle();
 	});
 
+	$('section').click(() => {
+		if($(window).width() < 720)
+			$('nav ul').slideUp();
+	});
+
 	$(window).resize(() => {
 		if($(window).width() > 720)
 			$('nav ul').removeAttr('style');
@@ -197,6 +203,7 @@ $(document).ready(() => {
 	// Format portfolio title box
 	portfolioTitleFormat();
 
+	// Contact form
 	$('#contact form').submit((e) => {
 		e.preventDefault();
 		$('#contact .error').empty()
