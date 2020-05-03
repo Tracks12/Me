@@ -10,7 +10,7 @@
 		 * get return network table
 		 * @return array network link
 		 */
-		public function getNetwork() {
+		public function getNetwork(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT `name`, `title`, `link`
@@ -24,7 +24,7 @@
 		 * get return skills table
 		 * @return array [skill-row-1, skill-row-2]
 		 */
-		public function getSkills() {
+		public function getSkills(): array {
 			$bdd = bdd::connect();
 			$req = [
 				$bdd->query('
@@ -51,7 +51,7 @@
 		 * get return skills status table
 		 * @return array skills status in percent
 		 */
-		public function getSkillsStatus() {
+		public function getSkillsStatus(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT `id`, `status`
@@ -72,7 +72,7 @@
 		 * get return experiences table
 		 * @return array professional experiences
 		 */
-		public function getExperiences() {
+		public function getExperiences(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT *
@@ -87,7 +87,7 @@
 		 * get return formations table
 		 * @return array formations & graduations
 		 */
-		public function getFormations() {
+		public function getFormations(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT *
@@ -102,7 +102,7 @@
 		 * get return contact table
 		 * @return array contact content
 		 */
-		public function getContacts() {
+		public function getContacts(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT *
@@ -115,9 +115,10 @@
 
 		/**
 		 * insert a contact request in contact table
+		 * @param array $data values of contact request
 		 * @return bool [true/false]
 		 */
-		public function insertContactRequest($data) {
+		public function insertContactRequest(array $data): bool {
 			$bdd = bdd::connect();
 			$req = $bdd->prepare('
 				INSERT INTO `contacts`(`address`, `name`, `fname`, `mail`, `phone`, `msg`)

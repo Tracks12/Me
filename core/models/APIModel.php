@@ -6,7 +6,7 @@
 	 */
 
 	class APIModel extends api {
-		public function getKey() {
+		public function getKey(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
 				SELECT *
@@ -17,7 +17,7 @@
 			return $req->fetch(PDO::FETCH_ASSOC);
 		}
 
-		public function genKey() {
+		public function genKey(): bool {
 			$bdd = bdd::connect();
 			$aes = services::aesGenKey();
 			$req = $bdd->prepare('

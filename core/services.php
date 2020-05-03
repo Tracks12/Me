@@ -13,7 +13,7 @@
 		 * @param string $data string of mail
 		 * @return bool [true/false]
 		 */
-		public static function isMail($data) {
+		public static function isMail(string $data): bool {
 			$return = filter_var($data, FILTER_VALIDATE_EMAIL);
 
 			return $return;
@@ -22,9 +22,9 @@
 		/**
 		 * verify if number is phone number
 		 * @param string $data string of phone number
-		 * @return bool [true/false]
+		 * @return int [1/0]
 		 */
-		public static function isPhone($data) {
+		public static function isPhone(string $data): int {
 			$return = preg_match("/^(([\+]([\d]{2,}))([0-9\.\-\/\s]{5,})|([0-9\.\-\/\s]{5,}))*$/", $data);
 
 			return $return;
@@ -35,7 +35,7 @@
 		 * @param string $data string of input parameter
 		 * @return string string of output and verify parameter
 		 */
-		public static function isInput($data) {
+		public static function isInput(string $data): string {
 			$data = trim($data);
 			$data = stripslashes($data);
 			$return = htmlspecialchars($data);
@@ -47,7 +47,7 @@
 		 * generate an aes256 key encoded in base64
 		 * @return array string of aes256 key & vector in base64
 		 */
-		public static function aesGenKey() {
+		public static function aesGenKey(): array {
 			$return = [
 				'key'    => base64_encode(openssl_random_pseudo_bytes(64)),
 				'vector' => base64_encode(openssl_random_pseudo_bytes(openssl_cipher_iv_length(AES_256_CBC)))
@@ -62,7 +62,7 @@
 		 * @param array $aes aes256 key & vector
 		 * @return string data encrypted in aes256 and encode in base64
 		 */
-		public static function aesEncrypt($data, $aes) {
+		public static function aesEncrypt(string $data, array $aes): string {
 			$aes = [
 				'key'			=> base64_decode($aes['key']),
 				'vector'	=> base64_decode($aes['vector'])
@@ -79,7 +79,7 @@
 		 * @param array $aes aes256 key & vector
 		 * @return string data decrypted in aes256
 		 */
-		public static function aesDecrypt($data, $aes) {
+		public static function aesDecrypt(string $data, array $aes): string {
 			$aes = [
 				'key'			=> base64_decode($aes['key']),
 				'vector'	=> base64_decode($aes['vector'])
