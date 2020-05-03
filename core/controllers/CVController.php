@@ -9,9 +9,9 @@
 		/**
 		 * contact form controller
 		 * @param array $data array of post request
-		 * @return string json result of request
+		 * @return array result of request
 		 */
-		public function contact($data) {
+		public function contact(array $data): array {
 			$post = [
 				"value"		=> [
 					"fname"	=> services::isInput($data["fName"]),
@@ -65,7 +65,7 @@
 				$mail["txt"] .= "Mail: {$post['value']['mail']}\n";
 
 			if(
-				empty($post["value"]["phone"])
+				empty($post["value"]["tel"])
 				|| !services::isPhone($post["value"]["tel"])
 			) {
 				$post["error"]["tel"] = $error;
