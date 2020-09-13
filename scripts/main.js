@@ -229,8 +229,8 @@ $(document).ready(() => {
 	$('.scrolly').scrolly();
 
 	// 000webhost part specs
-	if(document.location.hostname.split('.')[1] === "000webhostapp")
-		$('div')[$('div').length-1].style.display = "none";
+	//if(document.location.hostname.split('.')[1] === "000webhostapp")
+	//	$('div')[$('div').length-1].style.display = "none";
 
 	credit();
 });
