@@ -1,7 +1,10 @@
+# Php infos/errors state show
 php_value display_errors 0
 php_flag output_buffering off
 
+# Disable index of
 Options -Indexes -FollowSymLinks -MultiViews
 
+# Redirecting error code
 ErrorDocument 403 /
 ErrorDocument 404 /
