@@ -1,47 +1,102 @@
-## Site Portfolio 2018
+# Site Portfolio 2018
 
-### [floriancardinal.000webhostapp.com](https://floriancardinal.000webhostapp.com/)
+## **[floriancardinal.000webhostapp.com](https://floriancardinal.000webhostapp.com/)**
 
 ---
 
-### Dépendances
+## **Dependencies**
 
-#### Front (Styles & Scripts)
+### Front (Styles & Scripts)
 * [Font Awesome 4.7.0](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
 * [JQuery 3.3.1](https://api.jquery.com/)
 * [ParticulesJS 2.0](https://github.com/VincentGarreau/particles.js/)
 
-#### Fonts
+### Fonts
 * [Lato](http://www.latofonts.com/lato-free-fonts/)
 * [Monospace](https://fontmeme.com/polices/police-monospace/)
 
 ---
 
-### MVC Architecture
+## **MVC Resources**
 
-#### Source files in `/core/`
-* ressource contrôleurs: `/core/controllers/`
-* ressource modèles (data binding): `/core/models/`
-* ressource vues: `/core/views/`
+### Source files in `/core/`
+* controllers resources: `/core/controllers/`
+* models resources (data binding): `/core/models/`
+* views resources: `/core/views/`
 
-#### Routing
+### Routing
 * HTTP Request: `/core/HTTPRoute.php`
 * XHR Request: `/core/XHRRoute.php`
 
-#### Modules Annexes
-* Connection à la base de donnée: `/core/connect.php`
-* Vérification, Chiffrement et Protection d'injection: `/core/services.php`
+### Other Modules
+* Data Base connection: `/core/connect.php`
+* Injection Verification & Protection: `/core/services.php`
+
+### Database connection
+After cloning the repository **you need to create the database connection file in the `/core` directory which will be called `connect.php` with inside**:
+
+```php
+class bdd {
+	/**
+	 * disconnect to the database
+	 * @return void
+	 */
+	public static function disconnect(): void {
+		self::$bdd['db'] = NULL;
+		return;
+	}
+
+	/**
+	 * connect to the database
+	 * @return object[PDO] database object
+	 */
+	public static function connect(): PDO {
+		try {
+			self::$bdd['db'] = new PDO(
+				'mysql:host='.self::$bdd['host'].'; dbname='.self::$bdd['name'].'; charset='.self::$bdd['char'],
+				self::$bdd['user'],
+				self::$bdd['pass'],
+				[ PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING ]
+			);
+		}
+
+		catch(Exception $e) {
+			die("[Err]:[{$e->getmessage()}]");
+		}
+
+		return self::$bdd['db'];
+	}
+
+	// Data Base auth fields
+	private static $bdd = [
+		"db"   => NULL,
+		"host" => "...",
+		"name" => "...",
+		"char" => "utf8",
+		"user" => "...",
+		"pass" => "..."
+	];
+}
+```
+
+**Don't forget to import the `capteur.sql` file into your database !**
 
 ---
 
-### Dernière MàJ
+## **To do list**
 
-#### Apr 28, 2020
+- [ ] ...
+
+---
+
+## Dernière MàJ
+
+### Apr 28, 2020
 * Dynamic theme
 * Script fixed
 * Update documentation updates
 
-#### Mar 23, 2020
+### Mar 23, 2020
 * Explode all index views
 * Php script fixed
 * Style root var added
@@ -50,7 +105,7 @@
 * Add folder for assets
 * Apply MVC architecture
 
-#### Sep 3, 2019
+### Sep 3, 2019
 * Update php contact script
-* Delete parazit files
+* Delete parasitic files
 * Update portfolio link documentation
