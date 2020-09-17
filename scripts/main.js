@@ -174,6 +174,9 @@ $(document).ready(() => {
 	document['author'] = "CARDINAL Florian";
 	document['authorAlias'] = "Anarchy";
 
+	// Initiate clock
+	anim.startTime();
+
 	// Dynamic Theme
 	theme(time.getHours());
 

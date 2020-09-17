@@ -31,7 +31,7 @@
 <html lang="fr">
 	<?php require_once('./core/views/head.html'); ?>
 	<div id="particles-js"></div>
-	<body onload="anim.startTime();">
+	<body>
 		<?php require_once('./core/views/nav.php'); ?>
 		<a class="scrolly" id="upper" href="#me">
 			<span class="fa fa-chevron-up"></span>
