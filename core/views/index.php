@@ -7,8 +7,8 @@
 <?php
 	$dir = scandir("./portfolio/"); $k = 0;
 	$categ = array(
-		array("btn", "login", "nav", "slide"),
-		array("bouton", "connexion", "navigation", "panneau")
+		array("btn", "loader", "login", "nav", "slide"),
+		array("bouton", "chargement", "connexion", "navigation", "panneau")
 	);
 
 	for($i = 2; $i < count($dir); $i++) {
