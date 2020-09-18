@@ -76,45 +76,52 @@ INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description
 	(
 		1,
 		2016,
-		'Codecademy.com',
-		'Formation online<br />Programer & Developer',
-		'HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website',
-		'https://www.codecademy.com/profiles/Tracks12'
+		"Codecademy.com",
+		"Formation online<br />Programer & Developer",
+		"HTML5/CSS3, JavaScript, JQuery, Python, Ruby<br />Responsive Design, Deploy a Website",
+		"https://www.codecademy.com/profiles/Tracks12"
 	), (
 		2,
 		2017,
-		'Lycée GT Déodat de Séverac',
-		'Baccalauréat STI2D<br /><br />',
-		'Système Informatique et Numérique<br />Mention Assez Bien',
-		'0'
+		"Lycée GT Déodat de Séverac",
+		"Baccalauréat STI2D<br /><br />",
+		"Système Informatique et Numérique<br />Mention Assez Bien",
+		"0"
 	), (
 		3,
 		2017,
-		'Udemy.com',
-		'Formation online<br />Web Developer',
-		'HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design',
-		'https://www.udemy.com/certificate/UC-8XQUXMMT/'
+		"Udemy.com",
+		"Formation online<br />Web Developer",
+		"HTML5/CSS3, JavaScript, JQuery, Php7, MySQL<br />Responsive Design",
+		"https://www.udemy.com/certificate/UC-8XQUXMMT/"
 	), (
 		4,
 		2017,
-		'Udemy.com',
-		'Formation online<br />Web Designer',
-		'Illustrator, PhotoShop, XDesign<br />Web Design',
-		'https://www.udemy.com/certificate/UC-GMXYYE9B/'
+		"Udemy.com",
+		"Formation online<br />Web Designer",
+		"Illustrator, PhotoShop, XDesign<br />Web Design",
+		"https://www.udemy.com/certificate/UC-GMXYYE9B/"
 	), (
 		5,
 		2020,
-		'3CX Basic Certified Engineer v16',
-		'Formation online<br />Basic Telecom Engineer',
-		'Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur',
-		'https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj'
+		"3CX Basic Certified Engineer v16",
+		"Formation online<br />Basic Telecom Engineer",
+		"Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur",
+		"https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj"
 	), (
 		6,
 		2020,
-		'Lycée GT Déodat de Séverac',
-		'Brevet Technicien Supérieur<br /><br />',
-		'Systèmes Numériques<br />En cours de validation...',
-		'0'
+		"Lycée GT Déodat de Séverac",
+		"Brevet Technicien Supérieur<br /><br />",
+		"Systèmes Numériques<br />Mention Bien",
+		"0"
+	), (
+		7,
+		2020,
+		"IPI Institut Poly Informatique",
+		"Licence Professionnelle Concepteur Développeur d'application Web & Mobile",
+		"Développement, Conception & Gestion de projets<br />En cours...",
+		"0"
 	);
 
 
@@ -130,14 +137,14 @@ CREATE TABLE `network`(
 INSERT INTO `network`(`idNetwork`, `name`, `title`, `link`) VALUES
 	(
 		1,
-		'github',
-		'Mon GitHub',
-		'https://github.com/Tracks12'
+		"github",
+		"Mon GitHub",
+		"https://github.com/Tracks12"
 	), (
 		2,
-		'linkedin',
-		'Mon LinkedIn',
-		'https://www.linkedin.com/in/florian-cardinal-13317b150'
+		"linkedin",
+		"Mon LinkedIn",
+		"https://www.linkedin.com/in/florian-cardinal-13317b150"
 	);
 
 
@@ -153,44 +160,44 @@ CREATE TABLE `skills`(
 INSERT INTO `skills`(`idSkills`, `id`, `title`, `status`) VALUES
 	(
 		1,
-		'html',
-		'HTML5',
-		0.98
+		"html",
+		"HTML5",
+		.98
 	), (
 		2,
-		'js',
-		'JavaScript',
-		0.9
+		"js",
+		"JavaScript",
+		.9
 	), (
 		3,
-		'bootstrap',
-		'BootStrap',
-		0.9
+		"bootstrap",
+		"BootStrap",
+		.9
 	), (
 		4,
-		'mysql',
-		'MySQL',
-		0.8
+		"mysql",
+		"MySQL",
+		.8
 	), (
 		5,
-		'css',
-		'CSS3',
-		0.95
+		"css",
+		"CSS3",
+		.95
 	), (
 		6,
-		'jquery',
-		'JQuery',
-		0.9
+		"jquery",
+		"JQuery",
+		.9
 	), (
 		7,
-		'php',
-		'PHP7',
-		0.85
+		"php",
+		"PHP7",
+		.85
 	), (
 		8,
-		'python',
-		'Python2/3',
-		0.75
+		"python",
+		"Python2/3",
+		.75
 	);
 
 
@@ -230,7 +237,7 @@ ALTER TABLE `experiences`
 
 ALTER TABLE `formations`
 	MODIFY `idFormations` int(8) NOT NULL AUTO_INCREMENT,
-	AUTO_INCREMENT=7;
+	AUTO_INCREMENT=8;
 
 ALTER TABLE `network`
 	MODIFY `idNetwork` int(8) NOT NULL AUTO_INCREMENT,
