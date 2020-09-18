@@ -189,7 +189,7 @@ INSERT INTO `skills`(`idSkills`, `id`, `title`, `status`) VALUES
 	), (
 		8,
 		'python',
-		'Python',
+		'Python2/3',
 		0.75
 	);
 
