@@ -5,7 +5,7 @@
 	 * Page   : APIModel.php
 	 */
 
-	class APIModel extends api {
+	class APIModel extends bdd {
 		public function getKey(): array {
 			$bdd = bdd::connect();
 			$req = $bdd->query('
