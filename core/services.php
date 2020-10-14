@@ -44,6 +44,21 @@
 		}
 
 		/**
+		 * check array request parameter
+		 * @param array $array array to check
+		 * @return array array checked
+		 */
+		public static function checkArray(array $array): array {
+			foreach($array as $key => $value) {
+				$value = trim($value);
+				$value = stripslashes($value);
+				$return[$key] = htmlspecialchars($value);
+			}
+
+			return $return;
+		}
+
+		/**
 		 * generate an aes256 key encoded in base64
 		 * @return array string of aes256 key & vector in base64
 		 */
