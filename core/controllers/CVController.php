@@ -12,13 +12,14 @@
 		 * @return array result of request
 		 */
 		public function contact(array $data): array {
+			$data = services::checkArray($data);
 			$post = [
 				"value"		=> [
-					"fname"	=> services::isInput($data["fName"]),
-					"name"	=> services::isInput($data["name"]),
-					"mail"	=> services::isInput($data["mail"]),
-					"tel"		=> services::isInput($data["phone"]),
-					"msg"		=> services::isInput($data["msg"])
+					"fname"	=> $data["fName"],
+					"name"	=> $data["name"],
+					"mail"	=> $data["mail"],
+					"tel"		=> $data["phone"],
+					"msg"		=> $data["msg"]
 				],
 				"error"		=> [
 					"fname"	=> NULL,
@@ -93,6 +94,54 @@
 			}
 
 			return $post;
+		}
+
+		/**
+		 * sign in portfolio controller
+		 * @param array $data array of data form
+		 * @return bool result of request
+		 */
+		public function portfolioSignIn(array $data): bool {
+			$data = services::checkArray($data);
+			$login = array("user", "pass");
+			$post = [
+				"value"				=> [
+					"user"			=> $data["fName"],
+					"phpsessid"	=> $_COOKIE["PHPSESSID"]
+				],
+				"error"				=> [
+					"msg"				=> "login incorrect"
+				],
+				"passed"			=> false
+			];
+
+			if(
+				$_SERVER["REQUEST_METHOD"]
+				&& (
+					($data["user"] === $login[0])
+					&& ($data["pass"] === $login[1])
+				)
+			) {
+				$_SESSION["login"] = $data["user"];
+				setcookie("login", $data["user"], time()+3600);
+
+				$post["error"]["msg"] = NULL;
+				$post["passed"] = true;
+			}
+
+			return $post;
+		}
+
+		/**
+		 * sign out portfolio controller
+		 * @return bool result of request
+		 */
+		public function portfolioSignOut(): bool {
+			session_destroy();
+			setcookie("login", "", time()-3600);
+			unset($_COOKIE["login"]);
+
+			return true;
 		}
 	}
 
