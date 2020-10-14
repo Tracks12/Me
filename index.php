@@ -5,6 +5,8 @@
 	 * Page   : route.php
 	 */
 
+	declare(strict_types = 1);
+
 	require_once('./core/connect.php');
 	require_once('./core/services.php');
 	require_once('./core/models/CVModel.php');
@@ -17,6 +19,8 @@
 		/**
 		 * XHR Request Only
 		 */
+
+		session_start();
 
 		require_once('./core/models/APIModel.php');
 		require_once('./core/controllers/CVController.php');
