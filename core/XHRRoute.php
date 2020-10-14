@@ -11,11 +11,19 @@
 		 */
 
 		case '/?contact':
-			$return = CVController::contact($_POST);
+			$return = [ "code" => 200, "response" => CVController::contact($_POST) ];
+			break;
+
+		case '/?portfolioSignIn':
+			$return = [ "code" => 200, "response" => CVController::portfolioSignIn($_POST) ];
+			break;
+
+		case '/?portfolioSignOut':
+			$return = [ "code" => 200, "response" => CVController::portfolioSignOut() ];
 			break;
 
 		case '/?ping':
-			$return = [ "response" => "pong" ];
+			$return = [ "code" => 200, "response" => "pong" ];
 			break;
 
 		default:

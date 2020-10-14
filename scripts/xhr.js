@@ -18,6 +18,8 @@ class xhr {
 			data: data,
 			dataType: 'json',
 			success: (result) => {
+				result = result.response;
+
 				if(result.passed) {
 					$('#contact .ty').css('display', 'block');
 					$('#contact form')[0].reset();
