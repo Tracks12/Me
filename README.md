@@ -7,32 +7,40 @@
 ## **Dependencies**
 
 ### Front (Styles & Scripts)
-* [Font Awesome 4.7.0](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
-* [JQuery 3.3.1](https://api.jquery.com/)
-* [ParticulesJS 2.0](https://github.com/VincentGarreau/particles.js/)
+
+| Librairies / API's                                                                        | version |
+| ----------------------------------------------------------------------------------------- | ------- |
+| [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use) | 4.7.0   |
+| [JQuery](https://api.jquery.com/)                                                         | 3.3.1   |
+| [ParticulesJS](https://github.com/VincentGarreau/particles.js/)                           | 2.0.0   |
 
 ### Fonts
-* [Lato](http://www.latofonts.com/lato-free-fonts/)
-* [Monospace](https://fontmeme.com/polices/police-monospace/)
+
+- [Lato](http://www.latofonts.com/lato-free-fonts/)
+- [Monospace](https://fontmeme.com/polices/police-monospace/)
 
 ---
 
 ## **MVC Resources**
 
 ### Source files in `/core/`
-* controllers resources: `/core/controllers/`
-* models resources (data binding): `/core/models/`
-* views resources: `/core/views/`
+
+- controllers resources: `/core/controllers/`
+- models resources (data binding): `/core/models/`
+- views resources: `/core/views/`
 
 ### Routing
-* HTTP Request: `/core/HTTPRoute.php`
-* XHR Request: `/core/XHRRoute.php`
+
+- HTTP Request: `/core/HTTPRoute.php`
+- XHR Request: `/core/XHRRoute.php`
 
 ### Other Modules
-* Data Base connection: `/core/connect.php`
-* Injection Verification & Protection: `/core/services.php`
+
+- Data Base connection: `/core/connect.php`
+- Injection Verification & Protection: `/core/services.php`
 
 ### Database connection
+
 After cloning the repository **you need to create the database connection file in the `/core` directory which will be called `connect.php` with inside**:
 
 ```php
@@ -92,20 +100,23 @@ class bdd {
 ## Dernière MàJ
 
 ### Apr 28, 2020
-* Dynamic theme
-* Script fixed
-* Update documentation updates
+
+- Dynamic theme
+- Script fixed
+- Update documentation updates
 
 ### Mar 23, 2020
-* Explode all index views
-* Php script fixed
-* Style root var added
-* Prepare css dynamic theme
-* Data base update
-* Add folder for assets
-* Apply MVC architecture
+
+- Explode all index views
+- Php script fixed
+- Style root var added
+- Prepare css dynamic theme
+- Data base update
+- Add folder for assets
+- Apply MVC architecture
 
 ### Sep 3, 2019
-* Update php contact script
-* Delete parasitic files
-* Update portfolio link documentation
+
+- Update php contact script
+- Delete parasitic files
+- Update portfolio link documentation
