@@ -4,80 +4,80 @@
  * Page   : responsive.css
  */
 
-@media(max-width: 720px) {
+@media(width < 720px) {
 	nav {
-		overflow: auto;
-		max-height: 100%;
-		padding-left: 0;
-		position: fixed;
+		overflow: auto !important;
+		max-height: 100% !important;
+		padding-left: 0 !important;
+		position: fixed !important;
 	}
 
 	nav #time {
-		font-size: 150%;
-		right: 0;
+		font-size: 150% !important;
+		right: 0 !important;
 	}
 
-	nav div { display: block; }
+	nav div { display: block !important; }
 
 	nav ul {
-		display: none;
-		padding-left: 0;
-		position: relative;
+		display: none !important;
+		padding-left: 0 !important;
+		position: relative !important;
 	}
 
-	nav ul li { display: block; }
+	nav ul li { display: block !important; }
 	nav ul ul {
-		box-shadow: none;
-		position: relative;
+		box-shadow: none !important;
+		position: relative !important;
 	}
 
-	header div { display: none; }
+	header div { display: none !important; }
 
 	aside hr {
-		margin: 1.5em 4em;
-		margin-bottom: 4.5em;
-		max-width: 100%;
+		margin: 1.5em 4em !important;
+		margin-bottom: 4.5em !important;
+		max-width: 100% !important;
 	}
 
-	#skills .container { padding: 0; }
+	#skills .container { padding: 0 !important; }
 	#skills .row {
-		display: block;
-		width: 100%;
+		display: block !important;
+		width: 100% !important;
 	}
 
-	#xp ul { padding: 30px 10px; }
-	#xp ul::before { left: 30px; }
+	#xp ul { padding: 30px 10px !important; }
+	#xp ul::before { left: 30px !important; }
 
-	#xp ul > li { border-radius: 0 10px 10px 0; }
+	#xp ul > li { border-radius: 0 10px 10px 0 !important; }
 	#xp ul > li, #xp ul > li.inverted {
-		margin-left: 20px;
-		margin-right: 0;
+		margin-left: 20px !important;
+		margin-right: 0 !important;
 	}
 
-	#xp ul > li #badge { left: 30px; }
+	#xp ul > li #badge { left: 30px !important; }
 
-	#grad .container { padding: 0; }
+	#grad .container { padding: 0 !important; }
 	#grad .frame {
-		display: block;
-		margin: 25px auto;
-		width: auto;
-		max-width: 375px;
+		display: block !important;
+		margin: 25px auto !important;
+		width: auto !important;
+		max-width: 375px !important;
 	}
 
-	#portfolio div { padding: 0; }
-	#portfolio h3 { padding-top: 3em; }
-	#portfolio div ul { text-align: center; }
-	#portfolio div ul li { margin: 4px; }
+	#portfolio div { padding: 0 !important; }
+	#portfolio h3 { padding-top: 3em !important; }
+	#portfolio div ul { text-align: center !important; }
+	#portfolio div ul li { margin: 4px !important; }
 	#portfolio div ul li a {
-		margin: 0;
-		max-height: 14.5em;
-		max-width: 14.5em;
+		margin: 0 !important;
+		max-height: 14.5em !important;
+		max-width: 14.5em !important;
 	}
 
-	#contact .container { margin: 0; }
-	#contact .row { width: 100%; }
-	#contact .inputBox { margin-top: 0; }
-	#contact input[type=submit] { width: 90%; }
+	#contact .container { margin: 0 !important; }
+	#contact .row { width: 100% !important; }
+	#contact .inputBox { margin-top: 0 !important; }
+	#contact input[type=submit] { width: 90% !important; }
 }
 
 /**
