@@ -37,25 +37,25 @@ INSERT INTO `experiences`(`idExperiences`, `entity`, `job`, `period`, `descripti
 	(
 		1,
 		"Indépendant",
-		"Développeur Web",
+		"développeur web",
 		"juil. 2017 - sept. 2018",
 		"France<br />"
 	), (
 		2,
 		"Conseil Départemental HG",
-		"Stagiaire Développeur Web",
+		"stagiaire développeur web",
 		"mai. 2019 - juin. 2019",
 		"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony"
 	), (
 		3,
 		"WHYNOGROUP EU",
-		"Développeur Web Front End",
+		"développeur web front end",
 		"fév. 2019 - juin. 2020",
 		"France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web"
 	), (
 		4,
-		"Orpalis",
-		"Développeur web junior",
+		"ORPALIS",
+		"développeur web junior",
 		"sep. 2020 - aujourd'hui",
 		"France<br /><br />"
 	);
