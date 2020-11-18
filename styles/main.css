@@ -434,6 +434,7 @@ aside hr {
 #xp ul > li h4 {
 	color: var(--contrast);
 	font-size: 18px;
+	text-transform: capitalize;
 	transition: .2s all;
 }
 #xp ul > li h3,
