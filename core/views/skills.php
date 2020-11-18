@@ -19,18 +19,6 @@
 					echo("</div>");
 				}
 			?>
-			<script language="javascript" type="text/javascript">
-				var progress = [];
-
-				<?php
-					$status = CVModel::getSkillsStatus();
-
-					foreach($status as $out)
-						echo("progress.push(['{$out['id']}', '{$out['status']}%']);\n");
-				?>
-
-				skillsBar(progress);
-			</script>
 		</div>
 	</article>
 </aside>

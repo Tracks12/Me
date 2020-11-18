@@ -6,7 +6,7 @@
 
 "use strict";
 
-class tools {
+export default class Tools {
 	/**
 	 * capitalize a string
 	 * @param {string} s input string

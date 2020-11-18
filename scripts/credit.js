@@ -7,9 +7,14 @@
 "use strict";
 
 /**
+ * Importation des modules
+ */
+import Tools from "/scripts/tools.js";
+
+/**
  * logger more infor about me
  */
-function credit() {
+export default function credit() {
 	let output = "";
 	let content = {
 		msg: [
@@ -40,10 +45,10 @@ function credit() {
 
 	for(let i = 0; i < Object.values(content).length; i++)
 		for(let j = 0; j < Object.values(content)[i].length; j++) {
-			output += tools.capitalize(Object.values(content)[i][j]);
+			output += Tools.capitalize(Object.values(content)[i][j]);
 
 			if(!j)
-				output += tools.underliner(Object.values(content)[i][j]);
+				output += Tools.underliner(Object.values(content)[i][j]);
 		}
 
 	console.info(output);
