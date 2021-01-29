@@ -5,7 +5,7 @@
 	 * Page   : CVController.php
 	 */
 
-	class CVController {
+	abstract class CVController {
 		/**
 		 * contact form controller
 		 * @param array $data array of post request
