@@ -6,17 +6,42 @@
 
 "use strict";
 
-class xhr {
+/**
+ * Importation des modules
+ */
+import "/scripts/jquery-3.3.1.min.js";
+
+export default class XHR {
+	/**
+	 * xhr request for skills status getter
+	 */
+	static getSkillsStatus() {
+		$.ajax({
+			type: "POST",
+			url: "/?getSkillsStatus",
+			dataType: "json",
+			success: (result) => {
+				let skills = result.response
+
+				skills.map((skill) => {
+					skill.status += "%"
+					$(`#${skill.id} h5`)[0].innerText += ` ${skill.status}`;
+					$(`#${skill.id} .progress`).css({ width: skill.status });
+				});
+			}
+		});
+	}
+
 	/**
 	 * xhr request for contact form
-	 * @param {string} data URI request
+	 * @param {string} data msg content to send
 	 */
 	static contact(data) {
 		$.ajax({
-			type: 'POST',
-			url: '/?contact',
+			type: "POST",
+			url: "/?contact",
 			data: data,
-			dataType: 'json',
+			dataType: "json",
 			success: (result) => {
 				result = result.response;
 

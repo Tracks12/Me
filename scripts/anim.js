@@ -9,7 +9,7 @@
 /**
  * Animation abstract class
  */
-class anim {
+export default class Anim {
 	/**
 	 * take html value of <p> & <pre> of #animate to make typing animation
 	 * @param {array} output [<p> object html, <pre> object html]
@@ -22,7 +22,7 @@ class anim {
 			output[i].innerText = '';
 		}
 
-		anim.text(output[0], data[0], 0, () => anim.frame(output[1], data[1], 0));
+		Anim.text(output[0], data[0], 0, () => Anim.frame(output[1], data[1], 0));
 	}
 
 	/**
@@ -42,7 +42,7 @@ class anim {
 		z++;
 
 		if(z < y.length)
-			setTimeout(() => anim.text(x, y, z, func), timer);
+			setTimeout(() => Anim.text(x, y, z, func), timer);
 
 		else
 			setTimeout(func, timer+400);
@@ -59,7 +59,7 @@ class anim {
 		z++;
 
 		if(z < y.split('\n').length)
-			setTimeout(() => anim.frame(x, y, z), 100);
+			setTimeout(() => Anim.frame(x, y, z), 100);
 	}
 
 	/**
@@ -85,7 +85,7 @@ class anim {
 		}
 
 		$('#time').html(h+sep+m+s);
-		setTimeout(() => anim.startTime(sep), delay);
+		setTimeout(() => Anim.startTime(sep), delay);
 	}
 }
 

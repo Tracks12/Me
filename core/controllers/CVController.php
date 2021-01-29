@@ -5,7 +5,7 @@
 	 * Page   : CVController.php
 	 */
 
-	class CVController {
+	abstract class CVController {
 		/**
 		 * contact form controller
 		 * @param array $data array of post request
@@ -34,7 +34,7 @@
 
 			$mail = [
 				"header"	=> NULL,
-				"to"			=> "cardinal.florian.erwan@gmail.com",
+				"to"			=> base64_decode("Y2FyZGluYWwuZmxvcmlhbi5lcndhbkBnbWFpbC5jb20="),
 				"txt"			=> ""
 			];
 

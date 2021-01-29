@@ -6,6 +6,16 @@
 
 "use strict";
 
+/**
+ * Importation des modules
+ */
+import "/scripts/jquery-3.3.1.min.js";
+import "/scripts/scrolly.js";
+import Anim from "/scripts/anim.js";
+import Tools from "/scripts/tools.js";
+import credit from "/scripts/credit.js";
+import XHR from "/scripts/xhr.js";
+
 const particlesParameters = {
 	"particles": {
 		"number": {
@@ -116,17 +126,6 @@ function randColor() {
 }
 
 /**
- * make the progress of skillbars
- * @param {array} skill skill target with percent
- */
-function skillsBar(skill) {
-	for(let i = 0; i < skill.length; i++) {
-		$(`#${skill[i][0]} h5`)[0].innerText += ` ${skill[i][1]}`;
-		$(`#${skill[i][0]} .progress`)[0].style.width = skill[i][1];
-	}
-}
-
-/**
  * Format title of portfolio items
  */
 function portfolioTitleFormat() {
@@ -149,7 +148,7 @@ function portfolioTitleFormat() {
 function toScroll() {
 	let coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
 
-	if(tools.range(coef, .05, .9))
+	if(Tools.range(coef, .05, .9))
 		$('#upper').fadeIn()
 
 	else
@@ -161,7 +160,7 @@ function toScroll() {
  * @param {int} hour the hour of time
  */
 function theme(hour) {
-	if(tools.range(hour, 0, 8) || tools.range(hour, 20, 24))
+	if(Tools.range(hour, 0, 8) || Tools.range(hour, 20, 24))
 		$('#theme').attr('href', '/styles/theme/dark.css');
 
 	else
@@ -175,7 +174,7 @@ $(document).ready(() => {
 	document['authorAlias'] = "Anarchy";
 
 	// Initiate clock
-	anim.startTime();
+	Anim.startTime();
 
 	// Dynamic Theme
 	theme(time.getHours());
@@ -210,9 +209,9 @@ $(document).ready(() => {
 	$('#contact form').submit((e) => {
 		e.preventDefault();
 		$('#contact .error').empty()
-		var post = $('#contact form').serialize();
+		let post = $('#contact form').serialize();
 
-		xhr.contact(post);
+		XHR.contact(post);
 	});
 
 	// conjure up and vanish the "go up" button
@@ -220,7 +219,7 @@ $(document).ready(() => {
 	$(document).on('scroll', () => toScroll());
 
 	// animation of shell
-	new anim([
+	new Anim([
 		$('#animate p')[0],
 		$('#animate pre')[0]
 	]);
@@ -230,6 +229,8 @@ $(document).ready(() => {
 
 	randColor();
 	$('.scrolly').scrolly();
+
+	XHR.getSkillsStatus();
 
 	// 000webhost part specs
 	//if(document.location.hostname.split('.')[1] === "000webhostapp")

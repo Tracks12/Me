@@ -10,6 +10,10 @@
 		 * Redirect URI
 		 */
 
+		case '/?getSkillsStatus':
+			$return = [ "code" => 200, "response" => CVModel::getSkillsStatus() ];
+			break;
+
 		case '/?contact':
 			$return = [ "code" => 200, "response" => CVController::contact($_POST) ];
 			break;

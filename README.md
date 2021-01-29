@@ -44,7 +44,7 @@
 After cloning the repository **you need to create the database connection file in the `/core` directory which will be called `connect.php` with inside**:
 
 ```php
-class bdd {
+abstract class DataBase {
 	/**
 	 * disconnect to the database
 	 * @return void

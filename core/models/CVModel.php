@@ -5,13 +5,13 @@
 	 * Page   : CVModel.php
 	 */
 
-	class CVModel extends bdd {
+	abstract class CVModel extends DataBase {
 		/**
 		 * get return network table
 		 * @return array network link
 		 */
 		public function getNetwork(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = $bdd->query('
 				SELECT `name`, `title`, `link`
 				FROM `network`
@@ -25,7 +25,7 @@
 		 * @return array [skill-row-1, skill-row-2]
 		 */
 		public function getSkills(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = [
 				$bdd->query('
 					SELECT `id`, `title`
@@ -52,7 +52,7 @@
 		 * @return array skills status in percent
 		 */
 		public function getSkillsStatus(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = $bdd->query('
 				SELECT `id`, `status`
 				FROM `skills`
@@ -73,7 +73,7 @@
 		 * @return array professional experiences
 		 */
 		public function getExperiences(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = $bdd->query('
 				SELECT *
 				FROM `experiences`
@@ -88,7 +88,7 @@
 		 * @return array formations & graduations
 		 */
 		public function getFormations(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = $bdd->query('
 				SELECT *
 				FROM `formations`
@@ -103,7 +103,7 @@
 		 * @return array contact content
 		 */
 		public function getContacts(): array {
-			$bdd = bdd::connect();
+			$bdd = self::connect();
 			$req = $bdd->query('
 				SELECT *
 				FROM `contacts`
