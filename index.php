@@ -2,7 +2,7 @@
 	/**
 	 * Auteur : CARDINAL Florian
 	 * Date   : 19/03/2020 01:04
-	 * Page   : route.php
+	 * Page   : index.php
 	 */
 
 	declare(strict_types = 1);
