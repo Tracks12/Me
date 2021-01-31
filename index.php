@@ -22,7 +22,6 @@
 
 		session_start();
 
-		require_once('./core/models/APIModel.php');
 		require_once('./core/controllers/CVController.php');
 		require_once('./core/XHRRoute.php');
 	}
