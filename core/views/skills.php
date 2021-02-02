@@ -13,7 +13,7 @@
 					foreach($item as $subitem)
 						echo("<div class=\"progressBar\" id=\"{$subitem["id"]}\">
 								<div class=\"progress\"></div>
-								<h5>{$subitem["title"]}</h5>
+								<h3>{$subitem["title"]}</h3>
 							</div>");
 
 					echo("</div>");

@@ -9,7 +9,7 @@
 /**
  * Importation des modules
  */
-import "/scripts/jquery-3.3.1.min.js";
+import "/scripts/jquery-3.5.1.min.js";
 
 export default class XHR {
 	/**
@@ -25,7 +25,7 @@ export default class XHR {
 
 				skills.map((skill) => {
 					skill.status += "%"
-					$(`#${skill.id} h5`)[0].innerText += ` ${skill.status}`;
+					$(`#${skill.id} h3`)[0].innerText += ` ${skill.status}`;
 					$(`#${skill.id} .progress`).css({ width: skill.status });
 				});
 			}

@@ -249,7 +249,7 @@ header article h1 {
 	text-transform: uppercase;
 }
 
-header article h3 {
+header article h2 {
 	color: var(--contrast);
 	font-size: 20px;
 	font-weight: 500;
@@ -366,7 +366,7 @@ aside hr {
 	z-index: 0;
 }
 
-#skills .row .progressBar h5 {
+#skills .row .progressBar h3 {
 	color: var(--color-bar);
 	font-size: 16px;
 	padding: 10px 0;

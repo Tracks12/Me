@@ -6,7 +6,7 @@
 	<span class="slither vertical"></span>
 	<span class="avatar" title="Ma tête"></span>
 	<h1>cardinal florian</h1>
-	<h3>développeur web junior</h3>
+	<h2>développeur web junior</h2>
 	<a href="/assets/files/cv.pdf" download>télécharger cv</a>
 	<hr />
 	<?php
