@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Login CSS Design UI 2.0</title>
 		<link rel="stylesheet" type="text/css" href="./style.css" />
-		<script type="application/javascript" language="Javascript" src="/scripts/jquery-3.3.1.min.js"></script>
+		<script type="application/javascript" language="Javascript" src="/scripts/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" language="Javascript">
 			$(document).ready(function() {
 				$('.signIn').click(function() {
