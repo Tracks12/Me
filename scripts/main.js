@@ -233,7 +233,7 @@ $(document).ready(() => {
 	XHR.getSkillsStatus();
 
 	if( // 000webhost part specs
-		document.location.hostname.split('.')[1] === "000webhostapp"
+		document.location.hostname.includes("000webhostapp")
 		&& ($("div").length > 47)
 	)
 		$("div:last").remove();
