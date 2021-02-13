@@ -232,9 +232,11 @@ $(document).ready(() => {
 
 	XHR.getSkillsStatus();
 
-	// 000webhost part specs
-	//if(document.location.hostname.split('.')[1] === "000webhostapp")
-	//	$('div')[$('div').length-1].style.display = "none";
+	if( // 000webhost part specs
+		document.location.hostname.split('.')[1] === "000webhostapp"
+		&& ($("div").length > 47)
+	)
+		$("div:last").remove();
 
 	credit();
 });
