@@ -12,7 +12,7 @@
 		 * @return array result of request
 		 */
 		public function contact(array $data): array {
-			$data = services::checkArray($data);
+			$data = Services::checkArray($data);
 			$post = [
 				"value"		=> [
 					"fname"	=> $data["fName"],
@@ -102,7 +102,7 @@
 		 * @return bool result of request
 		 */
 		public function portfolioSignIn(array $data): bool {
-			$data = services::checkArray($data);
+			$data = Services::checkArray($data);
 			$login = array("user", "pass");
 			$post = [
 				"value"				=> [

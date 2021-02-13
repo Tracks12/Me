@@ -7,7 +7,7 @@
 
 	define('AES_256_CBC', 'aes-256-cbc');
 
-	class services {
+	abstract class Services {
 		/**
 		 * verify if mail is valid
 		 * @param string $data string of mail

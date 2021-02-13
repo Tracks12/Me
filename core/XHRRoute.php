@@ -5,7 +5,7 @@
 	 * Page   : XHRRoute.php
 	 */
 
-	switch(services::isInput($_SERVER['REQUEST_URI'])) {
+	switch(Services::isInput($_SERVER['REQUEST_URI'])) {
 		/**
 		 * Redirect URI
 		 */
