@@ -19,7 +19,7 @@
 		 * disconnect to CV the data base
 		 * @return void
 		 */
-		public static function disconnect(): void {
+		protected static function disconnect(): void {
 			self::$bdd = NULL;
 
 			return;
@@ -29,7 +29,7 @@
 		 * connect to the CV data base
 		 * @return object[PDO] data base object
 		 */
-		public static function connect(): PDO {
+		protected static function connect(): PDO {
 			try {
 				self::$auth = json_decode(file_get_contents("./core/constants/config.json"), true)["database"];
 

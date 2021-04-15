@@ -5,7 +5,14 @@
 	 * Page   : CVController.php
 	 */
 
-	abstract class CVController {
+	abstract class CVController extends CVModel {
+		/**
+		 * ping response controller
+		 */
+		public static function ping(): string {
+			return "pong";
+		}
+
 		/**
 		 * contact form controller
 		 * @param array $data array of post request
@@ -14,13 +21,7 @@
 		public function contact(array $data): array {
 			$data = Services::checkArray($data);
 			$post = [
-				"value"		=> [
-					"fname"	=> $data["fName"],
-					"name"	=> $data["name"],
-					"mail"	=> $data["mail"],
-					"tel"		=> $data["phone"],
-					"msg"		=> $data["msg"]
-				],
+				"value"		=> $data,
 				"error"		=> [
 					"fname"	=> NULL,
 					"name"	=> NULL,

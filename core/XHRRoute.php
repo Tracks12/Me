@@ -5,35 +5,23 @@
 	 * Page   : XHRRoute.php
 	 */
 
-	switch(Services::isInput($_SERVER['REQUEST_URI'])) {
-		/**
-		 * Redirect URI
-		 */
+	foreach(XHRROUTES as $route => $action) {
+		switch(Services::isInput($_SERVER['REQUEST_URI'])) {
+			/**
+			 * Redirect URI
+			 */
 
-		case '/?getSkillsStatus':
-			$return = [ "code" => 200, "response" => CVModel::getSkillsStatus() ];
-			break;
+			case "/?{$route}":
+ 				$return = [
+ 					"code"     => 200,
+ 					"response" => isset($_POST) ? CVController::$action($_POST) : DMCactiControllers::$action()
+ 				]; break 2;
 
-		case '/?contact':
-			$return = [ "code" => 200, "response" => CVController::contact($_POST) ];
-			break;
-
-		case '/?portfolioSignIn':
-			$return = [ "code" => 200, "response" => CVController::portfolioSignIn($_POST) ];
-			break;
-
-		case '/?portfolioSignOut':
-			$return = [ "code" => 200, "response" => CVController::portfolioSignOut() ];
-			break;
-
-		case '/?ping':
-			$return = [ "code" => 200, "response" => "pong" ];
-			break;
-
-		default:
-			http_response_code(404);
-			$return = [ "code" => 404, "error" => "NOT FOUND !" ];
-			break;
+			default:
+				http_response_code(404);
+				$return = [ "code" => 404, "error" => "NOT FOUND !" ];
+				break;
+		}
 	}
 
 	switch(http_response_code()) {

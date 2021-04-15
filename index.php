@@ -7,6 +7,11 @@
 
 	declare(strict_types = 1);
 
+	$sitemap = json_decode(file_get_contents("./core/constants/sitemap.json"), true);
+
+	define("HTTPROUTES", $sitemap["views"]);
+	define("XHRROUTES", $sitemap["actions"]);
+
 	require_once('./core/connect.php');
 	require_once('./core/libs/services.php');
 	require_once('./core/models/CVModel.php');

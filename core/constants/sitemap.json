@@ -1,0 +1,11 @@
+{
+	"actions": {
+		"getSkillsStatus": "getSkillsStatus",
+		"contact": "contact",
+		"portfolioSignIn": "portfolioSignIn",
+		"portfolioSignOut": "portfolioSignOut"
+	},
+	"views": {
+
+	}
+}
