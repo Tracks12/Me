@@ -9,7 +9,7 @@
 /**
  * Importation des modules
  */
-import "/scripts/jquery-3.3.1.min.js";
+import "/scripts/jquery-3.5.1.min.js";
 import "/scripts/scrolly.js";
 import Anim from "/scripts/anim.js";
 import Tools from "/scripts/tools.js";
@@ -232,9 +232,11 @@ $(document).ready(() => {
 
 	XHR.getSkillsStatus();
 
-	// 000webhost part specs
-	//if(document.location.hostname.split('.')[1] === "000webhostapp")
-	//	$('div')[$('div').length-1].style.display = "none";
+	if( // 000webhost part specs
+		document.location.hostname.includes("000webhostapp")
+		&& ($("div").length > 47)
+	)
+		$("div:last").remove();
 
 	credit();
 });

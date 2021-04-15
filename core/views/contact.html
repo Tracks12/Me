@@ -7,30 +7,30 @@
 			<form method="POST" action>
 				<div class="row">
 					<div class="inputBox" id="name">
-						<input type="text" name="name" required />
-						<label>Nom</label>
+						<input type="text" name="name" id="inname" required />
+						<label for="inname">Nom</label>
 						<p class="error"></p>
 					</div>
 					<div class="inputBox" id="fName">
-						<input type="text" name="fName" required />
-						<label>Prénom</label>
+						<input type="text" name="fName" id="infname" required />
+						<label for="infname">Prénom</label>
 						<p class="error"></p>
 					</div>
 				</div><div class="row">
 					<div class="inputBox" id="mail">
-						<input type="email" name="mail" required />
-						<label>Email</label>
+						<input type="email" name="mail" id="inmail" required />
+						<label for="inmail">Email</label>
 						<p class="error"></p>
 					</div>
 					<div class="inputBox" id="phone">
-						<input type="tel" name="phone" required />
-						<label>Téléphone</label>
+						<input type="tel" name="phone" id="inphone" required />
+						<label for="inphone">Téléphone</label>
 						<p class="error"></p>
 					</div>
 				</div>
 				<div class="inputBox" id="msg">
-					<textarea name="msg" required></textarea>
-					<label>Message</label>
+					<textarea name="msg" id="inmsg" required></textarea>
+					<label for="inmsg">Message</label>
 					<p class="error"></p>
 				</div>
 				<input type="submit" value="envoyer" />

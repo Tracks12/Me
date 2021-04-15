@@ -1,4 +1,4 @@
 *.ftpconfig
 *.ftpignore
-connect.php
 _config.yml
+core/constants/config.json

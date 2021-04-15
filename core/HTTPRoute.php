@@ -7,7 +7,7 @@
 
 	$network = CVModel::getNetwork();
 
-	switch(services::isInput($_SERVER['REQUEST_URI'])) {
+	switch(Services::isInput($_SERVER['REQUEST_URI'])) {
 		/**
 		 * Redirect URI
 		 */

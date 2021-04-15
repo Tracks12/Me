@@ -5,6 +5,9 @@ php_flag output_buffering off
 # Disable index of
 Options -Indexes -FollowSymLinks -MultiViews
 
+# Redirect when try access to core folder app
+RedirectMatch 404 ^/core/.*$
+
 # Redirecting error code
 ErrorDocument 403 /
 ErrorDocument 404 /

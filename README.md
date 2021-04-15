@@ -41,63 +41,25 @@
 
 ### Database connection
 
-After cloning the repository **you need to create the database connection file in the `/core` directory which will be called `connect.php` with inside**:
+After cloning the repository **you need to create the database json config file in the `/core/constants` directory which will be called `config.json` with inside**:
 
-```php
-abstract class DataBase {
-	/**
-	 * disconnect to the database
-	 * @return void
-	 */
-	public static function disconnect(): void {
-		self::$bdd['db'] = NULL;
-		return;
+```json
+{
+	"database": {
+		"host": "localhost",
+		"name": "id8823866_cv",
+		"char": "utf8",
+		"user": "id8823866_root",
+		"pass": "~75rRTijOvE<bkte"
 	}
-
-	/**
-	 * connect to the database
-	 * @return object[PDO] database object
-	 */
-	public static function connect(): PDO {
-		try {
-			self::$bdd['db'] = new PDO(
-				'mysql:host='.self::$bdd['host'].'; dbname='.self::$bdd['name'].'; charset='.self::$bdd['char'],
-				self::$bdd['user'],
-				self::$bdd['pass'],
-				[ PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING ]
-			);
-		}
-
-		catch(Exception $e) {
-			die("[Err]:[{$e->getmessage()}]");
-		}
-
-		return self::$bdd['db'];
-	}
-
-	// Data Base auth fields
-	private static $bdd = [
-		"db"   => NULL,
-		"host" => "...",
-		"name" => "...",
-		"char" => "utf8",
-		"user" => "...",
-		"pass" => "..."
-	];
 }
 ```
 
-**Don't forget to import the `capteur.sql` file into your database !**
+**Don't forget to import the `cv.sql` file into your database !**
 
 ---
 
-## **To do list**
-
-- [ ] ...
-
----
-
-## Dernière MàJ
+## **Last Updates**
 
 ### Apr 28, 2020
 
