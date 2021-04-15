@@ -1,5 +1,5 @@
 # Php infos/errors state show
-php_value display_errors 0
+php_value display_errors 1
 php_flag output_buffering off
 
 # Disable index of
