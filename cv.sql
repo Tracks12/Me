@@ -8,8 +8,15 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+-- CREATE DATABASE
+-- -----------------------------------------------------------------------------
+DROP DATABASE IF EXISTS `cv`;
+CREATE DATABASE `cv`;
+USE `cv`;
+
+
 -- TABLE & CONTENT
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 CREATE TABLE `contacts`(
 	`idContacts` int(64) NOT NULL,
@@ -23,14 +30,14 @@ CREATE TABLE `contacts`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 CREATE TABLE `experiences`(
 	`idExperiences` int(8) NOT NULL,
 	`entity` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`job` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`period` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-	`description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+	`description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `experiences`(`idExperiences`, `entity`, `job`, `period`, `description`) VALUES
@@ -45,31 +52,37 @@ INSERT INTO `experiences`(`idExperiences`, `entity`, `job`, `period`, `descripti
 		"Conseil Départemental HG",
 		"stagiaire développeur web",
 		"mai. 2019 - juin. 2019",
-		"France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony"
+		"France, Occitanie<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony"
 	), (
 		3,
 		"WHYNOGROUP EU",
 		"développeur web front end",
 		"fév. 2019 - juin. 2020",
-		"France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web"
+		"France, Occitanie<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web"
 	), (
 		4,
 		"ORPALIS",
 		"développeur web junior",
-		"sep. 2020 - aujourd'hui",
-		'France<br /><br />Maintenance et Développement des outils du projet <a target="_blank" href="https://avepdf.com/en">AvePDF</a><br /><br />Technologie: React, .NET Core'
+		"sept. 2020 - sept. 2021",
+		'France, Occitanie<br /><br />Maintenance et Développement des outils du projet <a target="_blank" href="https://avepdf.com/en">AvePDF</a><br /><br />Technologie: React, .NET Core'
+	), (
+		5,
+		"ASC-it",
+		"développeur fullstack",
+		"oct. 2021 - aujourd'hui",
+		'France, Occitanie<br />'
 	);
 
 
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 CREATE TABLE `formations`(
 	`idFormations` int(8) NOT NULL,
 	`date` int(8) NOT NULL,
 	`entity` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	`title` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-	`description` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-	`link` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+	`description` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+	`link` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description`, `link`) VALUES
@@ -86,7 +99,7 @@ INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description
 		"Lycée GT Déodat de Séverac",
 		"Baccalauréat STI2D<br /><br />",
 		"Système Informatique et Numérique<br />Mention Assez Bien",
-		"0"
+		NULL
 	), (
 		3,
 		2017,
@@ -104,7 +117,7 @@ INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description
 	), (
 		5,
 		2020,
-		"3CX Basic Certified Engineer v16",
+		"3CX Basic Certified Engineer",
 		"Formation online<br />Basic Telecom Engineer",
 		"Formation basique sur les outils 3CX<br />Installation, Configuration et Maintenance serveur",
 		"https://customer.3cx.com/prm/documents/certification.ashx?c=f2oFUTH2rj"
@@ -114,18 +127,25 @@ INSERT INTO `formations`(`idFormations`, `date`, `entity`, `title`, `description
 		"Lycée GT Déodat de Séverac",
 		"Brevet Technicien Supérieur<br /><br />",
 		"Systèmes Numériques<br />Mention Bien",
-		"0"
+		NULL
 	), (
 		7,
-		2020,
+		2021,
 		"IPI Institut Poly Informatique",
-		"Licence Professionnelle Concepteur Développeur d'application Web & Mobile",
-		"Développement, Conception & Gestion de projets<br />En cours...",
-		"0"
+		"Licence Professionnelle Concepteur Développeur d'Application Web & Mobile",
+		"Développement, Conception & Gestion de projets<br />Très Favorable",
+		NULL
+	), (
+		8,
+		2021,
+		"IPI Institut Poly Informatique",
+		"Master Professionnel Chef de Projet Ingénierie Logicielle",
+		"Pilotage Projet, Audit, Gestion Qualités/Risques<br />En cours...",
+		NULL
 	);
 
 
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 CREATE TABLE `network`(
 	`idNetwork` int(8) NOT NULL,
@@ -148,7 +168,7 @@ INSERT INTO `network`(`idNetwork`, `name`, `title`, `link`) VALUES
 	);
 
 
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 CREATE TABLE `skills`(
 	`idSkills` int(4) NOT NULL,
@@ -202,7 +222,7 @@ INSERT INTO `skills`(`idSkills`, `id`, `title`, `status`) VALUES
 
 
 -- KEY PROPERTIES
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 ALTER TABLE `contacts`
 	ADD PRIMARY KEY (`idContacts`);
@@ -226,7 +246,7 @@ ALTER TABLE `skills`
 
 
 -- SETTINGS AI & STARTING
--- --------------------------------------------------------
+-- -----------------------------------------------------------------------------
 
 ALTER TABLE `contacts`
 	MODIFY `idContacts` int(64) NOT NULL AUTO_INCREMENT;

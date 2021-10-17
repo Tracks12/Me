@@ -47,10 +47,10 @@ After cloning the repository **you need to create the database json config file 
 {
 	"database": {
 		"host": "localhost",
-		"name": "id8823866_cv",
+		"name": "...",
 		"char": "utf8",
-		"user": "id8823866_root",
-		"pass": "~75rRTijOvE<bkte"
+		"user": "...",
+		"pass": "..."
 	}
 }
 ```
@@ -61,11 +61,17 @@ After cloning the repository **you need to create the database json config file 
 
 ## **Last Updates**
 
+###
+
+- Update content
+- Fix some UI issues
+- Update documentation
+
 ### Apr 28, 2020
 
 - Dynamic theme
 - Script fixed
-- Update documentation updates
+- Update documentation
 
 ### Mar 23, 2020
 
