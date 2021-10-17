@@ -11,7 +11,7 @@
 | Librairies / API's                                                                        | version |
 | ----------------------------------------------------------------------------------------- | ------- |
 | [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use) | 4.7.0   |
-| [JQuery](https://api.jquery.com/)                                                         | 3.3.1   |
+| [JQuery](https://api.jquery.com/)                                                         | 3.6.0   |
 | [ParticulesJS](https://github.com/VincentGarreau/particles.js/)                           | 2.0.0   |
 
 ### Fonts
