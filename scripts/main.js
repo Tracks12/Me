@@ -9,7 +9,7 @@
 /**
  * Importation des modules
  */
-import "/scripts/jquery-3.5.1.min.js";
+import "/scripts/vendor/jquery-3.6.0.min.js";
 import "/scripts/scrolly.js";
 import Anim from "/scripts/anim.js";
 import Tools from "/scripts/tools.js";

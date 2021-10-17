@@ -55,14 +55,15 @@ After cloning the repository **you need to create the database json config file 
 }
 ```
 
-**Don't forget to import the `cv.sql` file into your database !**
+**Don't forget to import the `cv.sql` file into your SGBD !**
 
 ---
 
 ## **Last Updates**
 
-###
+### Oct 17, 2021
 
+- Move js & css resources
 - Update content
 - Fix some UI issues
 - Update documentation

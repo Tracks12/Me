@@ -4,7 +4,7 @@
  * Page   : main.css
  */
 
-@import url("/styles/font-awesome/font-awesome.min.css");
+@import url("/styles/vendor/font-awesome/font-awesome.min.css");
 @import url("/styles/fonts.css");
 @import url("/styles/animation.css");
 @import url("/styles/responsive.css");
