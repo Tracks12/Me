@@ -111,35 +111,18 @@ const particlesParameters = {
  * change root css contrast color value
  */
 function randColor() {
-	let colors = [
-		"00AAAA",
-		"AA00AA",
-		"AAAA00",
-		"CC3300",
-		"22CC00",
-		"0055CC"
-	];
+	let colors = [ "00AAAA", "AA00AA", "AAAA00", "CC3300", "22CC00", "0055CC" ];
 
-	let choice = `#${colors[Math.floor(Math.random() * colors.length)]}`;
-
-	$(':root').css('--contrast', choice);
+	$(':root').css('--contrast', `#${colors[Math.floor(Math.random() * colors.length)]}`);
 }
 
 /**
  * Format title of portfolio items
  */
 function portfolioTitleFormat() {
-	for(let j = 0; j < $('#portfolio ul li a p').length; j++) {
-		let temp = $('#portfolio ul li a p')[j].innerText.split('-'),
-				txt = '';
-
-		for(let i = 0; i < temp.length; i++) {
-			let space = (!i) ? '' : ' ';
-			txt = txt+space+temp[i];
-		}
-
-		$('#portfolio ul li a p')[j].innerText = txt;
-	}
+	$("#portfolio ul li a p").each(function() {
+		$(this).text($(this).text().replace(/[-]/g, " "));
+	});
 }
 
 /**
@@ -149,7 +132,7 @@ function toScroll() {
 	let coef = $('html')[0].scrollTop / $('html')[0].scrollHeight;
 
 	if(Tools.range(coef, .05, .9))
-		$('#upper').fadeIn()
+		$('#upper').fadeIn();
 
 	else
 		$('#upper').fadeOut();
@@ -160,11 +143,7 @@ function toScroll() {
  * @param {int} hour the hour of time
  */
 function theme(hour) {
-	if(Tools.range(hour, 0, 8) || Tools.range(hour, 20, 24))
-		$('#theme').attr('href', '/styles/theme/dark.css');
-
-	else
-		$('#theme').attr('href', '/styles/theme/light.css');
+	$('#theme').attr('href', `/styles/theme/${(Tools.range(hour, 0, 8) || Tools.range(hour, 20, 24)) ? 'dark' : 'light'}.css`);
 }
 
 $(document).ready(() => {
