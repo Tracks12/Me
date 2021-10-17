@@ -52,7 +52,7 @@ INSERT INTO `experiences`(`idExperiences`, `entity`, `job`, `period`, `descripti
 		"Conseil Départemental HG",
 		"stagiaire développeur web",
 		"mai. 2019 - juin. 2019",
-		"France, Occitanie<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony"
+		"France, Occitanie<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br /><br />Technologie: Symfony"
 	), (
 		3,
 		"WHYNOGROUP EU",
