@@ -5,10 +5,19 @@
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Navigation CSS Design UI 4.0</title>
-		<link rel="stylesheet" type="text/css" href="/styles/font-awesome/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/vendor/font-awesome/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
-		<script language="javascript" type="text/javascript" src="/scripts/jquery-3.5.1.min.js"></script>
-		<script language="javascript" type="text/javascript" src="./script.js"></script>
+		<script language="javascript" type="text/javascript" src="/scripts/vendor/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" language="Javascript">
+			$(document).ready(() => {
+				$('nav ul ul').css({ display: 'none' });
+
+				$('nav ul .item .btn').click(function() {
+					$('nav ul ul').slideUp();
+					$(this).parent('li').find('ul').slideToggle();
+				});
+			});
+		</script>
 	</head>
 	<body onload="menu();">
 		<nav>

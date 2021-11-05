@@ -5,12 +5,32 @@
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Navigation CSS Design UI 3.0</title>
-		<link rel="stylesheet" type="text/css" href="/styles/font-awesome/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/vendor/font-awesome/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
-		<script language="javascript" type="text/javascript" src="/scripts/jquery-3.5.1.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/scripts/vendor/jquery-3.6.0.min.js"></script>
 		<script language="javascript" type="text/javascript" src="./script.js"></script>
+		<script type="text/javascript" language="Javascript">
+			$(document).ready(() => {
+				$('nav div').click(() => {
+					$('nav ul').slideToggle();
+					$('nav ul ul').css('display', 'none');
+				});
+
+				$('nav ul li').click(function() {
+					if($(window).width() < 720) {
+						$('nav ul ul').slideUp();
+						$(this).find('ul').slideToggle();
+					}
+				});
+
+				$(window).resize(() => {
+					if($(window).width() > 720)
+						$('nav ul').removeAttr('style');
+				});
+			});
+		</script>
 	</head>
-	<body onload="menu();">
+	<body>
 		<nav>
 			<div>
 				<span class="fa fa-bars"></span>

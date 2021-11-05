@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Login CSS Design UI 4.0</title>
-		<link rel="stylesheet" type="text/css" href="/styles/font-awesome/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/vendor/font-awesome/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
 	</head>
 	<body>
