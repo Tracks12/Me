@@ -21,7 +21,7 @@ import { isMobile, range } from './utils';
 
 @Component({
 	selector: 'app-root',
-	imports: [Nav, Terminal, Profile, Skills, Experiences, Formations, Portfolio, Contact, Footer],
+	imports: [Nav, Terminal, Profile, Skills, Experiences, Formations, /*Portfolio,*/ Contact, Footer],
 	template: `
 		<div id="particles-js"></div>
 		<app-nav [portfolio]="cv.portfolio" [(open)]="menuOpen" />
@@ -36,7 +36,7 @@ import { isMobile, range } from './utils';
 			<app-skills [skills]="cv.skills" />
 			<app-experiences [experiences]="cv.experiences" />
 			<app-formations [formations]="cv.formations" />
-			<app-portfolio [categories]="cv.portfolio" />
+			<!--<app-portfolio [categories]="cv.portfolio" />-->
 			<app-contact />
 		</section>
 		<app-footer />
