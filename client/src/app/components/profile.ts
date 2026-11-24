@@ -27,7 +27,7 @@ const ICONS: Record<string, { viewBox: string; path: string }> = {
 			<span class="avatar" title="Ma tête"></span>
 			<h1>cardinal florian</h1>
 			<h2>architecte logiciel / CTO</h2>
-			<a href="/assets/files/cv.pdf" download>télécharger cv</a>
+			<!--<a href="/assets/files/cv.pdf" download>télécharger cv</a>-->
 			<hr />
 			@for (item of network(); track item.name) {
 				<button type="button" [title]="item.title" (click)="openLink(item.link)">
