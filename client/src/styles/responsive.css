@@ -48,16 +48,16 @@
 		width: 100% !important;
 	}
 
-	#xp ul { padding: 30px 10px !important; }
-	#xp ul::before { left: 30px !important; }
+	#xp .list { padding: 30px 10px !important; }
+	#xp .list::before { left: 30px !important; }
 
-	#xp ul > li { border-radius: 0 10px 10px 0 !important; }
-	#xp ul > li, #xp ul > li.inverted {
+	#xp .list > li { border-radius: 0 10px 10px 0 !important; }
+	#xp .list > li, #xp .list > li.inverted {
 		margin-left: 20px !important;
 		margin-right: 0 !important;
 	}
 
-	#xp ul > li #badge { left: 30px !important; }
+	#xp .list > li #badge { left: 30px !important; }
 
 	#grad .container { padding: 0 !important; }
 	#grad .frame {

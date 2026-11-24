@@ -21,6 +21,8 @@ export interface Experience {
 	period: string;
 	/** HTML */
 	description: string;
+	realisations?: string[];
+	technologies?: string[];
 }
 
 export interface Formation {
@@ -30,7 +32,7 @@ export interface Formation {
 	title: string;
 	/** HTML */
 	description: string;
-	link: string | null;
+	link?: string;
 }
 
 export interface PortfolioItem {

@@ -11,7 +11,7 @@ import { Experience } from '../models';
 			<article class="global-bg">
 				<h2>parcours profesionnel</h2>
 				<hr />
-				<ul>
+				<ul class="list">
 					@for (xp of experiences(); track $index; let odd = $odd) {
 						<li [class.inverted]="odd">
 							<span id="badge" class="fa fa-briefcase"></span>
@@ -20,6 +20,36 @@ import { Experience } from '../models';
 								<h4>{{ xp.job }}</h4>
 								<p class="period"><span class="fa fa-calendar"></span> {{ xp.period }}</p>
 								<p [innerHTML]="xp.description"></p>
+
+								@if(xp.realisations?.length) {
+									<details class="expand">
+										<summary>
+											<span class="fa fa-chevron-right"></span>
+											<strong>Réalisations</strong>
+											<span class="count">{{ xp.realisations!.length }}</span>
+										</summary>
+										<ul>
+											@for(r of xp.realisations; track $index) {
+												<li>{{ r }}</li>
+											}
+										</ul>
+									</details>
+								}
+
+								@if(xp.technologies?.length) {
+									<details class="expand">
+										<summary>
+											<span class="fa fa-chevron-right"></span>
+											<strong>Tech</strong>
+											<span class="count">{{ xp.technologies!.length }}</span>
+										</summary>
+										<ul>
+											@for(t of xp.technologies; track $index) {
+												<li>{{ t }}</li>
+											}
+										</ul>
+									</details>
+								}
 							</div>
 						</li>
 					}
