@@ -4,58 +4,47 @@
 
 ---
 
-## **Dependencies**
+## **Architecture**
 
-### Front (Styles & Scripts)
+Site 100 % statique en **Angular** (standalone components, signals) dans `/client/` : aucun back office, API ni base de données.
 
-| Librairies / API's                                                                        | version |
-| ----------------------------------------------------------------------------------------- | ------- |
-| [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use) | 4.7.0   |
-| [JQuery](https://api.jquery.com/)                                                         | 3.3.1   |
-| [ParticulesJS](https://github.com/VincentGarreau/particles.js/)                           | 2.0.0   |
+| Fichier / dossier                 | Rôle                                                        |
+| --------------------------------- | ----------------------------------------------------------- |
+| `src/app/data.ts`                 | **tout le contenu du CV** (réseaux, compétences, expériences, formations, portfolio, liens courts, README du terminal) |
+| `src/app/app.ts`                  | composant racine (particules, thème, bouton "remonter")     |
+| `src/app/components/`             | nav + horloge, terminal animé, profil, compétences, parcours, formations, portfolio, contact, footer |
+| `src/app/theme.ts`                | thème clair/sombre selon l'heure + couleur de contraste     |
+| `src/styles/`                     | styles globaux                                              |
+| `public/assets/`                  | images, polices, CV pdf                                     |
+| `public/portfolio/`               | maquettes UI du portfolio                                   |
 
-### Fonts
+Dépendances : Angular, [Font Awesome](https://fontawesome.com/v4/) 4.7.0, [particles.js](https://github.com/VincentGarreau/particles.js/) 2.0.0. Polices : Lato, Monospace.
 
-- [Lato](http://www.latofonts.com/lato-free-fonts/)
-- [Monospace](https://fontmeme.com/polices/police-monospace/)
+### Mettre à jour le contenu
+
+Modifier `client/src/app/data.ts` puis recompiler. Pour un nouveau projet de portfolio, ajouter son dossier dans `public/portfolio/`, son image dans `public/assets/img/portfolio/` et une entrée dans `CV.portfolio`.
+
+### Formulaire de contact
+
+Les champs sont vérifiés dans le navigateur, puis le client mail du visiteur s'ouvre avec le message pré-rempli (`mailto:`).
 
 ---
 
-## **MVC Resources**
+## **Développement**
 
-### Source files in `/core/`
-
-- controllers resources: `/core/controllers/`
-- models resources (data binding): `/core/models/`
-- views resources: `/core/views/`
-
-### Routing
-
-- HTTP Request: `/core/HTTPRoute.php`
-- XHR Request: `/core/XHRRoute.php`
-
-### Other Modules
-
-- Data Base connection: `/core/connect.php`
-- Injection Verification & Protection: `/core/services.php`
-
-### Database connection
-
-After cloning the repository **you need to create the database json config file in the `/core/constants` directory which will be called `config.json` with inside**:
-
-```json
-{
-	"database": {
-		"host": "localhost",
-		"name": "id8823866_cv",
-		"char": "utf8",
-		"user": "id8823866_root",
-		"pass": "~75rRTijOvE<bkte"
-	}
-}
+```bash
+cd client && npm install && npm start   # http://localhost:4200
 ```
 
-**Don't forget to import the `cv.sql` file into your database !**
+## **Production**
+
+```bash
+cd client && npm ci && npm run build    # -> client/dist/client/browser
+```
+
+Le contenu de `client/dist/client/browser` se déploie sur n'importe quel hébergement statique (Apache : le `.htaccess` fourni renvoie les URL inconnues vers `index.html`, ce qui fait fonctionner `/github`, `/linkedin`, `/LegaChat`).
+
+> Les 4 maquettes `portfolio/login-design-UI_*` sont des pages PHP (avec `portfolio/login.php`) : elles ne s'exécutent que sur un hébergement avec PHP.
 
 ---
 

@@ -2,3 +2,8 @@
 *.ftpignore
 _config.yml
 core/constants/config.json
+
+# Angular
+client/node_modules/
+client/dist/
+client/.angular/

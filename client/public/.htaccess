@@ -1,0 +1,10 @@
+# Hébergement statique Apache : désactive l'index des dossiers
+# et renvoie toute URL inconnue vers l'application Angular
+Options -Indexes
+
+ErrorDocument 404 /index.html
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

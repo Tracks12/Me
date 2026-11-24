@@ -1,0 +1,10 @@
+/**
+ * Auteur : CARDINAL Florian
+ * Page   : styles.css (point d'entrée global)
+ */
+
+@import "./styles/fonts.css";
+@import "./styles/theme.css";
+@import "./styles/animation.css";
+@import "./styles/main.css";
+@import "./styles/responsive.css";

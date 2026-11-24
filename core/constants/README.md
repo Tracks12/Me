@@ -1,3 +1,0 @@
-## Constants
-
-here you store any constants on json file like database connection, metadata, etc...
