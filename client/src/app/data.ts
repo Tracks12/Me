@@ -65,22 +65,36 @@ export const CV: Cv = {
   /** du plus récent au plus ancien ; description en HTML */
   experiences: [
     {
-      entity: 'ORPALIS',
-      job: 'développeur web junior',
+      entity: 'Infomil',
+      job: 'ingénieur sécurité',
       period: "sep. 2020 - aujourd'hui",
       description:
-        'France<br /><br />Maintenance et Développement des outils du projet <a target="_blank" href="https://avepdf.com/en">AvePDF</a><br /><br />Technologie: React, .NET Core',
+        'France<br /><br />Dans le cadre d’un vaste programme de modernisation des infrastructures internes, j’ai été chargé d’améliorer la qualité, la sécurité et la cohérence des environnements de développement et d’intégration continue. L’objectif était de normaliser les processus, renforcer la sécurité applicative et mettre en place des outils DevSecOps performants pour soutenir les équipes de développement. Le périmètre incluait la mise en place d’une nouvelle plateforme GitLab, la configuration d’un registre d’artefacts Nexus Sonatype, l’analyse de vulnérabilités via Checkmarx, ainsi que l’optimisation des distributions WSL utilisées par les équipes. Cette mission s’est déroulée au sein d’une équipe dédiée à la transformation technique et à la fiabilisation des environnements.<br /><br />Réalisations:<br />- Modernisation et optimisation de l’infrastructure de développement<br />- Normalisation et formalisation des process techniques pour harmoniser les pratiques entre les équipes<br />- Mise en place et configuration complète de GitLab (CI/CD, gestion des dépôts, intégration des runners)<br />- Déploiement et configuration avancée du registre d’artefacts Nexus Sonatype<br />- Analyse, détection et remédiation des vulnérabilités avec Checkmarx (SAST)<br />- Maintenance, mise à jour et sécurisation des distributions WSL dédiées aux développeurs<br />- Mise en place et structuration d’un process sécurisé pour le cycle de développement (DevSecOps)<br />- Documentation des procédures, diffusion des bonnes pratiques et accompagnement des équipes<br />- Amélioration continue de la sécurité, de la conformité et de la standardisation des environnements<br />- Documentation des process de traitement des failles de sécurité<br /><br />Technologie: React, .NET Core',
+    },
+    {
+      entity: 'MedHubCompany',
+      job: 'développeur full stack',
+      period: "sep. 2020 - aujourd'hui",
+      description:
+        'France<br /><br />Dans le cadre d’un projet from scratch, MedHubCompany veut mettre en place une application permettant aux grossistes répartiteurs de pouvoir faciliter les échanges de transactions des produits pharmaceutiques, j’ai donc été en charge de la réalisation des tâches fullstack du backlog du projet MedHubPlace, une solution permettant aux clients de faciliter leurs échanges professionnels dans le domaine de l’achat et revente de médicaments. L’équipe se compose de 3 développeurs, j’ai pu participer à la réalisation des fonctionnalités ainsi que la maintenance dans un environnement Agile<br /><br />Réalisation:<br />- Développement de l’IHM avec Angular CLI<br />- Développement de l’intelligence métier avec .NET Core, Entity Framework et SignalR<br />- Gestion de la base de données avec PostgreSQL<br />- Conformité aux cahiers des charges<br />- Versionnage du code et gestion des tickets avec GitHub<br />- Conception et design pattern<br />- Test d’intégration avec Cypress<br />- Intégration Swagger<br />- Déploiement avec Azure Web Application<br />- Recettage et planification des tâches<br /><br />Technologie: React, .NET Core',
+    },
+    {
+      entity: 'ORPALIS',
+      job: 'développeur web',
+      period: "sep. 2020 - aujourd'hui",
+      description:
+        'France<br /><br />Maintenance et Développement des outils du projet <a target="_blank" href="https://avepdf.com/en">AvePDF</a><br />Réalisation UI / UX Design des nouveau outils<br />Gestion de déploiement avec Azure Pipeline<br /><br />Technologie: React, .NET Core',
     },
     {
       entity: 'WHYNOGROUP EU',
-      job: 'développeur web front end',
+      job: 'développeur web',
       period: 'fév. 2019 - juin. 2020',
       description:
         "France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web",
     },
     {
       entity: 'Conseil Départemental HG',
-      job: 'stagiaire développeur web',
+      job: 'développeur web junior',
       period: 'mai. 2019 - juin. 2019',
       description:
         'France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)<br />Technologie: Symfony',
