@@ -18,14 +18,14 @@ import { isMobile, pad } from '../utils';
 				<li><a href="#skills" (click)="close()">compétences</a></li>
 				<li><a href="#xp" (click)="close()">parcours pro</a></li>
 				<li><a href="#grad" (click)="close()">formations</a></li>
-				<li [class.open]="subOpen()" (click)="toggleSub()">
+				<!--<li [class.open]="subOpen()" (click)="toggleSub()">
 					<a href="#portfolio">portfolio <span class="fa fa-sort-desc"></span></a>
 					<ul class="global-bg">
 						@for (category of portfolio(); track category.key) {
 							<li><a [href]="'#portfolio-' + category.key" (click)="close()">{{ category.key }}</a></li>
 						}
 					</ul>
-				</li>
+				</li>-->
 				<li><a href="#contact" (click)="close()">contact</a></li>
 			</ul>
 		</nav>
