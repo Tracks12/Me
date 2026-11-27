@@ -85,7 +85,7 @@ export const CV: Cv = {
     {
       entity: 'Infomil',
       job: 'ingénieur sécurité',
-      period: "sep. 2020 - aujourd'hui",
+      period: "mars 2025 - mai 2026",
       description:
         'France<br /><br />Dans le cadre d’un vaste programme de modernisation des infrastructures internes, j’ai été chargé d’améliorer la qualité, la sécurité et la cohérence des environnements de développement et d’intégration continue. L’objectif était de normaliser les processus, renforcer la sécurité applicative et mettre en place des outils DevSecOps performants pour soutenir les équipes de développement. Le périmètre incluait la mise en place d’une nouvelle plateforme GitLab, la configuration d’un registre d’artefacts Nexus Sonatype, l’analyse de vulnérabilités via Checkmarx, ainsi que l’optimisation des distributions WSL utilisées par les équipes. Cette mission s’est déroulée au sein d’une équipe dédiée à la transformation technique et à la fiabilisation des environnements.',
       realisations: [
@@ -213,7 +213,7 @@ export const CV: Cv = {
     {
       entity: 'WHYNOGROUP EU',
       job: 'développeur web',
-      period: 'févr. 2019 - juin. 2020',
+      period: 'févr. 2019 - juin 2020',
       description:
         "France<br /><br />Conception, Réalisation et Déploiement d'IHM Responsive adapter aux API de Whynogroup<br />Résolutions de bugs graphiques sur les pages web",
       technologies: [
@@ -228,7 +228,7 @@ export const CV: Cv = {
     {
       entity: 'Conseil Départemental HG',
       job: 'développeur web junior',
-      period: 'mai. 2019 - juin. 2019',
+      period: 'mai 2019 - juin 2019',
       description:
         'France<br /><br />Création d’un formulaire d’entretien professionnel<br />Mettre à jour et Développer l’infrastructure intranet de l’organisation (Portail Web)',
       technologies: [
